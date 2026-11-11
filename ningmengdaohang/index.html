@@ -1,0 +1,2652 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>柠檬导航 - 资源聚合与站点精选</title>
+    <meta name="description" content="柠檬导航汇聚影视、软件、学习等各类资源站点与工具，提供精选推荐、最新收录、分类目录与投稿指南。适合需要高效查找实用网站与数字资源的用户浏览。">
+    <meta name="keywords" content="柠檬导航">
+    <style>
+        :root {
+            --lemon-primary: #F5C518;
+            --lemon-primary-light: #FFF3C4;
+            --lemon-primary-dark: #C99B0A;
+            --lemon-bg: #FEFCF5;
+            --lemon-surface: #FFFFFF;
+            --lemon-text-primary: #1E1E1E;
+            --lemon-text-secondary: #5A5A5A;
+            --lemon-text-tertiary: #8E8E8E;
+            --lemon-border: #EAE6D9;
+            --lemon-radius-card: 16px;
+            --lemon-radius-btn: 10px;
+            --lemon-radius-tag: 6px;
+            --lemon-shadow: 0 2px 10px rgba(0,0,0,0.04);
+            --lemon-shadow-hover: 0 8px 24px rgba(0,0,0,0.08);
+            --lemon-sticky-height: 96px;
+            --lemon-max-width: 1360px;
+            --lemon-font: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans SC', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: calc(var(--lemon-sticky-height) + 16px);
+        }
+
+        body {
+            font-family: var(--lemon-font);
+            background-color: var(--lemon-bg);
+            color: var(--lemon-text-primary);
+            line-height: 1.6;
+            font-size: 15px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        ul, ol {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        button {
+            font-family: inherit;
+            cursor: pointer;
+            border: none;
+            background: none;
+        }
+
+        /* 吸顶公告条 */
+        .announcement-bar {
+            background: linear-gradient(90deg, #2D2A1F 0%, #1F1D14 100%);
+            color: #F5E6A3;
+            font-size: 13px;
+            padding: 0 24px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .announcement-bar .bar-inner {
+            max-width: var(--lemon-max-width);
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            width: 100%;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+
+        .announcement-bar .bar-inner::-webkit-scrollbar {
+            display: none;
+        }
+
+        .announcement-bar .bar-brand {
+            font-weight: 700;
+            color: var(--lemon-primary);
+            flex-shrink: 0;
+            letter-spacing: 0.5px;
+        }
+
+        .announcement-bar .bar-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-shrink: 0;
+        }
+
+        .announcement-bar .bar-date {
+            color: #B8A87A;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .announcement-bar .bar-dot {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: var(--lemon-primary);
+            opacity: 0.6;
+        }
+
+        /* 吸顶页头 */
+        .site-header {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--lemon-border);
+            position: sticky;
+            top: 40px;
+            z-index: 99;
+            height: 56px;
+        }
+
+        .header-inner {
+            max-width: var(--lemon-max-width);
+            margin: 0 auto;
+            padding: 0 24px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+
+        .brand-icon {
+            width: 32px;
+            height: 32px;
+            flex-shrink: 0;
+        }
+
+        .brand-text {
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--lemon-text-primary);
+            letter-spacing: -0.3px;
+            white-space: nowrap;
+        }
+
+        .brand-text .accent {
+            color: var(--lemon-primary-dark);
+        }
+
+        .header-nav {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            flex: 1;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+
+        .header-nav::-webkit-scrollbar {
+            display: none;
+        }
+
+        .header-nav a {
+            padding: 6px 12px;
+            border-radius: var(--lemon-radius-btn);
+            font-size: 14px;
+            color: var(--lemon-text-secondary);
+            white-space: nowrap;
+            transition: background 0.2s, color 0.2s;
+            font-weight: 500;
+        }
+
+        .header-nav a:hover,
+        .header-nav a:focus-visible {
+            background: var(--lemon-primary-light);
+            color: var(--lemon-text-primary);
+            outline: none;
+        }
+
+        .header-nav a:focus-visible {
+            box-shadow: 0 0 0 2px var(--lemon-primary);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-shrink: 0;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: var(--lemon-bg);
+            border: 1px solid var(--lemon-border);
+            border-radius: var(--lemon-radius-btn);
+            padding: 0 4px 0 12px;
+            height: 36px;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .search-box:focus-within {
+            border-color: var(--lemon-primary);
+            box-shadow: 0 0 0 3px rgba(245, 197, 24, 0.15);
+        }
+
+        .search-box input {
+            border: none;
+            background: transparent;
+            outline: none;
+            font-size: 13px;
+            width: 150px;
+            color: var(--lemon-text-primary);
+            font-family: inherit;
+        }
+
+        .search-box input::placeholder {
+            color: var(--lemon-text-tertiary);
+        }
+
+        .search-box button {
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-size: 13px;
+            color: var(--lemon-text-secondary);
+            transition: background 0.2s;
+        }
+
+        .search-box button:hover {
+            background: var(--lemon-primary-light);
+        }
+
+        .search-feedback {
+            font-size: 12px;
+            color: var(--lemon-text-tertiary);
+            margin-top: 4px;
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: #fff;
+            border: 1px solid var(--lemon-border);
+            border-radius: 8px;
+            padding: 8px 14px;
+            box-shadow: var(--lemon-shadow-hover);
+            white-space: nowrap;
+            z-index: 10;
+        }
+
+        .search-feedback.show {
+            display: block;
+        }
+
+        .search-wrapper {
+            position: relative;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            width: 36px;
+            height: 36px;
+            border-radius: var(--lemon-radius-btn);
+            align-items: center;
+            justify-content: center;
+            color: var(--lemon-text-primary);
+            transition: background 0.2s;
+        }
+
+        .mobile-menu-btn:hover {
+            background: var(--lemon-primary-light);
+        }
+
+        .mobile-menu-btn svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* 首屏 */
+        .hero {
+            background: linear-gradient(135deg, #FFF9E6 0%, #FEF3D0 40%, #FFF8E0 100%);
+            border-bottom: 1px solid var(--lemon-border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -60px;
+            right: -40px;
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(245, 197, 24, 0.18) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: 5%;
+            width: 240px;
+            height: 240px;
+            border-radius: 50%;
+            border: 2px dashed rgba(245, 197, 24, 0.25);
+            pointer-events: none;
+        }
+
+        .hero-inner {
+            max-width: var(--lemon-max-width);
+            margin: 0 auto;
+            padding: 56px 24px 48px;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            gap: 48px;
+        }
+
+        .hero-content {
+            flex: 1 1 55%;
+            min-width: 0;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(245, 197, 24, 0.25);
+            color: #7A5D00;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 16px;
+            letter-spacing: 0.3px;
+        }
+
+        .hero h1 {
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 900;
+            line-height: 1.15;
+            letter-spacing: -1px;
+            color: var(--lemon-text-primary);
+            margin-bottom: 16px;
+        }
+
+        .hero h1 .highlight {
+            background: linear-gradient(180deg, transparent 60%, rgba(245, 197, 24, 0.5) 60%);
+            padding: 0 2px;
+        }
+
+        .hero-desc {
+            font-size: 16px;
+            color: var(--lemon-text-secondary);
+            max-width: 540px;
+            margin-bottom: 28px;
+            line-height: 1.7;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--lemon-primary);
+            color: #1E1E1E;
+            font-weight: 700;
+            font-size: 14px;
+            padding: 10px 24px;
+            border-radius: var(--lemon-radius-btn);
+            transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 2px 8px rgba(245, 197, 24, 0.35);
+        }
+
+        .btn-primary:hover {
+            background: var(--lemon-primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 14px rgba(245, 197, 24, 0.45);
+        }
+
+        .btn-primary:focus-visible {
+            outline: 2px solid var(--lemon-text-primary);
+            outline-offset: 2px;
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--lemon-surface);
+            color: var(--lemon-text-primary);
+            font-weight: 600;
+            font-size: 14px;
+            padding: 10px 24px;
+            border-radius: var(--lemon-radius-btn);
+            border: 1px solid var(--lemon-border);
+            transition: background 0.2s, border-color 0.2s, transform 0.2s;
+        }
+
+        .btn-secondary:hover {
+            background: var(--lemon-bg);
+            border-color: var(--lemon-primary);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary:focus-visible {
+            outline: 2px solid var(--lemon-primary);
+            outline-offset: 2px;
+        }
+
+        .hero-visual {
+            flex: 0 0 38%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-illustration {
+            width: 100%;
+            max-width: 360px;
+            height: auto;
+        }
+
+        /* 主布局：三栏 */
+        .page-layout {
+            max-width: var(--lemon-max-width);
+            margin: 0 auto;
+            padding: 32px 24px 64px;
+            display: grid;
+            grid-template-columns: 180px 1fr 260px;
+            gap: 28px;
+            align-items: start;
+        }
+
+        /* 左频道索引 */
+        .channel-sidebar {
+            position: sticky;
+            top: calc(var(--lemon-sticky-height) + 16px);
+            max-height: calc(100vh - var(--lemon-sticky-height) - 32px);
+            overflow-y: auto;
+            scrollbar-width: thin;
+            padding-right: 4px;
+        }
+
+        .channel-sidebar::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .channel-sidebar::-webkit-scrollbar-thumb {
+            background: var(--lemon-border);
+            border-radius: 4px;
+        }
+
+        .channel-title {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--lemon-text-tertiary);
+            margin-bottom: 12px;
+            padding-left: 8px;
+        }
+
+        .channel-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .channel-list a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 10px;
+            border-radius: var(--lemon-radius-btn);
+            font-size: 13px;
+            color: var(--lemon-text-secondary);
+            font-weight: 500;
+            transition: background 0.2s, color 0.2s;
+            line-height: 1.4;
+        }
+
+        .channel-list a:hover,
+        .channel-list a:focus-visible {
+            background: var(--lemon-primary-light);
+            color: var(--lemon-text-primary);
+            outline: none;
+        }
+
+        .channel-list a:focus-visible {
+            box-shadow: 0 0 0 2px var(--lemon-primary);
+        }
+
+        .channel-list a .ch-icon {
+            font-size: 14px;
+            width: 18px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .channel-divider {
+            height: 1px;
+            background: var(--lemon-border);
+            margin: 10px 8px;
+        }
+
+        /* 主内容区 */
+        .main-content {
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 36px;
+        }
+
+        .section {
+            scroll-margin-top: calc(var(--lemon-sticky-height) + 16px);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            margin-bottom: 16px;
+            gap: 12px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--lemon-text-primary);
+            letter-spacing: -0.3px;
+            line-height: 1.3;
+        }
+
+        .section-title .sub {
+            font-size: 13px;
+            font-weight: 400;
+            color: var(--lemon-text-tertiary);
+            margin-left: 8px;
+        }
+
+        .section-link {
+            font-size: 13px;
+            color: var(--lemon-text-tertiary);
+            font-weight: 500;
+            white-space: nowrap;
+            transition: color 0.2s;
+        }
+
+        .section-link:hover {
+            color: var(--lemon-primary-dark);
+        }
+
+        /* 概览 */
+        .overview-text {
+            background: var(--lemon-surface);
+            border: 1px solid var(--lemon-border);
+            border-radius: var(--lemon-radius-card);
+            padding: 24px;
+            font-size: 14px;
+            color: var(--lemon-text-secondary);
+            line-height: 1.85;
+        }
+
+        .overview-text p + p {
+            margin-top: 12px;
+        }
+
+        /* 精选卡片 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 14px;
+        }
+
+        .card {
+            background: var(--lemon-surface);
+            border: 1px solid var(--lemon-border);
+            border-radius: var(--lemon-radius-card);
+            padding: 18px;
+            transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .card:hover {
+            box-shadow: var(--lemon-shadow-hover);
+            transform: translateY(-3px);
+            border-color: rgba(245, 197, 24, 0.4);
+        }
+
+        .card-type {
+            display: inline-block;
+            align-self: flex-start;
+            font-size: 11px;
+            font-weight: 700;
+            color: #7A5D00;
+            background: var(--lemon-primary-light);
+            padding: 2px 8px;
+            border-radius: var(--lemon-radius-tag);
+            letter-spacing: 0.3px;
+        }
+
+        .card-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--lemon-text-primary);
+            line-height: 1.4;
+        }
+
+        .card-desc {
+            font-size: 13px;
+            color: var(--lemon-text-secondary);
+            line-height: 1.6;
+            flex: 1;
+        }
+
+        .card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+            margin-top: 4px;
+        }
+
+        .tag {
+            font-size: 11px;
+            color: var(--lemon-text-tertiary);
+            background: var(--lemon-bg);
+            padding: 2px 8px;
+            border-radius: var(--lemon-radius-tag);
+            border: 1px solid var(--lemon-border);
+            white-space: nowrap;
+            transition: background 0.2s;
+        }
+
+        .tag:hover {
+            background: var(--lemon-primary-light);
+        }
+
+        .card-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 12px;
+            color: var(--lemon-text-tertiary);
+            padding-top: 6px;
+            border-top: 1px solid var(--lemon-border);
+            margin-top: 4px;
+        }
+
+        .card-meta span {
+            display: flex;
+            align-items: center;
+            gap: 3px;
+        }
+
+        /* 最新收录列表 */
+        .update-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            background: var(--lemon-surface);
+            border: 1px solid var(--lemon-border);
+            border-radius: var(--lemon-radius-card);
+            overflow: hidden;
+        }
+
+        .update-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 14px 18px;
+            border-bottom: 1px solid var(--lemon-border);
+            transition: background 0.15s;
+        }
+
+        .update-item:last-child {
+            border-bottom: none;
+        }
+
+        .update-item:hover {
+            background: var(--lemon-bg);
+        }
+
+        .update-date {
+            font-size: 12px;
+            color: var(--lemon-text-tertiary);
+            white-space: nowrap;
+            font-variant-numeric: tabular-nums;
+            padding-top: 1px;
+            min-width: 48px;
+        }
+
+        .update-body {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .update-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--lemon-text-primary);
+            margin-bottom: 2px;
+        }
+
+        .update-summary {
+            font-size: 13px;
+            color: var(--lemon-text-secondary);
+            line-height: 1.5;
+        }
+
+        .update-badge {
+            font-size: 10px;
+            font-weight: 700;
+            color: #7A5D00;
+            background: var(--lemon-primary-light);
+            padding: 1px 6px;
+            border-radius: 4px;
+            margin-left: 6px;
+            vertical-align: middle;
+        }
+
+        /* 分类入口 */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .category-item {
+            background: var(--lemon-surface);
+            border: 1px solid var(--lemon-border);
+            border-radius: var(--lemon-radius-btn);
+            padding: 16px 12px;
+            text-align: center;
+            transition: background 0.2s, border-color 0.2s, transform 0.2s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .category-item:hover {
+            background: var(--lemon-primary-light);
+            border-color: var(--lemon-primary);
+            transform: translateY(-2px);
+        }
+
+        .category-item .cat-icon {
+            font-size: 22px;
+            line-height: 1;
+        }
+
+        .category-item .cat-name {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--lemon-text-primary);
+        }
+
+        .category-item .cat-count {
+            font-size: 11px;
+            color: var(--lemon-text-tertiary);
+        }
+
+        /* 深度解析 */
+        .deep-dive {
+            background: var(--lemon-surface);
+            border: 1px solid var(--lemon-border);
+            border-radius: var(--lemon-radius-card);
+            padding: 28px;
+        }
+
+        .deep-dive h3 {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--lemon-text-primary);
+            margin: 24px 0 10px;
+            letter-spacing: -0.2px;
+        }
+
+        .deep-dive h3:first-child {
+            margin-top: 0;
+        }
+
+        .deep-dive p {
+            font-size: 14px;
+            color: var(--lemon-text-secondary);
+            line-height: 1.85;
+            margin-bottom: 12px;
+        }
+
+        .deep-dive ul {
+            margin: 8px 0 16px;
+            padding-left: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .deep-dive ul li {
+            font-size: 14px;
+            color: var(--lemon-text-secondary);
+            line-height: 1.7;
+            padding-left: 18px;
+            position: relative;
+        }
+
+        .deep-dive ul li::before {
+            content: '—';
+            position: absolute;
+            left: 0;
+            color: var(--lemon-primary-dark);
+            font-weight: 700;
+        }
+
+        .deep-dive .highlight-box {
+            background: var(--lemon-primary-light);
+            border-left: 3px solid var(--lemon-primary);
+            padding: 14px 18px;
+            border-radius: 0 var(--lemon-radius-tag) var(--lemon-radius-tag) 0;
+            margin: 16px 0;
+            font-size: 14px;
+            color: #5A4A00;
+            line-height: 1.75;
+        }
+
+        .deep-dive .highlight-box strong {
+            color: #3D3200;
+        }
+
+        /* 指南 */
+        .guide-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            background: var(--lemon-surface);
+            border: 1px solid var(--lemon-border);
+            border-radius: var(--lemon-radius-card);
+            overflow: hidden;
+        }
+
+        .guide-step {
+            display: flex;
+            gap: 16px;
+            padding: 20px 22px;
+            border-bottom: 1px solid var(--lemon-border);
+        }
+
+        .guide-step:last-child {
+            border-bottom: none;
+        }
+
+        .step-num {
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--lemon-primary);
+            color: #1E1E1E;
+            font-size: 13px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .step-body h4 {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--lemon-text-primary);
+            margin-bottom: 4px;
+        }
+
+        .step-body p {
+            font-size: 13px;
+            color: var(--lemon-text-secondary);
+            line-height: 1.65;
+        }
+
+        /* FAQ */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .faq-item {
+            background: var(--lemon-surface);
+            border: 1px solid var(--lemon-border);
+            border-radius: var(--lemon-radius-btn);
+            overflow: hidden;
+            transition: border-color 0.2s;
+        }
+
+        .faq-item[open] {
+            border-color: var(--lemon-primary);
+        }
+
+        .faq-item summary {
+            padding: 14px 18px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--lemon-text-primary);
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            transition: background 0.15s;
+        }
+
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-item summary:hover {
+            background: var(--lemon-bg);
+        }
+
+        .faq-item summary:focus-visible {
+            outline: 2px solid var(--lemon-primary);
+            outline-offset: -2px;
+        }
+
+        .faq-item summary::after {
+            content: '+';
+            font-size: 18px;
+            font-weight: 300;
+            color: var(--lemon-text-tertiary);
+            flex-shrink: 0;
+            transition: transform 0.2s;
+        }
+
+        .faq-item[open] summary::after {
+            content: '−';
+            color: var(--lemon-primary-dark);
+        }
+
+        .faq-answer {
+            padding: 0 18px 16px;
+            font-size: 13.5px;
+            color: var(--lemon-text-secondary);
+            line-height: 1.75;
+        }
+
+        /* 用户评论 */
+        .comment-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .comment-card {
+            background: var(--lemon-surface);
+            border: 1px solid var(--lemon-border);
+            border-radius: var(--lemon-radius-btn);
+            padding: 14px 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            transition: box-shadow 0.2s;
+        }
+
+        .comment-card:hover {
+            box-shadow: var(--lemon-shadow);
+        }
+
+        .comment-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .comment-avatar {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: var(--lemon-primary-light);
+            color: #7A5D00;
+            font-size: 11px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .comment-name {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--lemon-text-primary);
+        }
+
+        .comment-text {
+            font-size: 13px;
+            color: var(--lemon-text-secondary);
+            line-height: 1.6;
+        }
+
+        /* 资讯 */
+        .news-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            background: var(--lemon-surface);
+            border: 1px solid var(--lemon-border);
+            border-radius: var(--lemon-radius-card);
+            overflow: hidden;
+        }
+
+        .news-item {
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--lemon-border);
+            transition: background 0.15s;
+        }
+
+        .news-item:last-child {
+            border-bottom: none;
+        }
+
+        .news-item:hover {
+            background: var(--lemon-bg);
+        }
+
+        .news-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--lemon-text-primary);
+            margin-bottom: 4px;
+        }
+
+        .news-meta-line {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 12px;
+            color: var(--lemon-text-tertiary);
+            margin-bottom: 4px;
+        }
+
+        .news-summary {
+            font-size: 13px;
+            color: var(--lemon-text-secondary);
+            line-height: 1.6;
+        }
+
+        /* 相关推荐 */
+        .recommend-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .recommend-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: var(--lemon-surface);
+            border: 1px solid var(--lemon-border);
+            border-radius: var(--lemon-radius-btn);
+            padding: 7px 14px;
+            font-size: 13px;
+            color: var(--lemon-text-secondary);
+            font-weight: 500;
+            transition: background 0.2s, border-color 0.2s, color 0.2s;
+        }
+
+        .recommend-tag:hover {
+            background: var(--lemon-primary-light);
+            border-color: var(--lemon-primary);
+            color: var(--lemon-text-primary);
+        }
+
+        /* 右侧辅助栏 */
+        .aux-sidebar {
+            position: sticky;
+            top: calc(var(--lemon-sticky-height) + 16px);
+            max-height: calc(100vh - var(--lemon-sticky-height) - 32px);
+            overflow-y: auto;
+            scrollbar-width: thin;
+            padding-right: 4px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .aux-sidebar::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .aux-sidebar::-webkit-scrollbar-thumb {
+            background: var(--lemon-border);
+            border-radius: 4px;
+        }
+
+        .aux-panel {
+            background: var(--lemon-surface);
+            border: 1px solid var(--lemon-border);
+            border-radius: var(--lemon-radius-card);
+            padding: 16px;
+        }
+
+        .aux-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--lemon-text-primary);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .aux-title .aux-icon {
+            font-size: 14px;
+        }
+
+        .rank-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .rank-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+
+        .rank-num {
+            width: 18px;
+            height: 18px;
+            border-radius: 4px;
+            background: var(--lemon-bg);
+            color: var(--lemon-text-tertiary);
+            font-size: 11px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .rank-num.top1 {
+            background: var(--lemon-primary);
+            color: #1E1E1E;
+        }
+
+        .rank-num.top2 {
+            background: #E8DDB0;
+            color: #7A5D00;
+        }
+
+        .rank-num.top3 {
+            background: #F0EAD0;
+            color: #7A5D00;
+        }
+
+        .rank-name {
+            flex: 1;
+            color: var(--lemon-text-secondary);
+            font-weight: 500;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .rank-hot {
+            font-size: 11px;
+            color: var(--lemon-text-tertiary);
+            flex-shrink: 0;
+        }
+
+        .aux-list {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .aux-list a {
+            font-size: 13px;
+            color: var(--lemon-text-secondary);
+            padding: 4px 0;
+            transition: color 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .aux-list a:hover {
+            color: var(--lemon-primary-dark);
+        }
+
+        .aux-list a::before {
+            content: '›';
+            color: var(--lemon-primary);
+            font-weight: 700;
+        }
+
+        /* 投稿板块 */
+        .submit-panel {
+            background: linear-gradient(135deg, #FFF9E6 0%, #FEF3D0 100%);
+            border: 1px solid rgba(245, 197, 24, 0.3);
+            border-radius: var(--lemon-radius-card);
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .submit-panel h3 {
+            font-size: 17px;
+            font-weight: 800;
+            color: var(--lemon-text-primary);
+            margin-bottom: 4px;
+        }
+
+        .submit-panel p {
+            font-size: 13px;
+            color: var(--lemon-text-secondary);
+            line-height: 1.6;
+        }
+
+        .submit-panel .btn-primary {
+            flex-shrink: 0;
+        }
+
+        /* 页尾 */
+        .site-footer {
+            background: #2D2A1F;
+            color: #B8A87A;
+            padding: 48px 24px 32px;
+            margin-top: 32px;
+        }
+
+        .footer-inner {
+            max-width: var(--lemon-max-width);
+            margin: 0 auto;
+        }
+
+        .footer-top {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .footer-brand-icon {
+            width: 28px;
+            height: 28px;
+        }
+
+        .footer-brand-text {
+            font-size: 17px;
+            font-weight: 800;
+            color: #F5E6A3;
+        }
+
+        .footer-desc {
+            font-size: 13px;
+            line-height: 1.7;
+            color: #A09678;
+            max-width: 320px;
+        }
+
+        .footer-col h4 {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #F5E6A3;
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .footer-col ul li a {
+            font-size: 13px;
+            color: #A09678;
+            transition: color 0.2s;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--lemon-primary);
+        }
+
+        .footer-bottom {
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            font-size: 12px;
+            color: #7A7258;
+        }
+
+        /* 回到顶部 */
+        .back-to-top {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--lemon-primary);
+            color: #1E1E1E;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 16px rgba(245, 197, 24, 0.4);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+            z-index: 90;
+            font-size: 18px;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(245, 197, 24, 0.55);
+        }
+
+        .back-to-top:focus-visible {
+            outline: 2px solid var(--lemon-text-primary);
+            outline-offset: 2px;
+        }
+
+        /* 移动端遮罩 */
+        .mobile-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 98;
+            backdrop-filter: blur(2px);
+        }
+
+        .mobile-overlay.show {
+            display: block;
+        }
+
+        /* 响应式 */
+        @media (max-width: 1200px) {
+            .page-layout {
+                grid-template-columns: 170px 1fr 240px;
+                gap: 22px;
+            }
+            .category-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .page-layout {
+                grid-template-columns: 1fr 260px;
+            }
+            .channel-sidebar {
+                display: none;
+            }
+            .header-nav {
+                display: none;
+            }
+            .mobile-menu-btn {
+                display: flex;
+            }
+            .hero-inner {
+                flex-direction: column;
+                gap: 24px;
+                text-align: center;
+                padding: 40px 24px 36px;
+            }
+            .hero-desc {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .hero-actions {
+                justify-content: center;
+            }
+            .hero-visual {
+                flex: 0 0 auto;
+            }
+            .hero-illustration {
+                max-width: 260px;
+            }
+            .card-grid {
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            }
+            .comment-list {
+                grid-template-columns: 1fr;
+            }
+            .footer-top {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 740px) {
+            .page-layout {
+                grid-template-columns: 1fr;
+                padding: 20px 16px 48px;
+                gap: 28px;
+            }
+            .aux-sidebar {
+                position: static;
+                max-height: none;
+            }
+            .header-inner {
+                gap: 12px;
+                padding: 0 16px;
+            }
+            .brand-text {
+                font-size: 16px;
+            }
+            .search-box input {
+                width: 100px;
+            }
+            .hero h1 {
+                font-size: 28px;
+            }
+            .hero-desc {
+                font-size: 14px;
+            }
+            .category-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+            .deep-dive {
+                padding: 20px;
+            }
+            .footer-top {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            .announcement-bar {
+                padding: 0 16px;
+            }
+            .announcement-bar .bar-inner {
+                gap: 20px;
+            }
+            .submit-panel {
+                flex-direction: column;
+                text-align: center;
+            }
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 40px;
+                height: 40px;
+            }
+            .comment-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        /* 首屏轻量动画 */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+
+        .hero-illustration .floating-shape {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .hero-illustration .floating-shape {
+                animation: none;
+            }
+        }
+
+        /* 搜索无结果提示 */
+        .search-no-result {
+            display: none;
+        }
+
+        .search-no-result.show {
+            display: block;
+        }
+
+        .hidden-by-search {
+            display: none !important;
+        }
+
+        /* 移动端导航面板 */
+        .mobile-nav-panel {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 280px;
+            max-width: 80vw;
+            background: var(--lemon-surface);
+            z-index: 100;
+            padding: 24px 16px;
+            overflow-y: auto;
+            box-shadow: 4px 0 24px rgba(0,0,0,0.1);
+            transform: translateX(-100%);
+            transition: transform 0.25s ease;
+        }
+
+        .mobile-nav-panel.open {
+            display: block;
+            transform: translateX(0);
+        }
+
+        .mobile-nav-panel .mobile-nav-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+        }
+
+        .mobile-nav-panel .mobile-nav-title {
+            font-size: 16px;
+            font-weight: 800;
+        }
+
+        .mobile-nav-close {
+            width: 36px;
+            height: 36px;
+            border-radius: var(--lemon-radius-btn);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: var(--lemon-text-secondary);
+            transition: background 0.2s;
+        }
+
+        .mobile-nav-close:hover {
+            background: var(--lemon-bg);
+        }
+
+        .mobile-nav-panel .mobile-nav-list {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .mobile-nav-panel .mobile-nav-list a {
+            padding: 10px 12px;
+            border-radius: var(--lemon-radius-btn);
+            font-size: 14px;
+            color: var(--lemon-text-secondary);
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+
+        .mobile-nav-panel .mobile-nav-list a:hover {
+            background: var(--lemon-primary-light);
+            color: var(--lemon-text-primary);
+        }
+    </style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+    <!-- 吸顶公告条 -->
+    <div class="announcement-bar" id="announcement-bar">
+        <div class="bar-inner">
+            <span class="bar-brand">柠檬导航</span>
+            <span class="bar-dot"></span>
+            <span class="bar-item">
+                <span class="bar-date">2026-11-08</span>
+                <span>新增「影视资源」分类 12 个站点</span>
+            </span>
+            <span class="bar-dot"></span>
+            <span class="bar-item">
+                <span class="bar-date">2026-11-07</span>
+                <span>「AI 工具」专题收录突破 80 个</span>
+            </span>
+            <span class="bar-dot"></span>
+            <span class="bar-item">
+                <span class="bar-date">2026-11-06</span>
+                <span>本周热门站点榜单更新 15 条</span>
+            </span>
+        </div>
+    </div>
+
+    <!-- 吸顶页头 -->
+    <header class="site-header" id="site-header">
+        <div class="header-inner">
+            <a href="/" class="brand" aria-label="柠檬导航首页">
+                <svg class="brand-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="16" cy="16" r="14" fill="#F5C518" stroke="#C99B0A" stroke-width="1.5"/>
+                    <ellipse cx="16" cy="13" rx="8" ry="6" fill="#FFF3C4" opacity="0.7"/>
+                    <path d="M9 18 Q12 22 16 18 Q20 22 23 18" stroke="#C99B0A" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+                    <circle cx="12" cy="10" r="1.2" fill="#C99B0A"/>
+                    <circle cx="20" cy="10" r="1.2" fill="#C99B0A"/>
+                </svg>
+                <span class="brand-text">柠檬<span class="accent">导航</span></span>
+            </a>
+            <nav class="header-nav" aria-label="主导航">
+                <a href="#overview">领域概览</a>
+                <a href="#featured">精选推荐</a>
+                <a href="#latest">最新收录</a>
+                <a href="#categories">分类目录</a>
+                <a href="#deep-dive">深度解析</a>
+                <a href="#guide">体验指南</a>
+                <a href="#faq">常见问题</a>
+                <a href="#comments">用户评论</a>
+                <a href="#news">相关资讯</a>
+                <a href="#submit">投稿互动</a>
+            </nav>
+            <div class="header-actions">
+                <div class="search-wrapper">
+                    <div class="search-box">
+                        <input type="search" id="search-input" placeholder="搜索站点或资源…" aria-label="搜索站点或资源">
+                        <button type="button" id="search-btn" aria-label="搜索">🔍</button>
+                    </div>
+                    <div class="search-feedback" id="search-feedback">未找到匹配内容</div>
+                </div>
+                <button type="button" class="mobile-menu-btn" id="mobile-menu-btn" aria-label="打开导航菜单" aria-expanded="false">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                        <line x1="3" y1="6" x2="21" y2="6"/>
+                        <line x1="3" y1="12" x2="21" y2="12"/>
+                        <line x1="3" y1="18" x2="21" y2="18"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 移动端遮罩与导航 -->
+    <div class="mobile-overlay" id="mobile-overlay"></div>
+    <div class="mobile-nav-panel" id="mobile-nav-panel" role="dialog" aria-modal="true" aria-label="移动端导航">
+        <div class="mobile-nav-header">
+            <span class="mobile-nav-title">导航菜单</span>
+            <button type="button" class="mobile-nav-close" id="mobile-nav-close" aria-label="关闭导航菜单">✕</button>
+        </div>
+        <nav class="mobile-nav-list" aria-label="移动端导航链接">
+            <a href="#overview">领域概览</a>
+            <a href="#featured">精选推荐</a>
+            <a href="#latest">最新收录</a>
+            <a href="#categories">分类目录</a>
+            <a href="#deep-dive">深度解析</a>
+            <a href="#guide">体验指南</a>
+            <a href="#faq">常见问题</a>
+            <a href="#comments">用户评论</a>
+            <a href="#news">相关资讯</a>
+            <a href="#recommend">相关推荐</a>
+            <a href="#submit">投稿互动</a>
+        </nav>
+    </div>
+
+    <!-- 首屏 -->
+    <section class="hero">
+        <div class="hero-inner">
+            <div class="hero-content">
+                <span class="hero-badge">✦ 每日更新 · 人工精选</span>
+                <h1><span class="highlight">柠檬导航</span></h1>
+                <p class="hero-desc">汇聚影视、软件、学习、设计等领域的优质站点与数字工具，提供人工筛选的收录标准与分类索引，帮助你在信息过载的环境里快速定位可用资源。</p>
+                <div class="hero-actions">
+                    <a href="#featured" class="btn-primary">浏览精选站点 →</a>
+                    <a href="#categories" class="btn-secondary">查看全部分类</a>
+                </div>
+            </div>
+            <div class="hero-visual" aria-hidden="true">
+                <svg class="hero-illustration" viewBox="0 0 360 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="40" y="50" width="280" height="190" rx="16" fill="#FFFFFF" stroke="#EAE6D9" stroke-width="1.5"/>
+                    <rect x="40" y="50" width="280" height="42" rx="16" fill="#F5C518" opacity="0.15"/>
+                    <circle cx="64" cy="71" r="5" fill="#F5C518"/>
+                    <circle cx="82" cy="71" r="5" fill="#F0EAD0"/>
+                    <circle cx="100" cy="71" r="5" fill="#F0EAD0"/>
+                    <rect x="60" y="108" width="70" height="8" rx="4" fill="#F5C518" opacity="0.4"/>
+                    <rect x="60" y="126" width="110" height="6" rx="3" fill="#EAE6D9"/>
+                    <rect x="60" y="142" width="90" height="6" rx="3" fill="#EAE6D9"/>
+                    <rect x="60" y="164" width="80" height="52" rx="8" fill="#FFF9E6" stroke="#EAE6D9" stroke-width="1"/>
+                    <rect x="152" y="164" width="80" height="52" rx="8" fill="#FFF9E6" stroke="#EAE6D9" stroke-width="1"/>
+                    <rect x="244" y="164" width="56" height="52" rx="8" fill="#FFF9E6" stroke="#EAE6D9" stroke-width="1"/>
+                    <rect x="68" y="176" width="40" height="6" rx="3" fill="#F5C518" opacity="0.5"/>
+                    <rect x="68" y="188" width="56" height="4" rx="2" fill="#EAE6D9"/>
+                    <rect x="160" y="176" width="40" height="6" rx="3" fill="#F5C518" opacity="0.5"/>
+                    <rect x="160" y="188" width="56" height="4" rx="2" fill="#EAE6D9"/>
+                    <rect x="252" y="176" width="28" height="6" rx="3" fill="#F5C518" opacity="0.5"/>
+                    <rect x="252" y="188" width="40" height="4" rx="2" fill="#EAE6D9"/>
+                    <g class="floating-shape">
+                        <circle cx="300" cy="80" r="18" fill="#F5C518" opacity="0.25"/>
+                        <circle cx="300" cy="80" r="8" fill="#F5C518" opacity="0.5"/>
+                    </g>
+                    <g class="floating-shape" style="animation-delay: 1.5s;">
+                        <rect x="56" y="248" width="36" height="36" rx="10" fill="#F5C518" opacity="0.2"/>
+                    </g>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主布局：三栏 -->
+    <div class="page-layout">
+
+        <!-- 左频道索引 -->
+        <aside class="channel-sidebar" aria-label="频道索引">
+            <div class="channel-title">频道索引</div>
+            <nav class="channel-list">
+                <a href="#overview"><span class="ch-icon">📋</span>领域概览</a>
+                <a href="#featured"><span class="ch-icon">⭐</span>精选推荐</a>
+                <a href="#latest"><span class="ch-icon">🆕</span>最新收录</a>
+                <a href="#categories"><span class="ch-icon">📂</span>分类目录</a>
+                <a href="#deep-dive"><span class="ch-icon">🔍</span>深度解析</a>
+                <a href="#guide"><span class="ch-icon">🧭</span>体验指南</a>
+                <a href="#faq"><span class="ch-icon">❓</span>常见问题</a>
+                <a href="#comments"><span class="ch-icon">💬</span>用户评论</a>
+                <a href="#news"><span class="ch-icon">📰</span>相关资讯</a>
+                <a href="#recommend"><span class="ch-icon">🔗</span>相关推荐</a>
+                <a href="#submit"><span class="ch-icon">✏️</span>投稿互动</a>
+            </nav>
+            <div class="channel-divider"></div>
+            <div class="channel-title">热门分类</div>
+            <nav class="channel-list">
+                <a href="#categories"><span class="ch-icon">🎬</span>影视资源</a>
+                <a href="#categories"><span class="ch-icon">💻</span>软件工具</a>
+                <a href="#categories"><span class="ch-icon">📚</span>学习资料</a>
+                <a href="#categories"><span class="ch-icon">🎨</span>设计素材</a>
+                <a href="#categories"><span class="ch-icon">🤖</span>AI 工具</a>
+                <a href="#categories"><span class="ch-icon">📖</span>电子书库</a>
+                <a href="#categories"><span class="ch-icon">🛠️</span>效率办公</a>
+                <a href="#categories"><span class="ch-icon">🎵</span>音视频素材</a>
+            </nav>
+        </aside>
+
+        <!-- 中主内容 -->
+        <main class="main-content">
+
+            <!-- 1. 领域概览 -->
+            <section class="section" id="overview">
+                <div class="section-header">
+                    <h2 class="section-title">资源导航领域概览</h2>
+                </div>
+                <div class="overview-text">
+                    <p>资源导航站的核心价值在于把分散在搜索引擎多页结果之外的垂直站点，按使用场景归入可比较的类目。以影视资源为例，目前主流收录方向分为在线播放站、磁力聚合站、字幕站与影评社区四类，每类的可用性标准不同：在线播放看线路稳定与更新速度，磁力聚合看索引库大小与死链率，字幕站看语种覆盖与时间轴精度，影评社区看活跃用户与内容深度。</p>
+                    <p>软件工具方向则更侧重版本新旧与下载渠道安全。2026 年 10 月到 11 月间，AI 工具类站点的收录请求量明显上升，其中写作助手、图像生成、代码补全三个子类占到新增投稿的六成以上。学习资料类站点中，公开课聚合与学术论文预印本平台是两个独立赛道，前者看课程来源的院校授权数量，后者看预印本更新频率与同行评议状态标注。</p>
+                    <p>设计素材类站点近年出现分化：一类走订阅制全库下载，一类走单件购买与创作者分成。选择时优先确认授权范围是否覆盖商用项目，再看文件格式是否包含可编辑源文件。音视频素材站点的关键指标是曲库或视频库的标签体系是否足够细，标签越细，实际检索效率越高。</p>
+                </div>
+            </section>
+
+            <!-- 2. 精选内容推荐 -->
+            <section class="section" id="featured">
+                <div class="section-header">
+                    <h2 class="section-title">精选站点推荐 <span class="sub">编辑人工筛选</span></h2>
+                    <a href="#categories" class="section-link">查看全部 →</a>
+                </div>
+                <div class="card-grid">
+                    <article class="card">
+                        <span class="card-type">影视聚合</span>
+                        <h3 class="card-title">片库网 · 多线路影视索引</h3>
+                        <p class="card-desc">收录超过 8 万部影视条目，提供 3 条以上播放线路备选，2026 年 10 月新增 4K 专区，支持按年代、地区、类型三级筛选。</p>
+                        <div class="card-tags">
+                            <span class="tag">在线播放</span>
+                            <span class="tag">4K专区</span>
+                            <span class="tag">多线路</span>
+                        </div>
+                        <div class="card-meta">
+                            <span>🔥 热度 9.2</span>
+                            <span>⭐ 4.7</span>
+                            <span>📅 11-08 更新</span>
+                        </div>
+                    </article>
+                    <article class="card">
+                        <span class="card-type">AI 工具</span>
+                        <h3 class="card-title">墨笔 AI · 写作辅助站</h3>
+                        <p class="card-desc">支持长文续写、标题生成与风格改写，10 月版本加入「学术引用格式」模板，适合论文初稿与报告大纲场景，免费额度每日 20 次。</p>
+                        <div class="card-tags">
+                            <span class="tag">AI写作</span>
+                            <span class="tag">学术模板</span>
+                            <span class="tag">免费额度</span>
+                        </div>
+                        <div class="card-meta">
+                            <span>🔥 热度 8.8</span>
+                            <span>⭐ 4.5</span>
+                            <span>📅 11-07 更新</span>
+                        </div>
+                    </article>
+                    <article class="card">
+                        <span class="card-type">学习资料</span>
+                        <h3 class="card-title">公开课索引 · 院校课程聚合</h3>
+                        <p class="card-desc">聚合 12 所高校的公开课页面，按学科与学期归档，标注是否含中文字幕与作业材料，2026 秋季学期已收录 340 门课程。</p>
+                        <div class="card-tags">
+                            <span class="tag">公开课</span>
+                            <span class="tag">高校课程</span>
+                            <span class="tag">中文字幕</span>
+                        </div>
+                        <div class="card-meta">
+                            <span>🔥 热度 8.5</span>
+                            <span>⭐ 4.6</span>
+                            <span>📅 11-06 更新</span>
+                        </div>
+                    </article>
+                    <article class="card">
+                        <span class="card-type">设计素材</span>
+                        <h3 class="card-title">图仓 · 可商用矢量素材库</h3>
+                        <p class="card-desc">提供 SVG 与 AI 格式源文件，授权页明确标注可商用与署名要求，10 月新增插画包 18 套，单套平均含 40 个组件。</p>
+                        <div class="card-tags">
+                            <span class="tag">矢量素材</span>
+                            <span class="tag">可商用</span>
+                            <span class="tag">SVG</span>
+                        </div>
+                        <div class="card-meta">
+                            <span>🔥 热度 8.1</span>
+                            <span>⭐ 4.4</span>
+                            <span>📅 11-05 更新</span>
+                        </div>
+                    </article>
+                    <article class="card">
+                        <span class="card-type">电子书</span>
+                        <h3 class="card-title">书栈 · 技术电子书库</h3>
+                        <p class="card-desc">以编程与计算机科学类电子书为主，支持在线阅读与 PDF 下载，每本书页面标注更新日期与勘误记录，10 月新增 23 本。</p>
+                        <div class="card-tags">
+                            <span class="tag">技术书籍</span>
+                            <span class="tag">PDF下载</span>
+                            <span class="tag">勘误记录</span>
+                        </div>
+                        <div class="card-meta">
+                            <span>🔥 热度 7.9</span>
+                            <span>⭐ 4.3</span>
+                            <span>📅 11-04 更新</span>
+                        </div>
+                    </article>
+                    <article class="card">
+                        <span class="card-type">效率办公</span>
+                        <h3 class="card-title">格式工厂在线版 · 文件转换</h3>
+                        <p class="card-desc">支持 200 余种文件格式互转，包括文档、图片、音视频与电子书，单文件上限 2GB，转换后自动删除源文件，无需注册。</p>
+                        <div class="card-tags">
+                            <span class="tag">格式转换</span>
+                            <span class="tag">在线工具</span>
+                            <span class="tag">免注册</span>
+                        </div>
+                        <div class="card-meta">
+                            <span>🔥 热度 7.6</span>
+                            <span>⭐ 4.2</span>
+                            <span>📅 11-03 更新</span>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- 3. 最新收录/动态 -->
+            <section class="section" id="latest">
+                <div class="section-header">
+                    <h2 class="section-title">最新收录与更新 <span class="sub">近 7 天</span></h2>
+                </div>
+                <div class="update-list">
+                    <div class="update-item">
+                        <span class="update-date">11-08</span>
+                        <div class="update-body">
+                            <div class="update-name">片库网新增「4K 修复专区」<span class="update-badge">新</span></div>
+                            <div class="update-summary">首批上架 86 部经典影片的 4K 修复版本，含《霸王别姬》《牯岭街少年杀人事件》等，支持 HDR 播放。</div>
+                        </div>
+                    </div>
+                    <div class="update-item">
+                        <span class="update-date">11-07</span>
+                        <div class="update-body">
+                            <div class="update-name">墨笔 AI 更新学术引用模板</div>
+                            <div class="update-summary">新增 APA 第 7 版与 GB/T 7714-2015 两种引用格式，支持一键插入参考文献列表，免费用户每日可用 5 次。</div>
+                        </div>
+                    </div>
+                    <div class="update-item">
+                        <span class="update-date">11-06</span>
+                        <div class="update-body">
+                            <div class="update-name">公开课索引收录 27 门秋季新课</div>
+                            <div class="update-summary">来自 3 所高校的计算机与经济学课程，其中 19 门含完整中文字幕与作业 PDF，6 门提供期中考试题。</div>
+                        </div>
+                    </div>
+                    <div class="update-item">
+                        <span class="update-date">11-05</span>
+                        <div class="update-body">
+                            <div class="update-name">图仓上线「品牌 VI 模板」分类</div>
+                            <div class="update-summary">包含 12 套完整 VI 系统源文件，每套含 Logo 规范、色彩规范与办公用品应用示例，授权可商用。</div>
+                        </div>
+                    </div>
+                    <div class="update-item">
+                        <span class="update-date">11-04</span>
+                        <div class="update-body">
+                            <div class="update-name">书栈新增《Rust 异步编程指南》中文版</div>
+                            <div class="update-summary">共 14 章，基于 Rust 1.83 版本编写，附带 32 个可运行示例代码，勘误记录已更新至 11 月 4 日。</div>
+                        </div>
+                    </div>
+                    <div class="update-item">
+                        <span class="update-date">11-03</span>
+                        <div class="update-body">
+                            <div class="update-name">格式工厂在线版支持 AVIF 格式</div>
+                            <div class="update-summary">新增 AVIF 图片格式的导入与导出，转换速度较 WebP 提升约 40%，单张图片上限 50MB。</div>
+                        </div>
+                    </div>
+                    <div class="update-item">
+                        <span class="update-date">11-02</span>
+                        <div class="update-body">
+                            <div class="update-name">曲库音源站上线「影视配乐」标签</div>
+                            <div class="update-summary">收录 1,200 余首影视原声与配乐，按情绪、节奏、乐器三个维度打标，支持 30 秒试听。</div>
+                        </div>
+                    </div>
+                    <div class="update-item">
+                        <span class="update-date">11-01</span>
+                        <div class="update-body">
+                            <div class="update-name">学术预印本索引新增「同行评议状态」标注</div>
+                            <div class="update-summary">每条预印本记录注明是否已通过同行评议、评议周期时长与期刊接收状态，覆盖 4 个学科分类。</div>
+                        </div>
+                    </div>
+                    <div class="update-item">
+                        <span class="update-date">10-31</span>
+                        <div class="update-body">
+                            <div class="update-name">字幕站「字幕库」新增 12 种小语种</div>
+                            <div class="update-summary">包括冰岛语、爱沙尼亚语、斯洛文尼亚语等，支持 SRT 与 ASS 格式，时间轴精度标注为 ±0.2 秒。</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. 分类入口 -->
+            <section class="section" id="categories">
+                <div class="section-header">
+                    <h2 class="section-title">按类别浏览站点</h2>
+                </div>
+                <div class="category-grid">
+                    <a href="#featured" class="category-item">
+                        <span class="cat-icon">🎬</span>
+                        <span class="cat-name">影视资源</span>
+                        <span class="cat-count">326 个站点</span>
+                    </a>
+                    <a href="#featured" class="category-item">
+                        <span class="cat-icon">💻</span>
+                        <span class="cat-name">软件工具</span>
+                        <span class="cat-count">218 个站点</span>
+                    </a>
+                    <a href="#featured" class="category-item">
+                        <span class="cat-icon">📚</span>
+                        <span class="cat-name">学习资料</span>
+                        <span class="cat-count">174 个站点</span>
+                    </a>
+                    <a href="#featured" class="category-item">
+                        <span class="cat-icon">🎨</span>
+                        <span class="cat-name">设计素材</span>
+                        <span class="cat-count">142 个站点</span>
+                    </a>
+                    <a href="#featured" class="category-item">
+                        <span class="cat-icon">🤖</span>
+                        <span class="cat-name">AI 工具</span>
+                        <span class="cat-count">86 个站点</span>
+                    </a>
+                    <a href="#featured" class="category-item">
+                        <span class="cat-icon">📖</span>
+                        <span class="cat-name">电子书库</span>
+                        <span class="cat-count">97 个站点</span>
+                    </a>
+                    <a href="#featured" class="category-item">
+                        <span class="cat-icon">🛠️</span>
+                        <span class="cat-name">效率办公</span>
+                        <span class="cat-count">64 个站点</span>
+                    </a>
+                    <a href="#featured" class="category-item">
+                        <span class="cat-icon">🎵</span>
+                        <span class="cat-name">音视频素材</span>
+                        <span class="cat-count">53 个站点</span>
+                    </a>
+                </div>
+            </section>
+
+            <!-- 5. 深度解析 -->
+            <section class="section" id="deep-dive">
+                <div class="section-header">
+                    <h2 class="section-title">资源站点的可用性判断</h2>
+                </div>
+                <div class="deep-dive">
+                    <p>判断一个资源导航站是否值得加入书签，多数人只看首页是否顺眼。顺眼解决不了三个月后链接失效的问题。2026 年 10 月，我对站内收录的 40 个影视资源站和 32 个软件工具站做了一次可用性复查，复查标准只有三条：链接打开成功率、内容更新间隔、广告干扰程度。结果比预想的分散。</p>
+
+                    <h3>链接存活率比数量重要</h3>
+                    <p>40 个影视站中，首页链接打开成功率高于 90% 的有 17 个，低于 60% 的有 9 个。数量最多的站不一定最稳。以「片库网」为例，它的收录条目数约 8 万，在抽样中属于中上规模，但 30 个随机抽取的详情页链接里，28 个能在 3 秒内打开，2 个需要跳转一次备用域名。对比另一家收录量宣称 12 万的站点，30 个链接中只有 19 个直接可达，其余需要经过两到三次跳转。</p>
+                    <div class="highlight-box">
+                        <strong>可核对的拆分：</strong>链接存活率由三个环节决定——域名备案是否持续、备用线路是否维护、内容托管方是否更换。三个环节中任意一个中断，前端链接就会失效。片库网在 9 月更换过一次 CDN 服务商，10 月复查时未发现失效链接增加。
+                    </div>
+
+                    <h3>更新间隔的标注方式</h3>
+                    <p>软件工具站的更新频率差异更大。32 个站点中，首页明确标注「最近更新日期」的有 24 个，其中日期在 7 天以内的有 11 个。标注方式本身也有区别：有的写「今天更新」，有的写具体日期「2026-11-06」，还有的只写「本周」。写具体日期的站点，复查时准确率更高——24 个标注站中，17 个的日期可以对应到具体的软件版本号或功能条目。</p>
+                    <ul>
+                        <li>标注「今天更新」但实际内容未变：3 个站，更新内容为广告位轮换。</li>
+                        <li>标注具体日期且对应版本号：14 个站，可信度最高。</li>
+                        <li>标注「本周」但未说明具体条目：7 个站，需要手动点开验证。</li>
+                    </ul>
+
+                    <h3>广告干扰的量化方式</h3>
+                    <p>广告干扰不好直接用数量衡量。我用的方法是记录打开一个详情页需要手动关闭的弹窗或浮层数量。40 个影视站中，0 次关闭的有 8 个，1 到 2 次的有 19 个，3 次以上的有 13 个。3 次以上的站点里，有 6 个在关闭弹窗后仍会触发页面跳转，需要返回上一页。这类站点的内容往往并不差，但使用成本明显上升。</p>
+                    <p>一个容易被忽略的细节：部分站点在移动端和桌面端的广告策略不同。抽查的 12 个站中，有 4 个在手机浏览器打开时弹窗数量比桌面端少，但页面底部会出现固定悬浮广告条，占据约 15% 的屏幕高度。桌面端无此问题。</p>
+
+                    <h3>收录标准的前后变化</h3>
+                    <p>站内自己的收录规则在 2026 年 9 月做过一次调整。此前主要看首页设计完整度与栏目数量，9 月之后改为「三个可验证项」：域名注册时间是否超过 1 年、最近 30 天是否有内容更新、是否有明确的版权或授权说明页。调整之后，10 月新收录的站点数量从 9 月的 47 个降到 28 个，但复查时的链接存活率从 71% 上升到 84%。</p>
+                </div>
+            </section>
+
+            <!-- 6. 体验指南 -->
+            <section class="section" id="guide">
+                <div class="section-header">
+                    <h2 class="section-title">资源筛选与使用路径</h2>
+                </div>
+                <div class="guide-steps">
+                    <div class="guide-step">
+                        <span class="step-num">1</span>
+                        <div class="step-body">
+                            <h4>先确认类型，再看数量</h4>
+                            <p>影视资源站先分清是在线播放、磁力索引还是字幕下载。在线播放站看线路数量与清晰度选项；磁力索引站看索引库的条目描述是否完整；字幕站看语种与时间轴精度。数量是次要指标——一个收录 5 万条但每条都有简介和截图的索引站，比收录 20 万条只有标题的站更省时间。</p>
+                        </div>
+                    </div>
+                    <div class="guide-step">
+                        <span class="step-num">2</span>
+                        <div class="step-body">
+                            <h4>软件工具先看版本与渠道</h4>
+                            <p>下载站优先看是否标注具体版本号与文件大小。2026 年 10 月抽查的 32 个软件站中，标注版本号的有 24 个，其中 18 个的版本号与官方发布记录一致。没有版本号或只写「最新版」的站点，下载文件需要额外校验数字签名。</p>
+                        </div>
+                    </div>
+                    <div class="guide-step">
+                        <span class="step-num">3</span>
+                        <div class="step-body">
+                            <h4>学习资料看课程来源与材料完整度</h4>
+                            <p>公开课聚合站的关键不是课程总数，而是每门课是否标注了开课院校、授课教师、有无中文字幕、作业与考试材料是否齐全。340 门课程中，同时标注四项的有 127 门，这些课程的完课率在站内统计中通常更高。</p>
+                        </div>
+                    </div>
+                    <div class="guide-step">
+                        <span class="step-num">4</span>
+                        <div class="step-body">
+                            <h4>设计素材先看授权再比价格</h4>
+                            <p>素材站的授权页比素材页更重要。优先确认授权范围是否覆盖商业项目、是否需要署名、是否允许修改后分发。订阅制与单件购买没有绝对优劣——如果每月下载量低于 5 件，单件购买通常更划算；高于 10 件，订阅制的成本优势开始显现。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 7. FAQ -->
+            <section class="section" id="faq">
+                <div class="section-header">
+                    <h2 class="section-title">常见问题</h2>
+                </div>
+                <div class="faq-list">
+                    <details class="faq-item">
+                        <summary>影视资源站的备用线路和主线路有什么区别？</summary>
+                        <div class="faq-answer">备用线路通常是不同 CDN 服务商或不同内容托管方的镜像。主线路的带宽和清晰度选项一般更全，备用线路在主线拥堵时启用。2026 年 10 月抽查中，片库网的 3 条线路分别托管在两家服务商，主线路支持 4K，两条备用线路最高 1080P。选择时先试主线路，加载超过 5 秒再切换。</div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>软件下载站的「最新版」标注可信吗？</summary>
+                        <div class="faq-answer">可信度取决于是否同时标注版本号和更新日期。抽查的 32 个软件站中，只写「最新版」不写版本号的站点，下载文件与官方发布版本存在差异的比例约为 1/3。同时标注版本号与日期的 18 个站，版本一致率为 94%。建议下载后核对文件大小与数字签名。</div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>公开课索引里的课程有作业答案吗？</summary>
+                        <div class="faq-answer">多数不提供官方答案。127 门标注材料齐全的课程中，提供作业题的有 89 门，提供参考答案或评分标准的只有 23 门。部分课程在讨论区有学习者自发整理的解答，但未经授课教师确认。如果需要完整答案，优先选择提供评分标准的课程。</div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>设计素材的商用授权一般包含哪些范围？</summary>
+                        <div class="faq-answer">常见授权分三档：个人非商用、商业项目使用、可转售或分发。图仓的商用授权覆盖广告、包装、网站与社交媒体物料，不包含将素材作为商标注册或转售给第三方。订阅制素材站中，约四成要求在使用时标注来源，具体以授权页的署名条款为准。</div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>AI 写作工具生成的内容可以直接发表吗？</summary>
+                        <div class="faq-answer">取决于使用场景和平台规则。学术期刊与部分新闻机构要求披露 AI 参与程度；个人博客与社交媒体通常没有硬性限制。墨笔 AI 的用户协议中，生成内容的版权归用户所有，但工具本身不对内容的原创性做保证。2026 年 10 月更新的模板中，学术引用格式只处理格式排版，文献真实性仍需人工核对。</div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>资源导航站收录的站点链接失效了怎么办？</summary>
+                        <div class="faq-answer">先尝试站内提供的备用域名或镜像入口。片库网、书栈等站在详情页底部通常列有 1 到 2 个备用地址。如果备用地址也无法打开，可以通过页面上的「报告失效」入口提交，站内复查周期为 3 个工作日。2026 年 10 月提交的 62 条失效报告中，41 条在 5 个工作日内恢复了可访问状态。</div>
+                    </details>
+                </div>
+            </section>
+
+            <!-- 8. 用户评论 -->
+            <section class="section" id="comments">
+                <div class="section-header">
+                    <h2 class="section-title">用户评论 <span class="sub">来自站内留言板</span></h2>
+                </div>
+                <div class="comment-list">
+                    <div class="comment-card">
+                        <div class="comment-header">
+                            <span class="comment-avatar">林</span>
+                            <span class="comment-name">林深见鹿</span>
+                        </div>
+                        <p class="comment-text">片库网的 4K 专区试了《霸王别姬》，画面修复得不错，但字幕是内嵌的，不能换字体大小，有点可惜。</p>
+                    </div>
+                    <div class="comment-card">
+                        <div class="comment-header">
+                            <span class="comment-avatar">陈</span>
+                            <span class="comment-name">陈小满</span>
+                        </div>
+                        <p class="comment-text">墨笔 AI 的学术引用模板帮了大忙，APA 格式一次生成没出错。不过免费额度 20 次，改论文的时候根本不够用。</p>
+                    </div>
+                    <div class="comment-card">
+                        <div class="comment-header">
+                            <span class="comment-avatar">周</span>
+                            <span class="comment-name">周口店人</span>
+                        </div>
+                        <p class="comment-text">公开课索引的课程标注挺细的，有没有作业材料一目了然。就是筛选条件藏得有点深，第一次用找了半天。</p>
+                    </div>
+                    <div class="comment-card">
+                        <div class="comment-header">
+                            <span class="comment-avatar">赵</span>
+                            <span class="comment-name">赵四小姐</span>
+                        </div>
+                        <p class="comment-text">图仓的 VI 模板买了三套，源文件分层清楚，改起来不费劲。唯一的问题是每套模板的字体授权要单独查，有点麻烦。</p>
+                    </div>
+                    <div class="comment-card">
+                        <div class="comment-header">
+                            <span class="comment-avatar">孙</span>
+                            <span class="comment-name">孙大圣</span>
+                        </div>
+                        <p class="comment-text">格式工厂在线版转了个 1.8G 的 mov，用了大概四分钟，没要注册。比之前用的某软件快多了。</p>
+                    </div>
+                    <div class="comment-card">
+                        <div class="comment-header">
+                            <span class="comment-avatar">吴</span>
+                            <span class="comment-name">吴钩霜雪</span>
+                        </div>
+                        <p class="comment-text">书栈的《Rust 异步编程指南》看到第 6 章了，示例代码在 1.83 上跑通了 29 个，有 3 个要改依赖版本。</p>
+                    </div>
+                    <div class="comment-card">
+                        <div class="comment-header">
+                            <span class="comment-avatar">郑</span>
+                            <span class="comment-name">郑三观</span>
+                        </div>
+                        <p class="comment-text">字幕库新增的小语种里居然有冰岛语，冷门片有救了。时间轴对得挺准，没出现提前或延后的情况。</p>
+                    </div>
+                    <div class="comment-card">
+                        <div class="comment-header">
+                            <span class="comment-avatar">王</span>
+                            <span class="comment-name">王不留行</span>
+                        </div>
+                        <p class="comment-text">导航站本身还行，但影视资源那个分类里混进了两个卖茶叶的链接，希望复查一下。</p>
+                    </div>
+                    <div class="comment-card">
+                        <div class="comment-header">
+                            <span class="comment-avatar">冯</span>
+                            <span class="comment-name">冯虚御风</span>
+                        </div>
+                        <p class="comment-text">曲库音源站的影视配乐标签做得细，找纪录片背景音乐省了不少时间。30 秒试听有点短，经常听到一半断了。</p>
+                    </div>
+                    <div class="comment-card">
+                        <div class="comment-header">
+                            <span class="comment-avatar">褚</span>
+                            <span class="comment-name">褚人获</span>
+                        </div>
+                        <p class="comment-text">学术预印本索引加同行评议状态这个功能实用。之前找参考文献，分不清预印本和正式发表，现在一眼能看出来。</p>
+                    </div>
+                    <div class="comment-card">
+                        <div class="comment-header">
+                            <span class="comment-avatar">卫</span>
+                            <span class="comment-name">卫子夫</span>
+                        </div>
+                        <p class="comment-text">今天重装系统，用站里收录的软件下载站下了三个工具，两个有捆绑安装，一个干净。还是得逐个试。</p>
+                    </div>
+                    <div class="comment-card">
+                        <div class="comment-header">
+                            <span class="comment-avatar">蒋</span>
+                            <span class="comment-name">蒋道理</span>
+                        </div>
+                        <p class="comment-text">没啥特别要说的，收藏了，用一段时间再回来补评价。</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 9. 相关资讯 -->
+            <section class="section" id="news">
+                <div class="section-header">
+                    <h2 class="section-title">资源领域资讯</h2>
+                </div>
+                <div class="news-list">
+                    <div class="news-item">
+                        <div class="news-title">片库网 11 月 8 日上线「经典修复」专题，首批 86 部影片</div>
+                        <div class="news-meta-line">
+                            <span>📅 2026-11-08</span>
+                            <span>来源：站内公告</span>
+                        </div>
+                        <p class="news-summary">专题页按导演与年代分组，修复版本标注了原始胶片扫描分辨率。其中 12 部影片附带 2025 年修复访谈字幕，片库网称后续每月更新 10 部左右。</p>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-title">墨笔 AI 接入学术引用格式校验，覆盖 APA 与 GB/T 7714</div>
+                        <div class="news-meta-line">
+                            <span>📅 2026-11-07</span>
+                            <span>来源：产品更新日志</span>
+                        </div>
+                        <p class="news-summary">新功能在生成引用后自动校验作者名、年份与期刊卷期是否完整，缺失项标红提示。免费用户每日校验次数限制为 5 次，付费版不限。</p>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-title">公开课索引秋季学期收录量达 340 门，计算机类占 38%</div>
+                        <div class="news-meta-line">
+                            <span>📅 2026-11-06</span>
+                            <span>来源：站内数据简报</span>
+                        </div>
+                        <p class="news-summary">计算机类课程 129 门，经济学 47 门，数学 36 门。127 门课程同时标注了字幕与作业材料，比春季学期增加 22 门。</p>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-title">图仓上线 12 套品牌 VI 模板，含完整色彩规范与办公应用</div>
+                        <div class="news-meta-line">
+                            <span>📅 2026-11-05</span>
+                            <span>来源：图仓更新页</span>
+                        </div>
+                        <p class="news-summary">每套模板包含 Logo 规范、主辅色值、字体层级与 8 种办公用品应用示例。授权页注明可商用，但字体需另行确认授权范围。</p>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-title">书栈《Rust 异步编程指南》中文版勘误更新至 11 月 4 日</div>
+                        <div class="news-meta-line">
+                            <span>📅 2026-11-04</span>
+                            <span>来源：书栈勘误页</span>
+                        </div>
+                        <p class="news-summary">本次勘误涉及第 7 章和第 11 章共 6 处代码示例，其中 3 处为 Cargo.toml 依赖版本号调整，3 处为 async trait 的写法更新。</p>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-title">格式工厂在线版新增 AVIF 格式，转换速度提升约 40%</div>
+                        <div class="news-meta-line">
+                            <span>📅 2026-11-03</span>
+                            <span>来源：工具更新说明</span>
+                        </div>
+                        <p class="news-summary">AVIF 导出支持质量参数调节，默认质量 60。同尺寸图片转为 AVIF 后体积平均为 WebP 的 70%，解码耗时增加约 15%。</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 10. 相关推荐 -->
+            <section class="section" id="recommend">
+                <div class="section-header">
+                    <h2 class="section-title">相关推荐</h2>
+                </div>
+                <div class="recommend-tags">
+                    <a href="#featured" class="recommend-tag">🎬 磁力聚合站索引</a>
+                    <a href="#featured" class="recommend-tag">🎞️ 经典影片 4K 修复合集</a>
+                    <a href="#featured" class="recommend-tag">💻 开源软件镜像站</a>
+                    <a href="#featured" class="recommend-tag">📚 计算机公开课合集</a>
+                    <a href="#featured" class="recommend-tag">🎨 SVG 图标库</a>
+                    <a href="#featured" class="recommend-tag">🤖 AI 图像生成工具</a>
+                    <a href="#featured" class="recommend-tag">📖 技术电子书 PDF 下载</a>
+                    <a href="#featured" class="recommend-tag">🎵 免版权音效库</a>
+                </div>
+            </section>
+
+            <!-- 11. 补充板块：热门榜单 -->
+            <section class="section" id="ranking">
+                <div class="section-header">
+                    <h2 class="section-title">本周热门站点榜</h2>
+                </div>
+                <div class="update-list">
+                    <div class="update-item">
+                        <span class="update-date">No.1</span>
+                        <div class="update-body">
+                            <div class="update-name">片库网 · 多线路影视索引</div>
+                            <div class="update-summary">本周访问量 12.4 万，4K 专区上线带动详情页点击增长 37%。</div>
+                        </div>
+                    </div>
+                    <div class="update-item">
+                        <span class="update-date">No.2</span>
+                        <div class="update-body">
+                            <div class="update-name">墨笔 AI · 写作辅助</div>
+                            <div class="update-summary">学术引用模板更新后，日均使用次数从 8,200 升至 11,600。</div>
+                        </div>
+                    </div>
+                    <div class="update-item">
+                        <span class="update-date">No.3</span>
+                        <div class="update-body">
+                            <div class="update-name">公开课索引 · 院校课程聚合</div>
+                            <div class="update-summary">秋季学期课程达 340 门，计算机类课程收藏量最高。</div>
+                        </div>
+                    </div>
+                    <div class="update-item">
+                        <span class="update-date">No.4</span>
+                        <div class="update-body">
+                            <div class="update-name">图仓 · 可商用矢量素材</div>
+                            <div class="update-summary">VI 模板分类上线三天，下载量 2,100 次，商用授权页访问占比 64%。</div>
+                        </div>
+                    </div>
+                    <div class="update-item">
+                        <span class="update-date">No.5</span>
+                        <div class="update-body">
+                            <div class="update-name">书栈 · 技术电子书库</div>
+                            <div class="update-summary">Rust 异步编程指南上线一周，阅读完成率 41%，勘误提交 17 条。</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 12. 投稿互动 -->
+            <section class="section" id="submit">
+                <div class="submit-panel">
+                    <div>
+                        <h3>投稿你常用的资源站点</h3>
+                        <p>如果你有长期使用且稳定更新的站点，欢迎提交收录。审核标准包括：域名注册满 1 年、近 30 天有内容更新、有明确的版权或授权说明页。审核周期 3 个工作日。</p>
+                    </div>
+                    <a href="#featured" class="btn-primary">提交收录申请 →</a>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- 右侧辅助栏 -->
+        <aside class="aux-sidebar" aria-label="辅助信息">
+            <div class="aux-panel">
+                <div class="aux-title"><span class="aux-icon">🔥</span> 热门站点榜</div>
+                <div class="rank-list">
+                    <div class="rank-item"><span class="rank-num top1">1</span><span class="rank-name">片库网</span><span class="rank-hot">12.4w</span></div>
+                    <div class="rank-item"><span class="rank-num top2">2</span><span class="rank-name">墨笔 AI</span><span class="rank-hot">9.8w</span></div>
+                    <div class="rank-item"><span class="rank-num top3">3</span><span class="rank-name">公开课索引</span><span class="rank-hot">8.6w</span></div>
+                    <div class="rank-item"><span class="rank-num">4</span><span class="rank-name">图仓</span><span class="rank-hot">7.2w</span></div>
+                    <div class="rank-item"><span class="rank-num">5</span><span class="rank-name">书栈</span><span class="rank-hot">6.9w</span></div>
+                    <div class="rank-item"><span class="rank-num">6</span><span class="rank-name">格式工厂在线版</span><span class="rank-hot">6.1w</span></div>
+                    <div class="rank-item"><span class="rank-num">7</span><span class="rank-name">曲库音源站</span><span class="rank-hot">5.4w</span></div>
+                    <div class="rank-item"><span class="rank-num">8</span><span class="rank-name">字幕库</span><span class="rank-hot">4.8w</span></div>
+                </div>
+            </div>
+
+            <div class="aux-panel">
+                <div class="aux-title"><span class="aux-icon">📌</span> 快捷分类</div>
+                <div class="aux-list">
+                    <a href="#categories">影视资源</a>
+                    <a href="#categories">软件工具</a>
+                    <a href="#categories">学习资料</a>
+                    <a href="#categories">设计素材</a>
+                    <a href="#categories">AI 工具</a>
+                    <a href="#categories">电子书库</a>
+                    <a href="#categories">效率办公</a>
+                    <a href="#categories">音视频素材</a>
+                </div>
+            </div>
+
+            <div class="aux-panel">
+                <div class="aux-title"><span class="aux-icon">🕐</span> 最近更新</div>
+                <div class="aux-list">
+                    <a href="#latest">11-08 片库网 4K 专区</a>
+                    <a href="#latest">11-07 墨笔 AI 引用模板</a>
+                    <a href="#latest">11-06 公开课秋季新课</a>
+                    <a href="#latest">11-05 图仓 VI 模板</a>
+                    <a href="#latest">11-04 书栈 Rust 指南</a>
+                    <a href="#latest">11-03 格式工厂 AVIF</a>
+                </div>
+            </div>
+
+            <div class="aux-panel">
+                <div class="aux-title"><span class="aux-icon">✏️</span> 投稿收录</div>
+                <p style="font-size:13px;color:var(--lemon-text-secondary);line-height:1.6;margin-bottom:12px;">发现好站点？提交给编辑审核，通过后收录进分类目录。</p>
+                <a href="#submit" class="btn-secondary" style="width:100%;justify-content:center;font-size:13px;padding:8px 16px;">立即投稿 →</a>
+            </div>
+        </aside>
+
+    </div>
+
+    <!-- 回到顶部 -->
+    <button type="button" class="back-to-top" id="back-to-top" aria-label="回到顶部">↑</button>
+
+    <!-- 页尾 -->
+    <footer class="site-footer" id="site-footer">
+        <div class="footer-inner">
+            <div class="footer-top">
+                <div class="footer-brand-col">
+                    <div class="footer-brand">
+                        <svg class="footer-brand-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <circle cx="16" cy="16" r="14" fill="#F5C518" stroke="#C99B0A" stroke-width="1.5"/>
+                            <ellipse cx="16" cy="13" rx="8" ry="6" fill="#FFF3C4" opacity="0.7"/>
+                            <path d="M9 18 Q12 22 16 18 Q20 22 23 18" stroke="#C99B0A" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+                        </svg>
+                        <span class="footer-brand-text">柠檬导航</span>
+                    </div>
+                    <p class="footer-desc">覆盖影视、软件、学习、设计等 8 个资源类目，收录站点超过 1,100 个。每日更新收录条目，每周复查链接存活率，每月发布分类榜单。内容以人工筛选为主，不接受自动提交的批量收录。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>资源分类</h4>
+                    <ul>
+                        <li><a href="#categories">影视资源</a></li>
+                        <li><a href="#categories">软件工具</a></li>
+                        <li><a href="#categories">学习资料</a></li>
+                        <li><a href="#categories">设计素材</a></li>
+                        <li><a href="#categories">AI 工具</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>站内导航</h4>
+                    <ul>
+                        <li><a href="#overview">领域概览</a></li>
+                        <li><a href="#featured">精选推荐</a></li>
+                        <li><a href="#latest">最新收录</a></li>
+                        <li><a href="#deep-dive">深度解析</a></li>
+                        <li><a href="#faq">常见问题</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>互动参与</h4>
+                    <ul>
+                        <li><a href="#submit">提交收录</a></li>
+                        <li><a href="#comments">用户评论</a></li>
+                        <li><a href="#ranking">热门榜单</a></li>
+                        <li><a href="#news">相关资讯</a></li>
+                        <li><a href="#recommend">相关推荐</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 柠檬导航 · 内容为人工筛选与示例条目，不构成官方推荐</span>
+                <span>最后更新：2026-11-08 08:30</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 结构化数据 -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "柠檬导航",
+        "description": "汇聚影视、软件、学习、设计等领域的优质站点与数字工具，提供人工筛选的收录标准与分类索引。",
+        "inLanguage": "zh-CN",
+        "about": {
+            "@type": "Thing",
+            "name": "资源导航与站点聚合"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "影视资源站的备用线路和主线路有什么区别？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "备用线路通常是不同 CDN 服务商或不同内容托管方的镜像。主线路的带宽和清晰度选项一般更全，备用线路在主线拥堵时启用。2026 年 10 月抽查中，片库网的 3 条线路分别托管在两家服务商，主线路支持 4K，两条备用线路最高 1080P。选择时先试主线路，加载超过 5 秒再切换。"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "软件下载站的「最新版」标注可信吗？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "可信度取决于是否同时标注版本号和更新日期。抽查的 32 个软件站中，只写「最新版」不写版本号的站点，下载文件与官方发布版本存在差异的比例约为 1/3。同时标注版本号与日期的 18 个站，版本一致率为 94%。建议下载后核对文件大小与数字签名。"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "公开课索引里的课程有作业答案吗？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "多数不提供官方答案。127 门标注材料齐全的课程中，提供作业题的有 89 门，提供参考答案或评分标准的只有 23 门。部分课程在讨论区有学习者自发整理的解答，但未经授课教师确认。如果需要完整答案，优先选择提供评分标准的课程。"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "设计素材的商用授权一般包含哪些范围？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "常见授权分三档：个人非商用、商业项目使用、可转售或分发。图仓的商用授权覆盖广告、包装、网站与社交媒体物料，不包含将素材作为商标注册或转售给第三方。订阅制素材站中，约四成要求在使用时标注来源，具体以授权页的署名条款为准。"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "AI 写作工具生成的内容可以直接发表吗？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "取决于使用场景和平台规则。学术期刊与部分新闻机构要求披露 AI 参与程度；个人博客与社交媒体通常没有硬性限制。墨笔 AI 的用户协议中，生成内容的版权归用户所有，但工具本身不对内容的原创性做保证。2026 年 10 月更新的模板中，学术引用格式只处理格式排版，文献真实性仍需人工核对。"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "资源导航站收录的站点链接失效了怎么办？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "先尝试站内提供的备用域名或镜像入口。片库网、书栈等站在详情页底部通常列有 1 到 2 个备用地址。如果备用地址也无法打开，可以通过页面上的「报告失效」入口提交，站内复查周期为 3 个工作日。2026 年 10 月提交的 62 条失效报告中，41 条在 5 个工作日内恢复了可访问状态。"
+                }
+            }
+        ]
+    }
+    </script>
+
+    <!-- 交互脚本 -->
+    <script>
+        (function() {
+            // 回到顶部
+            var backToTop = document.getElementById('back-to-top');
+            var lastScrollY = 0;
+            window.addEventListener('scroll', function() {
+                var scrollY = window.scrollY || window.pageYOffset;
+                if (scrollY > 400) {
+                    backToTop.classList.add('show');
+                } else {
+                    backToTop.classList.remove('show');
+                }
+                lastScrollY = scrollY;
+            }, { passive: true });
+
+            backToTop.addEventListener('click', function() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // 移动端菜单
+            var mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            var mobileNavPanel = document.getElementById('mobile-nav-panel');
+            var mobileOverlay = document.getElementById('mobile-overlay');
+            var mobileNavClose = document.getElementById('mobile-nav-close');
+            var mobileNavLinks = mobileNavPanel.querySelectorAll('.mobile-nav-list a');
+
+            function openMobileMenu() {
+                mobileNavPanel.classList.add('open');
+                mobileOverlay.classList.add('show');
+                mobileMenuBtn.setAttribute('aria-expanded', 'true');
+                document.body.style.overflow = 'hidden';
+                mobileNavClose.focus();
+            }
+
+            function closeMobileMenu() {
+                mobileNavPanel.classList.remove('open');
+                mobileOverlay.classList.remove('show');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+                mobileMenuBtn.focus();
+            }
+
+            mobileMenuBtn.addEventListener('click', openMobileMenu);
+            mobileNavClose.addEventListener('click', closeMobileMenu);
+            mobileOverlay.addEventListener('click', closeMobileMenu);
+
+            mobileNavLinks.forEach(function(link) {
+                link.addEventListener('click', function() {
+                    closeMobileMenu();
+                });
+            });
+
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && mobileNavPanel.classList.contains('open')) {
+                    closeMobileMenu();
+                }
+            });
+
+            // 搜索筛选
+            var searchInput = document.getElementById('search-input');
+            var searchBtn = document.getElementById('search-btn');
+            var searchFeedback = document.getElementById('search-feedback');
+
+            function performSearch() {
+                var query = searchInput.value.trim().toLowerCase();
+                var allCards = document.querySelectorAll('.card, .update-item, .category-item, .news-item, .faq-item, .comment-card, .recommend-tag, .rank-item, .aux-list a');
+                var visibleCount = 0;
+
+                allCards.forEach(function(el) {
+                    if (!query) {
+                        el.classList.remove('hidden-by-search');
+                        visibleCount++;
+                        return;
+                    }
+                    var text = (el.textContent || '').toLowerCase();
+                    if (text.includes(query)) {
+                        el.classList.remove('hidden-by-search');
+                        visibleCount++;
+                    } else {
+                        el.classList.add('hidden-by-search');
+                    }
+                });
+
+                if (query && visibleCount === 0) {
+                    searchFeedback.textContent = '未找到与「' + searchInput.value.trim() + '」匹配的内容';
+                    searchFeedback.classList.add('show');
+                } else if (query && visibleCount > 0) {
+                    searchFeedback.textContent = '找到 ' + visibleCount + ' 条相关内容';
+                    searchFeedback.classList.add('show');
+                    setTimeout(function() {
+                        searchFeedback.classList.remove('show');
+                    }, 2000);
+                } else {
+                    searchFeedback.classList.remove('show');
+                }
+            }
+
+            searchBtn.addEventListener('click', performSearch);
+            searchInput.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    performSearch();
+                }
+            });
+
+            searchInput.addEventListener('input', function() {
+                if (searchInput.value.trim() === '') {
+                    var allCards = document.querySelectorAll('.hidden-by-search');
+                    allCards.forEach(function(el) {
+                        el.classList.remove('hidden-by-search');
+                    });
+                    searchFeedback.classList.remove('show');
+                }
+            });
+
+            // 点击外部关闭搜索反馈
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.search-wrapper')) {
+                    searchFeedback.classList.remove('show');
+                }
+            });
+        })();
+    </script>
+</body>
+  </html>
