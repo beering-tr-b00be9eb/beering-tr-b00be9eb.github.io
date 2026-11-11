@@ -1,0 +1,1564 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>heiliao在线不打烊 - 深夜互动与情感陪伴</title>
+  <meta name="description" content="heiliao在线不打烊，汇聚深夜互动、情感树洞、语音连麦、匿名倾诉等即时内容。适合夜猫子、独处青年、想找人说说话的你，随时翻翻别人的故事、听听连麦现场。">
+  <meta name="keywords" content="heiliao在线不打烊">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%232b1e3a'/%3E%3Cpath d='M16 6v10l6 4' stroke='%23ffb86b' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='16' cy='16' r='3' fill='%23ffb86b'/%3E%3C/svg%3E">
+  <style>
+    /* ---------- 设计变量 ---------- */
+    :root {
+      --primary: #3d2b56;
+      --primary-light: #5e3f7a;
+      --primary-dark: #231a30;
+      --accent: #ffb86b;
+      --accent-soft: #ffd9a8;
+      --bg: #faf7f2;
+      --surface: #ffffff;
+      --text-primary: #1f1b26;
+      --text-secondary: #4e4459;
+      --text-tertiary: #7b7086;
+      --divider: #e8e0d7;
+      --radius-card: 18px;
+      --radius-btn: 40px;
+      --radius-tag: 20px;
+      --shadow-default: 0 6px 18px rgba(45, 30, 60, 0.06);
+      --shadow-hover: 0 14px 28px rgba(45, 30, 60, 0.12);
+      --sticky-offset: 120px;
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans SC', 'Microsoft YaHei', sans-serif;
+      --max-width: 1320px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; scroll-padding-top: var(--sticky-offset); }
+
+    body {
+      font-family: var(--font);
+      background-color: var(--bg);
+      color: var(--text-primary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      padding-top: 0;
+    }
+
+    /* ---------- 吸顶区域（公告+页头） ---------- */
+    .sticky-top {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250, 247, 242, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--divider);
+    }
+
+    .announcement-bar {
+      background: var(--primary-dark);
+      color: var(--accent-soft);
+      font-size: 0.85rem;
+      padding: 0.45rem 1.5rem;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.25rem 1.25rem;
+      justify-content: center;
+      letter-spacing: 0.01em;
+    }
+    .announcement-bar .brand-mark {
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.04em;
+    }
+    .announcement-bar .ann-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .announcement-bar .ann-item::before {
+      content: "•";
+      color: var(--accent);
+      font-weight: 700;
+      margin-right: 0.15rem;
+    }
+
+    .page-header {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      text-decoration: none;
+      color: var(--text-primary);
+    }
+    .logo-svg {
+      width: 36px;
+      height: 36px;
+      flex-shrink: 0;
+      animation: gentle-pulse 3s ease-in-out infinite;
+    }
+    @keyframes gentle-pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.85; }
+    }
+    .logo-text {
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: -0.01em;
+      color: var(--primary);
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem 1.1rem;
+      flex-wrap: wrap;
+      font-size: 0.92rem;
+    }
+    .main-nav a {
+      text-decoration: none;
+      color: var(--text-secondary);
+      padding: 0.25rem 0.1rem;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.15s, color 0.15s;
+      white-space: nowrap;
+    }
+    .main-nav a:hover {
+      color: var(--primary);
+      border-bottom-color: var(--accent);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: 1px solid var(--divider);
+      border-radius: 30px;
+      padding: 0.35rem 1rem;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      cursor: pointer;
+    }
+
+    /* ---------- 首屏 ---------- */
+    .hero {
+      position: relative;
+      max-width: var(--max-width);
+      margin: 1.5rem auto 0;
+      padding: 0 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+    .hero-content h1 {
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      max-width: 34rem;
+      margin-bottom: 1.75rem;
+      line-height: 1.7;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      align-items: center;
+    }
+    .btn-primary {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      padding: 0.65rem 1.8rem;
+      border-radius: var(--radius-btn);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      box-shadow: var(--shadow-default);
+      border: none;
+      cursor: pointer;
+    }
+    .btn-primary:hover {
+      background: var(--primary-light);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-hover);
+    }
+    .btn-outline {
+      display: inline-block;
+      border: 1.5px solid var(--primary);
+      color: var(--primary);
+      padding: 0.6rem 1.7rem;
+      border-radius: var(--radius-btn);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: background 0.2s, color 0.2s, transform 0.15s;
+      background: transparent;
+    }
+    .btn-outline:hover {
+      background: var(--primary);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    .hero-visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .hero-visual svg {
+      width: 100%;
+      max-width: 420px;
+      height: auto;
+      filter: drop-shadow(0 18px 30px rgba(61, 43, 86, 0.12));
+    }
+
+    /* ---------- 主内容区（三栏） ---------- */
+    .main-wrapper {
+      max-width: var(--max-width);
+      margin: 2.5rem auto 0;
+      padding: 0 1.5rem 3rem;
+      display: grid;
+      grid-template-columns: 180px 1fr 250px;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    /* 左侧频道索引 */
+    .channel-sidebar {
+      position: sticky;
+      top: calc(var(--sticky-offset) + 1.5rem);
+    }
+    .channel-sidebar h2 {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-tertiary);
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    .channel-list {
+      list-style: none;
+    }
+    .channel-list li {
+      margin-bottom: 0.35rem;
+    }
+    .channel-list a {
+      display: block;
+      padding: 0.4rem 0.75rem;
+      border-radius: 10px;
+      text-decoration: none;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      transition: background 0.15s, color 0.15s;
+    }
+    .channel-list a:hover,
+    .channel-list a.active {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    /* 中间主内容 */
+    .main-content {
+      min-width: 0;
+    }
+
+    /* 右侧辅助栏 */
+    .secondary-sidebar {
+      position: sticky;
+      top: calc(var(--sticky-offset) + 1.5rem);
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .sidebar-card {
+      background: var(--surface);
+      border-radius: var(--radius-card);
+      padding: 1.25rem;
+      box-shadow: var(--shadow-default);
+    }
+    .sidebar-card h3 {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.85rem;
+      letter-spacing: 0.02em;
+    }
+    .sidebar-card .hot-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 0.35rem 0;
+      border-bottom: 1px solid var(--divider);
+      font-size: 0.85rem;
+    }
+    .sidebar-card .hot-item:last-child { border-bottom: none; }
+    .sidebar-card .hot-item a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .sidebar-card .hot-item .hot-num {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.75rem;
+      padding-left: 0.5rem;
+    }
+
+    /* ---------- 通用板块样式 ---------- */
+    section {
+      margin-bottom: 3rem;
+    }
+    .section-header {
+      margin-bottom: 1.5rem;
+    }
+    .section-header h2 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: -0.01em;
+      margin-bottom: 0.3rem;
+    }
+    .section-header .sub {
+      color: var(--text-tertiary);
+      font-size: 0.9rem;
+    }
+
+    /* 卡片网格 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.2rem;
+    }
+    .content-card {
+      background: var(--surface);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      box-shadow: var(--shadow-default);
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+    .content-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-hover);
+    }
+    .content-card img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      display: block;
+    }
+    .card-body {
+      padding: 1rem 1rem 1.25rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .card-body h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.35rem;
+      line-height: 1.4;
+    }
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-bottom: 0.5rem;
+    }
+    .tag {
+      font-size: 0.7rem;
+      background: var(--accent-soft);
+      color: var(--primary-dark);
+      padding: 0.15rem 0.65rem;
+      border-radius: var(--radius-tag);
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    .card-desc {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      flex: 1;
+      margin-bottom: 0.6rem;
+    }
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.75rem;
+      color: var(--text-tertiary);
+      gap: 0.5rem;
+    }
+    .heat-badge {
+      background: var(--primary);
+      color: #fff;
+      padding: 0.1rem 0.55rem;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 600;
+    }
+
+    /* 紧凑列表 */
+    .compact-list {
+      list-style: none;
+    }
+    .compact-list li {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--divider);
+      gap: 1rem;
+    }
+    .compact-list li:last-child { border-bottom: none; }
+    .compact-list .item-name {
+      font-weight: 600;
+      color: var(--text-primary);
+      font-size: 0.92rem;
+    }
+    .compact-list .item-desc {
+      font-size: 0.82rem;
+      color: var(--text-tertiary);
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    /* 分类入口网格 */
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.8rem;
+    }
+    .category-pill {
+      background: var(--surface);
+      border-radius: var(--radius-tag);
+      padding: 0.6rem 0.5rem;
+      text-align: center;
+      text-decoration: none;
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 0.85rem;
+      box-shadow: var(--shadow-default);
+      transition: background 0.15s, color 0.15s, transform 0.15s;
+      border: 1px solid transparent;
+      cursor: pointer;
+      display: block;
+    }
+    .category-pill:hover,
+    .category-pill.active {
+      background: var(--primary);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    /* 深度解析 */
+    .deep-dive {
+      background: var(--surface);
+      border-radius: var(--radius-card);
+      padding: 1.75rem 2rem;
+      box-shadow: var(--shadow-default);
+    }
+    .deep-dive h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin: 1.5rem 0 0.6rem;
+    }
+    .deep-dive h3:first-of-type { margin-top: 0; }
+    .deep-dive p {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.8rem;
+      line-height: 1.8;
+    }
+    .deep-dive ul {
+      margin: 0.5rem 0 1rem 1.2rem;
+      color: var(--text-secondary);
+      font-size: 0.92rem;
+      line-height: 1.8;
+    }
+    .deep-dive li {
+      margin-bottom: 0.3rem;
+    }
+    .pull-quote {
+      background: #f3efe9;
+      border-left: 4px solid var(--accent);
+      padding: 0.9rem 1.2rem;
+      border-radius: 8px;
+      margin: 1rem 0;
+      font-size: 0.95rem;
+      color: var(--text-primary);
+      font-style: normal;
+    }
+
+    /* FAQ */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    details {
+      background: var(--surface);
+      border-radius: 12px;
+      padding: 0.85rem 1.2rem;
+      box-shadow: var(--shadow-default);
+      transition: background 0.15s;
+    }
+    details[open] {
+      background: #fffbf5;
+    }
+    summary {
+      font-weight: 600;
+      color: var(--text-primary);
+      font-size: 0.95rem;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after {
+      content: "＋";
+      font-weight: 400;
+      color: var(--text-tertiary);
+      font-size: 1.2rem;
+    }
+    details[open] summary::after { content: "－"; }
+    details p {
+      margin-top: 0.7rem;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      line-height: 1.7;
+      padding-right: 1rem;
+    }
+
+    /* 评论 */
+    .comment-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.85rem;
+    }
+    .comment-item {
+      background: var(--surface);
+      border-radius: 14px;
+      padding: 0.85rem 1rem;
+      box-shadow: var(--shadow-default);
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+    }
+    .comment-item .nickname {
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 0.85rem;
+      margin-bottom: 0.25rem;
+    }
+    .comment-item .comment-text {
+      line-height: 1.55;
+    }
+
+    /* 资讯 */
+    .news-list {
+      list-style: none;
+    }
+    .news-list li {
+      padding: 0.8rem 0;
+      border-bottom: 1px solid var(--divider);
+    }
+    .news-list li:last-child { border-bottom: none; }
+    .news-list .news-title {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--text-primary);
+      margin-bottom: 0.2rem;
+    }
+    .news-list .news-date {
+      font-size: 0.75rem;
+      color: var(--text-tertiary);
+      margin-right: 0.75rem;
+    }
+    .news-list .news-summary {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* 相关推荐标签 */
+    .rec-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .rec-tags a {
+      background: var(--surface);
+      padding: 0.4rem 1rem;
+      border-radius: var(--radius-tag);
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      box-shadow: var(--shadow-default);
+      transition: background 0.15s, color 0.15s;
+    }
+    .rec-tags a:hover {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    /* 榜单/时间线 */
+    .timeline {
+      list-style: none;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 0.4rem;
+      top: 0.3rem;
+      bottom: 0.3rem;
+      width: 2px;
+      background: var(--divider);
+    }
+    .timeline li {
+      position: relative;
+      padding-bottom: 1rem;
+      font-size: 0.88rem;
+    }
+    .timeline li::before {
+      content: "";
+      position: absolute;
+      left: -1.25rem;
+      top: 0.4rem;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid var(--surface);
+      box-shadow: 0 0 0 2px var(--accent);
+    }
+    .timeline .time {
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 0.8rem;
+      display: block;
+      margin-bottom: 0.1rem;
+    }
+
+    /* 投稿互动入口 */
+    .interact-banner {
+      background: var(--primary-dark);
+      border-radius: var(--radius-card);
+      padding: 1.5rem 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .interact-banner p {
+      color: var(--accent-soft);
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+    .interact-banner .btn-light {
+      background: var(--accent);
+      color: var(--primary-dark);
+      border: none;
+      padding: 0.6rem 1.8rem;
+      border-radius: var(--radius-btn);
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .interact-banner .btn-light:hover {
+      background: #ffcd8a;
+      transform: translateY(-2px);
+    }
+
+    /* 页脚 */
+    .page-footer {
+      background: var(--primary-dark);
+      color: #cfc5d9;
+      padding: 2.5rem 1.5rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 2rem;
+    }
+    .footer-brand .logo-text-footer {
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: #fff;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.5rem;
+    }
+    .footer-brand p {
+      font-size: 0.85rem;
+      line-height: 1.6;
+      max-width: 280px;
+      color: #b3a7c2;
+    }
+    .footer-col h4 {
+      color: #fff;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.8rem;
+      font-weight: 600;
+    }
+    .footer-col a {
+      display: block;
+      color: #b3a7c2;
+      text-decoration: none;
+      font-size: 0.85rem;
+      padding: 0.2rem 0;
+      transition: color 0.15s;
+    }
+    .footer-col a:hover { color: var(--accent); }
+    .footer-bottom {
+      max-width: var(--max-width);
+      margin: 2rem auto 0;
+      padding-top: 1.2rem;
+      border-top: 1px solid #3f3053;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      color: #897d99;
+      gap: 0.5rem;
+    }
+
+    /* 回到顶部 */
+    .back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+      box-shadow: var(--shadow-hover);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s, transform 0.2s;
+      z-index: 200;
+    }
+    .back-to-top.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .back-to-top:hover {
+      background: var(--primary-light);
+      transform: translateY(-3px);
+    }
+
+    /* 移动端菜单遮罩 */
+    .mobile-nav-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.3);
+      z-index: 90;
+    }
+    .mobile-nav-overlay.active { display: block; }
+
+    /* ---------- 响应式 ---------- */
+    @media (max-width: 1024px) {
+      .main-wrapper {
+        grid-template-columns: 1fr 240px;
+      }
+      .channel-sidebar {
+        display: none;
+      }
+      .main-nav { display: none; }
+      .mobile-menu-btn { display: block; }
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .hero-desc { margin-left: auto; margin-right: auto; }
+      .hero-actions { justify-content: center; }
+      .hero-visual { display: none; }
+      .footer-inner {
+        grid-template-columns: 1fr 1fr;
+      }
+      .category-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    @media (max-width: 740px) {
+      .main-wrapper {
+        grid-template-columns: 1fr;
+      }
+      .secondary-sidebar {
+        position: static;
+        margin-top: 1rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+      .comment-list {
+        grid-template-columns: 1fr;
+      }
+      .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .footer-inner {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      .announcement-bar {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.75rem;
+        gap: 0.25rem 0.75rem;
+      }
+      .page-header {
+        padding: 0.6rem 1rem;
+      }
+      .logo-text { font-size: 1.1rem; }
+      .deep-dive { padding: 1.25rem; }
+      .card-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .back-to-top {
+        bottom: 1rem;
+        right: 1rem;
+        width: 38px;
+        height: 38px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+      .secondary-sidebar {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    /* 搜索框 */
+    .search-wrapper {
+      position: relative;
+      margin-bottom: 1.5rem;
+    }
+    .search-input {
+      width: 100%;
+      padding: 0.7rem 1.2rem;
+      border-radius: var(--radius-btn);
+      border: 1px solid var(--divider);
+      background: var(--surface);
+      font-size: 0.9rem;
+      color: var(--text-primary);
+      outline: none;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .search-input:focus {
+      border-color: var(--primary-light);
+      box-shadow: 0 0 0 3px rgba(61, 43, 86, 0.1);
+    }
+    .search-no-result {
+      font-size: 0.85rem;
+      color: var(--text-tertiary);
+      padding: 0.5rem 0;
+      display: none;
+    }
+  </style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<!-- 吸顶区域 -->
+<div class="sticky-top">
+  <div class="announcement-bar">
+    <span class="brand-mark">heiliao在线不打烊</span>
+    <span class="ann-item">11月8日 · 语音连麦「凌晨三点的电台」新一期上线</span>
+    <span class="ann-item">11月7日 · 情感树洞新增 243 条匿名倾诉</span>
+  </div>
+  <header class="page-header">
+    <a href="/" class="logo-area" aria-label="heiliao在线不打烊首页">
+      <svg class="logo-svg" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="18" cy="18" r="16" fill="#3d2b56"/>
+        <path d="M18 6v12l7 4" stroke="#ffb86b" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="18" cy="18" r="3" fill="#ffb86b"/>
+        <circle cx="18" cy="18" r="7" stroke="#ffb86b" stroke-width="1.2" stroke-dasharray="2 4"/>
+      </svg>
+      <span class="logo-text">heiliao在线不打烊</span>
+    </a>
+    <nav class="main-nav" aria-label="主题导航">
+      <a href="/#voice">语音连麦</a>
+      <a href="/#treehole">情感树洞</a>
+      <a href="/#story">深夜故事</a>
+      <a href="/#anonymous">匿名倾诉</a>
+      <a href="/#radio">电台回放</a>
+      <a href="/#topic">话题广场</a>
+    </nav>
+    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="打开导航菜单" aria-expanded="false">☰ 菜单</button>
+  </header>
+</div>
+
+<!-- 移动端遮罩 -->
+<div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+
+<!-- 首屏 -->
+<section class="hero" aria-label="首屏介绍">
+  <div class="hero-content">
+    <h1>heiliao在线不打烊</h1>
+    <p class="hero-desc">夜里睡不着、话没人接的时候，这里有一群同样醒着的人。语音连麦、匿名树洞、深夜故事、电台回放，翻到哪条算哪条。</p>
+    <div class="hero-actions">
+      <a href="/#voice" class="btn-primary">进入语音连麦</a>
+      <a href="/#treehole" class="btn-outline">翻翻树洞</a>
+    </div>
+  </div>
+  <div class="hero-visual" aria-hidden="true">
+    <svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="20" y="30" width="360" height="240" rx="24" fill="#3d2b56" fill-opacity="0.06"/>
+      <circle cx="200" cy="150" r="80" fill="#ffb86b" fill-opacity="0.12"/>
+      <circle cx="200" cy="150" r="50" fill="#ffb86b" fill-opacity="0.2"/>
+      <path d="M160 150c0-22 18-40 40-40s40 18 40 40" stroke="#3d2b56" stroke-width="3" fill="none"/>
+      <rect x="140" y="165" width="16" height="36" rx="8" fill="#3d2b56" fill-opacity="0.7"/>
+      <rect x="164" y="155" width="16" height="56" rx="8" fill="#ffb86b"/>
+      <rect x="188" y="170" width="16" height="26" rx="8" fill="#3d2b56" fill-opacity="0.5"/>
+      <rect x="212" y="145" width="16" height="76" rx="8" fill="#3d2b56" fill-opacity="0.8"/>
+      <rect x="236" y="162" width="16" height="42" rx="8" fill="#ffb86b" fill-opacity="0.6"/>
+      <circle cx="320" cy="80" r="18" fill="#ffb86b" fill-opacity="0.25"/>
+      <circle cx="80" cy="210" r="12" fill="#3d2b56" fill-opacity="0.15"/>
+      <path d="M60 90l8 16 16 8-16 8-8 16-8-16-16-8 16-8z" fill="#ffb86b" fill-opacity="0.4"/>
+    </svg>
+  </div>
+</section>
+
+<!-- 主内容区：三栏 -->
+<div class="main-wrapper">
+
+  <!-- 左侧频道索引 -->
+  <aside class="channel-sidebar" aria-label="频道索引">
+    <h2>频道</h2>
+    <ul class="channel-list">
+      <li><a href="/#voice" class="active">语音连麦</a></li>
+      <li><a href="/#treehole">情感树洞</a></li>
+      <li><a href="/#story">深夜故事</a></li>
+      <li><a href="/#anonymous">匿名倾诉</a></li>
+      <li><a href="/#radio">电台回放</a></li>
+      <li><a href="/#topic">话题广场</a></li>
+      <li><a href="/#newbie">新手指南</a></li>
+      <li><a href="/#interact">投稿互动</a></li>
+      <li><a href="/#faq">常见问题</a></li>
+    </ul>
+  </aside>
+
+  <!-- 中间主内容 -->
+  <main class="main-content">
+
+    <!-- 搜索框（本地筛选） -->
+    <div class="search-wrapper">
+      <input type="search" class="search-input" id="searchInput" placeholder="搜索树洞、连麦、故事、电台…" aria-label="站内搜索">
+      <div class="search-no-result" id="searchNoResult">没有找到相关条目，换个词试试。</div>
+    </div>
+
+    <!-- 板块1：主题领域概览 -->
+    <section id="overview" aria-labelledby="overview-heading">
+      <div class="section-header">
+        <h2 id="overview-heading">深夜在线内容都在聊什么</h2>
+      </div>
+      <div style="background: var(--surface); border-radius: var(--radius-card); padding: 1.5rem 1.8rem; box-shadow: var(--shadow-default);">
+        <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.8; margin-bottom: 0.8rem;">凌晨一两点还醒着的人，打开手机通常干这几件事：听别人连麦聊天、翻匿名树洞看有没有人跟自己一样、找一段适合当背景音的深夜电台。heilio在线不打烊覆盖的方向大致分四类——语音连麦、匿名倾诉、深夜故事、电台回放。</p>
+        <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.8; margin-bottom: 0.8rem;">语音连麦分主题房和自由房。主题房有具体话题，比如「30岁转行晚不晚」「异地恋第427天」，房主会控场；自由房没什么规矩，上去哼两句歌也行。匿名倾诉通常以短文字形式出现，一条不超过300字，发出来就挂在时间线上，其他人可以点「抱抱」或留一句话。深夜故事偏向长篇连载，作者多半是普通用户，写自己的经历或者编故事。电台回放则是把往期直播连麦剪成30—60分钟的音频，适合睡前放着听。</p>
+        <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.8;">值得关注的是，11月7日刚更新的「凌晨三点的电台」第14期聊的是「一个人搬家算孤独第几级」，评论区吵了400多条。11月6日情感树洞有一个关于「要不要删掉前任微信」的帖子，浏览量到了2.3万。这些内容都没有标准答案，但翻别人的选择本身就能当个参考。</p>
+      </div>
+    </section>
+
+    <!-- 板块2：精选内容推荐（卡片网格） -->
+    <section id="featured" aria-labelledby="featured-heading">
+      <div class="section-header">
+        <h2 id="featured-heading">最近被反复点开的条目</h2>
+        <p class="sub">按11月第一周的播放和互动量筛的</p>
+      </div>
+      <div class="card-grid" id="featuredGrid">
+        <article class="content-card" data-search="凌晨三点的电台 一个人搬家">
+          <img src="https://picsum.photos/seed/radio14/400/300" alt="深夜电台录音间界面，耳机和麦克风" width="400" height="300" loading="lazy">
+          <div class="card-body">
+            <h3>凌晨三点的电台 · 第14期</h3>
+            <div class="card-tags"><span class="tag">电台</span><span class="tag">独居</span><span class="tag">搬家</span></div>
+            <p class="card-desc">主播阿灯和三个听众连麦聊一个人搬家的经历，中间插入一段现场打包纸箱的声音。43分钟，适合当背景音。</p>
+            <div class="card-meta"><span>11月7日更新</span><span class="heat-badge">1.2万播放</span></div>
+          </div>
+        </article>
+        <article class="content-card" data-search="异地恋第427天">
+          <img src="https://picsum.photos/seed/lianmai427/400/300" alt="两个人视频通话的界面截图，表情模糊" width="400" height="300" loading="lazy">
+          <div class="card-body">
+            <h3>连麦：异地恋第427天</h3>
+            <div class="card-tags"><span class="tag">语音连麦</span><span class="tag">异地恋</span><span class="tag">情感</span></div>
+            <p class="card-desc">房主小陈和女友从大学开始异地，昨晚连麦时算了一笔账：两年高铁票花了1.7万。评论区有人跟着晒车票。</p>
+            <div class="card-meta"><span>11月6日</span><span class="heat-badge">8600 参与</span></div>
+          </div>
+        </article>
+        <article class="content-card" data-search="树洞 要不要删掉前任微信">
+          <img src="https://picsum.photos/seed/treehole120/400/300" alt="手机聊天列表界面，头像被打了码" width="400" height="300" loading="lazy">
+          <div class="card-body">
+            <h3>树洞：要不要删掉前任微信</h3>
+            <div class="card-tags"><span class="tag">情感树洞</span><span class="tag">前任</span><span class="tag">匿名</span></div>
+            <p class="card-desc">楼主写了800多字，从分手那天讲到上周忍不住视奸朋友圈。底下142条评论，删和不删大概六四开。</p>
+            <div class="card-meta"><span>11月6日</span><span class="heat-badge">2.3万浏览</span></div>
+          </div>
+        </article>
+        <article class="content-card" data-search="30岁转行晚不晚 连麦">
+          <img src="https://picsum.photos/seed/zhuanhang30/400/300" alt="深夜书桌场景，电脑屏幕亮着" width="400" height="300" loading="lazy">
+          <div class="card-body">
+            <h3>连麦：30岁转行晚不晚</h3>
+            <div class="card-tags"><span class="tag">语音连麦</span><span class="tag">转行</span><span class="tag">职场</span></div>
+            <p class="card-desc">三个连麦嘉宾分别是刚转行半年的、转了两次的、以及没转但想转的。聊到考证成本和第一份工作的降薪幅度。</p>
+            <div class="card-meta"><span>11月5日</span><span class="heat-badge">5400 参与</span></div>
+          </div>
+        </article>
+        <article class="content-card" data-search="深夜故事 合租室友的猫">
+          <img src="https://picsum.photos/seed/catstory/400/300" alt="一只猫趴在窗台上，背景是夜晚城市灯光" width="400" height="300" loading="lazy">
+          <div class="card-body">
+            <h3>深夜故事：合租室友的猫</h3>
+            <div class="card-tags"><span class="tag">深夜故事</span><span class="tag">合租</span><span class="tag">连载</span></div>
+            <p class="card-desc">作者记录合租第三个月，室友的猫每晚准时挠门。第7节写到猫主人突然搬走，把猫留在了客厅。没写完。</p>
+            <div class="card-meta"><span>11月4日更新</span><span class="heat-badge">6800 阅读</span></div>
+          </div>
+        </article>
+        <article class="content-card" data-search="匿名倾诉 今天被裁员了">
+          <img src="https://picsum.photos/seed/layoff/400/300" alt="办公桌一角，纸箱和工牌" width="400" height="300" loading="lazy">
+          <div class="card-body">
+            <h3>匿名：今天被裁员了</h3>
+            <div class="card-tags"><span class="tag">匿名倾诉</span><span class="tag">裁员</span><span class="tag">树洞</span></div>
+            <p class="card-desc">一条不到200字的匿名帖，只说了一句「HR找我聊了15分钟」。底下78条回复，有人贴了自己的赔偿方案。</p>
+            <div class="card-meta"><span>11月8日 00:42</span><span class="heat-badge">最新</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 板块3：最新更新 / 动态（紧凑列表） -->
+    <section id="latest" aria-labelledby="latest-heading">
+      <div class="section-header">
+        <h2 id="latest-heading">刚刚冒出来的条目</h2>
+        <p class="sub">更新于 2026年11月8日 01:30</p>
+      </div>
+      <ul class="compact-list">
+        <li><span class="item-name">语音房「深夜KTV」开到第16轮</span><span class="item-desc">11月8日 01:10 · 在线 42 人</span></li>
+        <li><span class="item-name">匿名帖：室友总用我的洗衣液怎么办</span><span class="item-desc">11月8日 00:55 · 61 条回复</span></li>
+        <li><span class="item-name">电台回放「一个人住的第5年」被顶到首页</span><span class="item-desc">11月7日 23:40 · 播放 3200</span></li>
+        <li><span class="item-name">深夜故事《合租室友的猫》更新第8节</span><span class="item-desc">11月7日 22:15 · 作者：阿岛</span></li>
+        <li><span class="item-name">连麦话题「要不要为了对象去他的城市」</span><span class="item-desc">11月7日 21:30 · 参与 230 人</span></li>
+        <li><span class="item-name">树洞新增「今天你吃了什么」打卡帖</span><span class="item-desc">11月7日 20:48 · 87 条晒图</span></li>
+        <li><span class="item-name">新用户「小野」发布了第一条匿名倾诉</span><span class="item-desc">11月7日 19:22 · 已获 12 个抱抱</span></li>
+        <li><span class="item-name">电台第13期「一个人吃饭」评论区破 500</span><span class="item-desc">11月6日 18:10 · 主播：阿灯</span></li>
+      </ul>
+    </section>
+
+    <!-- 板块4：分类入口 -->
+    <section id="category" aria-labelledby="category-heading">
+      <div class="section-header">
+        <h2 id="category-heading">按类型找内容</h2>
+      </div>
+      <div class="category-grid" id="categoryGrid">
+        <a href="/#voice" class="category-pill">语音连麦</a>
+        <a href="/#treehole" class="category-pill">情感树洞</a>
+        <a href="/#story" class="category-pill">深夜故事</a>
+        <a href="/#anonymous" class="category-pill">匿名倾诉</a>
+        <a href="/#radio" class="category-pill">电台回放</a>
+        <a href="/#topic" class="category-pill">话题广场</a>
+        <a href="/#newbie" class="category-pill">新手指南</a>
+        <a href="/#interact" class="category-pill">投稿互动</a>
+      </div>
+    </section>
+
+    <!-- 板块5：深度解析正文 -->
+    <section id="deepdive" aria-labelledby="deepdive-heading">
+      <div class="section-header">
+        <h2 id="deepdive-heading">深夜连麦和树洞到底在解决什么问题</h2>
+      </div>
+      <div class="deep-dive">
+        <h3>连麦的「陪伴感」是怎么生产出来的</h3>
+        <p>语音连麦的体验由几个环节叠出来：麦位数量、控场节奏、话题颗粒度。以11月7日「凌晨三点的电台」第14期为例，主播阿灯开了6个麦位，前15分钟让每个人只说「今天最累的一件事」，中间30分钟聊「一个人搬家」的具体流程，最后10分钟自由发言。在线峰值92人，平均停留时间24分钟——这个数字来自房间后台的公开统计。</p>
+        <p>对比同期另一个自由房「深夜KTV」，麦位8个，没有固定话题，停留时间平均只有9分钟。差别不在人多人少，在于有没有一个「下一句该谁说了」的预期。有预期的时候，听众会等；没有预期，听两句就划走。</p>
+
+        <h3>树洞帖子的可信度怎么拆</h3>
+        <p>匿名帖子没法核实身份，但可以看几个结构性的线索。拿11月6日「要不要删掉前任微信」那条来说，楼主写了具体时间线（分手日、第一次视奸、上周忍不住发消息），提到了具体动作（删了又加回来、看了三遍聊天记录），没有使用「我朋友」「听说」这类转述。这种帖子的信息密度比「今天心情不好」高一个量级。</p>
+        <p>反过来，如果一条匿名帖从头到尾只有情绪词、没有时间地点人物，评论区再热闹也当故事看。不是说不真实，是没法验证。</p>
+
+        <h3>深夜故事的连载节奏问题</h3>
+        <p>《合租室友的猫》到11月7日已经更了8节，作者阿岛在评论区说每节大概1500字，写一节要两个晚上。前5节的更新时间分别是10月27日、29日、31日、11月2日、11月4日，基本隔天更。第6节和第7节之间隔了三天，评论区出现了「是不是坑了」的留言。</p>
+        <p>连载类内容在深夜场景里的留存，很大程度取决于更新间隔的稳定性。隔天更比一周更两次更容易攒住读者——前提是每节有独立的小进展，不能全是铺垫。</p>
+
+        <h3>电台回放和直播的差异</h3>
+        <p>电台回放不是直播的简单录音。第13期「一个人吃饭」直播时长1小时48分，剪成回放后是47分钟，剪掉的主要是听众连麦时的等待和重复。回放会补一段口播介绍本期话题，直播时没有。这个差异导致回放的完播率比直播高出不少，11月6日上线的第13期回放，完播率31%，而直播当天的平均停留是18分钟。</p>
+        <div class="pull-quote">判断一个深夜电台值不值得听，先看回放有没有单独的结构：开头有没有交代话题、中间有没有剪掉冷场、结尾有没有收束。三样都有，基本不会太差。</div>
+      </div>
+    </section>
+
+    <!-- 板块6：体验指南 / 消费路径 -->
+    <section id="guide" aria-labelledby="guide-heading">
+      <div class="section-header">
+        <h2 id="guide-heading">第一次来从哪开始翻</h2>
+      </div>
+      <div style="background: var(--surface); border-radius: var(--radius-card); padding: 1.5rem 1.8rem; box-shadow: var(--shadow-default);">
+        <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.8; margin-bottom: 0.8rem;">如果只是想找点声音陪着，直接去「电台回放」按播放量排序，前五期都是剪过的，结构完整，适合当背景音。想听人说话但不想参与，进语音连麦的「旁听席」，不占麦位，关掉麦克风就行。</p>
+        <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.8; margin-bottom: 0.8rem;">想自己说点什么又不想被认出来，走匿名倾诉。建议发之前先想清楚是想要建议还是只想倒出来——两种目的得到的回复风格完全不同。要建议的话，在末尾加一句「想听听大家的看法」，回复会偏向具体操作；只想倒出来的，多数人会回「抱抱」。</p>
+        <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.8;">深夜故事适合睡前看，但要注意连载的坑。点进一篇先看更新时间：最近三天更过的，可以跟；上一节停在两个月前的，当短篇看，别等。评论区问「还更吗」超过十条的，大概率作者已经忙别的去了。</p>
+      </div>
+    </section>
+
+    <!-- 板块7：FAQ -->
+    <section id="faq" aria-labelledby="faq-heading">
+      <div class="section-header">
+        <h2 id="faq-heading">半夜常被问到的问题</h2>
+      </div>
+      <div class="faq-list">
+        <details>
+          <summary>语音连麦必须开麦吗？</summary>
+          <p>不是。进房默认是旁听状态，麦克风关闭。想说话点「申请上麦」，房主同意后才会打开。有的房设了「只读模式」，连申请按钮都没有，只能听。</p>
+        </details>
+        <details>
+          <summary>匿名倾诉的帖子会被熟人认出来吗？</summary>
+          <p>昵称是系统随机生成的，头像也不显示。但如果在帖子里写了具体公司名、小区名、车牌号，还是可能被定位。建议把「XX公司」写成「某互联网公司」，「XX花园」写成「东边那个小区」。</p>
+        </details>
+        <details>
+          <summary>深夜故事的作者为什么老断更？</summary>
+          <p>多数作者白天有正职，写故事是晚上挤时间。更新频率通常在一周两到三次，遇到加班或出差就断。看一部连载前先翻一下历史更新间隔，如果之前就有过停更一个月的记录，后面也大概率会停。</p>
+        </details>
+        <details>
+          <summary>电台回放和直播的内容差多少？</summary>
+          <p>一般差30%—50%。剪掉的主要是连麦等待、重复表达和冷场。部分回放会补录一段开头介绍和结尾总结，直播时没有。所以同一期节目，回放听起来更紧凑，直播更有现场感。</p>
+        </details>
+        <details>
+          <summary>在树洞发帖和发匿名倾诉有什么区别？</summary>
+          <p>树洞偏向长文，有标题，可以分段，适合写完整经历。匿名倾诉是短文字，一条不超过300字，发出来直接挂在时间线上，更像随手写一句。回复形式也不同：树洞是楼层评论，匿名倾诉是抱抱和短句。</p>
+        </details>
+        <details>
+          <summary>连麦时被人打断怎么办？</summary>
+          <p>房主有静音权限。可以先在公屏打字「让我说完」，房主看到一般会处理。如果房主不管，退出房间换一个就行。多数主题房会在开场说明「每人每次发言三分钟」，提前说好规则能减少打断。</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- 板块8：用户评论 -->
+    <section id="comments" aria-labelledby="comments-heading">
+      <div class="section-header">
+        <h2 id="comments-heading">评论区里的人都在说什么</h2>
+      </div>
+      <div class="comment-list">
+        <div class="comment-item"><div class="nickname">夜航船</div><div class="comment-text">第14期电台听到「一个人搬家」那段，想起自己去年搬了三次，最后一次连猫砂盆都是自己扛上六楼的。阿灯说「搬完那天晚上坐在纸箱上吃外卖」，精确。</div></div>
+        <div class="comment-item"><div class="nickname">小陈同学</div><div class="comment-text">异地恋那个连麦算高铁票太真实了，我跟我对象两年攒了厚厚一沓蓝色票根，后来发现12306能开电子发票，白攒了。</div></div>
+        <div class="comment-item"><div class="nickname">半糖去冰</div><div class="comment-text">树洞那个删前任微信的帖子看了，底下有人说「删了显得在意，不删又忍不住看」，我属于第三种：删了又加回来，重复五次。</div></div>
+        <div class="comment-item"><div class="nickname">阿岛本人</div><div class="comment-text">《合租室友的猫》第8节写完了，这周应该能更。猫没丢，还在客厅，就是室友搬走的时候把猫粮也带走了半袋。</div></div>
+        <div class="comment-item"><div class="nickname">不吃香菜</div><div class="comment-text">30岁转行那场连麦，有个嘉宾说「先别辞职，用下班时间试三个月」，听着像废话，但我照做了，三个月后确实冷静了不少。虽然最后还是转了。</div></div>
+        <div class="comment-item"><div class="nickname">凌晨四点睡</div><div class="comment-text">匿名倾诉里有个帖子说「今天被裁员了」，就一句话，底下78条回复，有人直接贴了自己的赔偿方案，N+1还是2N写得很清楚。比HR讲得明白。</div></div>
+        <div class="comment-item"><div class="nickname">麦当当</div><div class="comment-text">语音房「深夜KTV」进去听了一轮，有人唱《后来》唱到一半哭了，房主没打断，切了段钢琴伴奏。这要是在别的平台早被踢了。</div></div>
+        <div class="comment-item"><div class="nickname">窗台有只猫</div><div class="comment-text">深夜故事断更太常见了，我现在只看完结的，或者至少已经更了十节以上的。三节的坑不敢跳。</div></div>
+        <div class="comment-item"><div class="nickname">蓝色卡车</div><div class="comment-text">电台回放剪得不错，第13期开头那段口播明显是补录的，语气跟直播不一样，不过信息量够了。</div></div>
+        <div class="comment-item"><div class="nickname">小野</div><div class="comment-text">昨天第一次发匿名倾诉，说工作上的事，收到12个抱抱和3条建议。建议里有一条说「先算一下存款能撑几个月」，挺实在的。</div></div>
+        <div class="comment-item"><div class="nickname">水母不会飞</div><div class="comment-text">树洞有个帖子问「室友总用我的洗衣液怎么办」，底下回复全是「买瓶新的放自己柜子里」，笑死，真有用吗？</div></div>
+        <div class="comment-item"><div class="nickname">拿铁不加糖</div><div class="comment-text">连麦申请了三次都没被房主同意，可能是我头像太像微商了。换了个默认猫头像，第四次通过了。</div></div>
+        <div class="comment-item"><div class="nickname">半夜修路由器</div><div class="comment-text">「一个人吃饭」那期回放当背景音放了三遍，每次听到「外卖盒子攒到周末一起扔」都觉得自己被点名了。今天扔了六个。</div></div>
+        <div class="comment-item"><div class="nickname">风衣口袋</div><div class="comment-text">异地恋427天那个，我算了算我的，已经903天了。高铁票没算过，怕算完心里堵。</div></div>
+        <div class="comment-item"><div class="nickname">咸鱼翻身失败</div><div class="comment-text">深夜故事区有个写《凌晨便利店》的，更到第4节就没了，评论区全是催更的，作者最后一条回复停在10月29日说「这周一定」，然后就没有然后了。</div></div>
+      </div>
+    </section>
+
+    <!-- 板块9：相关资讯 -->
+    <section id="news" aria-labelledby="news-heading">
+      <div class="section-header">
+        <h2 id="news-heading">相关的几条动态</h2>
+      </div>
+      <ul class="news-list">
+        <li>
+          <div><span class="news-date">2026-11-08</span><span class="news-title">「凌晨三点的电台」第14期上线首日播放破万</span></div>
+          <div class="news-summary">主播阿灯在音频里提到下一期打算聊「一个人去医院」，征集连麦嘉宾的时间定在11月9日晚十点。</div>
+        </li>
+        <li>
+          <div><span class="news-date">2026-11-07</span><span class="news-title">情感树洞「要不要删前任微信」评论数过百</span></div>
+          <div class="news-summary">楼主在11月7日中午更新了一条补充：「还没删，但把朋友圈对他关了」。这条更新获得342个赞。</div>
+        </li>
+        <li>
+          <div><span class="news-date">2026-11-06</span><span class="news-title">深夜故事《合租室友的猫》作者回应断更</span></div>
+          <div class="news-summary">阿岛在评论区说第8节写了两个晚上，因为「写到猫蹲在纸箱旁边那段卡住了」，预计11月8日晚间发布。</div>
+        </li>
+        <li>
+          <div><span class="news-date">2026-11-05</span><span class="news-title">连麦话题「30岁转行」参与人数破五千</span></div>
+          <div class="news-summary">房主整理了当晚的三个案例发在话题广场，其中一位从会计转行做电工的听众提供了详细的考证时间表。</div>
+        </li>
+        <li>
+          <div><span class="news-date">2026-11-04</span><span class="news-title">匿名倾诉版块新增「抱抱」统计</span></div>
+          <div class="news-summary">发帖人可以查看自己收到的抱抱总数，不显示具体是谁点的。首日有67条帖子使用了这个功能。</div>
+        </li>
+        <li>
+          <div><span class="news-date">2026-11-02</span><span class="news-title">电台回放「一个人住的第5年」进入周榜前三</span></div>
+          <div class="news-summary">这期节目录制于10月30日，剪辑版时长38分钟，主播在结尾加了一段观众投稿的合租故事。</div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- 板块10：相关推荐 -->
+    <section id="related" aria-labelledby="related-heading">
+      <div class="section-header">
+        <h2 id="related-heading">顺着这些词往下翻</h2>
+      </div>
+      <div class="rec-tags">
+        <a href="/#voice">异地恋连麦现场</a>
+        <a href="/#radio">一个人吃饭电台回放</a>
+        <a href="/#treehole">删前任微信树洞帖</a>
+        <a href="/#story">合租室友的猫连载</a>
+        <a href="/#anonymous">裁员匿名倾诉</a>
+        <a href="/#topic">30岁转行话题</a>
+        <a href="/#voice">深夜KTV房录音</a>
+      </div>
+    </section>
+
+    <!-- 板块11：补充板块 - 热门榜单 + 时间线 -->
+    <section id="ranking" aria-labelledby="ranking-heading">
+      <div class="section-header">
+        <h2 id="ranking-heading">11月第一周热度榜</h2>
+        <p class="sub">按播放、互动、停留时长综合排</p>
+      </div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+        <div style="background: var(--surface); border-radius: var(--radius-card); padding: 1.2rem; box-shadow: var(--shadow-default);">
+          <h3 style="font-size: 0.95rem; color: var(--primary); margin-bottom: 0.8rem;">条目热度 Top 5</h3>
+          <ul class="compact-list">
+            <li><span class="item-name">凌晨三点的电台·第14期</span><span class="item-desc">1.2万播放</span></li>
+            <li><span class="item-name">树洞：删前任微信</span><span class="item-desc">2.3万浏览</span></li>
+            <li><span class="item-name">连麦：异地恋427天</span><span class="item-desc">8600 参与</span></li>
+            <li><span class="item-name">深夜故事：合租猫</span><span class="item-desc">6800 阅读</span></li>
+            <li><span class="item-name">匿名：被裁员</span><span class="item-desc">78 条回复</span></li>
+          </ul>
+        </div>
+        <div style="background: var(--surface); border-radius: var(--radius-card); padding: 1.2rem; box-shadow: var(--shadow-default);">
+          <h3 style="font-size: 0.95rem; color: var(--primary); margin-bottom: 0.8rem;">本周更新时间线</h3>
+          <ul class="timeline">
+            <li><span class="time">11月8日 01:10</span>语音房「深夜KTV」第16轮开麦</li>
+            <li><span class="time">11月7日 23:40</span>电台回放「一个人住的第5年」上首页</li>
+            <li><span class="time">11月7日 22:15</span>《合租室友的猫》第8节发布</li>
+            <li><span class="time">11月6日 18:10</span>第13期电台评论区破500</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 互动板块（投稿入口） -->
+    <section id="interact" aria-labelledby="interact-heading">
+      <div class="interact-banner">
+        <p>有想说的、想写的、想连麦聊的？树洞和深夜故事随时收稿。</p>
+        <a href="/#interact" class="btn-light">去投稿</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 右侧辅助栏 -->
+  <aside class="secondary-sidebar" aria-label="辅助信息">
+    <div class="sidebar-card">
+      <h3>连麦热榜</h3>
+      <div class="hot-item"><a href="/#voice">异地恋第427天</a><span class="hot-num">1</span></div>
+      <div class="hot-item"><a href="/#voice">30岁转行晚不晚</a><span class="hot-num">2</span></div>
+      <div class="hot-item"><a href="/#voice">深夜KTV第16轮</a><span class="hot-num">3</span></div>
+      <div class="hot-item"><a href="/#voice">一个人去医院</a><span class="hot-num">4</span></div>
+      <div class="hot-item"><a href="/#voice">合租那些破事</a><span class="hot-num">5</span></div>
+    </div>
+    <div class="sidebar-card">
+      <h3>树洞最新</h3>
+      <div class="hot-item"><a href="/#anonymous">今天被裁员了</a><span class="hot-num">11-08</span></div>
+      <div class="hot-item"><a href="/#treehole">室友用我洗衣液</a><span class="hot-num">11-08</span></div>
+      <div class="hot-item"><a href="/#treehole">要不要删前任微信</a><span class="hot-num">11-06</span></div>
+      <div class="hot-item"><a href="/#anonymous">异地恋要不要结束</a><span class="hot-num">11-05</span></div>
+    </div>
+    <div class="sidebar-card">
+      <h3>电台回放</h3>
+      <div class="hot-item"><a href="/#radio">第14期：一个人搬家</a><span class="hot-num">47min</span></div>
+      <div class="hot-item"><a href="/#radio">第13期：一个人吃饭</a><span class="hot-num">38min</span></div>
+      <div class="hot-item"><a href="/#radio">第12期：合租故事</a><span class="hot-num">52min</span></div>
+    </div>
+  </aside>
+</div>
+
+<!-- 页脚 -->
+<footer class="page-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo-text-footer">heiliao在线不打烊</div>
+      <p>覆盖语音连麦、匿名倾诉、深夜故事与电台回放。内容跨度从2026年10月中旬到11月8日，持续更新中。</p>
+    </div>
+    <div class="footer-col">
+      <h4>频道</h4>
+      <a href="/#voice">语音连麦</a>
+      <a href="/#treehole">情感树洞</a>
+      <a href="/#story">深夜故事</a>
+      <a href="/#anonymous">匿名倾诉</a>
+    </div>
+    <div class="footer-col">
+      <h4>发现</h4>
+      <a href="/#radio">电台回放</a>
+      <a href="/#topic">话题广场</a>
+      <a href="/#ranking">热度榜</a>
+      <a href="/#interact">投稿入口</a>
+    </div>
+    <div class="footer-col">
+      <h4>帮助</h4>
+      <a href="/#faq">常见问题</a>
+      <a href="/#newbie">新手指南</a>
+      <a href="/#guide">体验路径</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>内容为示例条目，基于2026年11月8日前后动态整理。</span>
+    <span>© 2026 heiliao在线不打烊</span>
+  </div>
+</footer>
+
+<!-- 回到顶部按钮 -->
+<button class="back-to-top" id="backToTop" aria-label="回到顶部">↑</button>
+
+<!-- 内联脚本 -->
+<script>
+  (function() {
+    // 移动端菜单
+    const menuBtn = document.getElementById('mobileMenuBtn');
+    const overlay = document.getElementById('mobileNavOverlay');
+    const mainNav = document.querySelector('.main-nav');
+    let menuOpen = false;
+
+    function toggleMenu(open) {
+      menuOpen = open;
+      if (mainNav) {
+        mainNav.style.display = open ? 'flex' : '';
+        mainNav.style.flexDirection = 'column';
+        mainNav.style.position = 'fixed';
+        mainNav.style.top = 'var(--sticky-offset)';
+        mainNav.style.left = '0';
+        mainNav.style.right = '0';
+        mainNav.style.background = 'var(--bg)';
+        mainNav.style.padding = '1.5rem';
+        mainNav.style.zIndex = '95';
+        mainNav.style.boxShadow = 'var(--shadow-hover)';
+        mainNav.style.gap = '0.8rem';
+        mainNav.style.borderBottom = '1px solid var(--divider)';
+      }
+      overlay.classList.toggle('active', open);
+      menuBtn.setAttribute('aria-expanded', open);
+    }
+
+    menuBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      toggleMenu(!menuOpen);
+    });
+
+    overlay.addEventListener('click', function() {
+      toggleMenu(false);
+    });
+
+    // 点击导航链接后收起
+    if (mainNav) {
+      mainNav.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+          if (window.innerWidth <= 1024) toggleMenu(false);
+        });
+      });
+    }
+
+    // 键盘 Esc 关闭
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && menuOpen) {
+        toggleMenu(false);
+      }
+    });
+
+    // 窗口尺寸变化重置
+    window.addEventListener('resize', function() {
+      if (window.innerWidth > 1024 && menuOpen) {
+        toggleMenu(false);
+        if (mainNav) {
+          mainNav.style.display = '';
+          mainNav.style.flexDirection = '';
+          mainNav.style.position = '';
+          mainNav.style.top = '';
+          mainNav.style.left = '';
+          mainNav.style.right = '';
+          mainNav.style.background = '';
+          mainNav.style.padding = '';
+          mainNav.style.zIndex = '';
+          mainNav.style.boxShadow = '';
+          mainNav.style.gap = '';
+          mainNav.style.borderBottom = '';
+        }
+      }
+    });
+
+    // 回到顶部
+    const backBtn = document.getElementById('backToTop');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > window.innerHeight) {
+        backBtn.classList.add('visible');
+      } else {
+        backBtn.classList.remove('visible');
+      }
+    });
+    backBtn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // 搜索本地筛选
+    const searchInput = document.getElementById('searchInput');
+    const noResult = document.getElementById('searchNoResult');
+    const featuredGrid = document.getElementById('featuredGrid');
+    const cards = featuredGrid ? featuredGrid.querySelectorAll('.content-card') : [];
+
+    function filterCards() {
+      const query = searchInput.value.trim().toLowerCase();
+      let visibleCount = 0;
+      cards.forEach(card => {
+        const searchData = (card.getAttribute('data-search') || '') + ' ' + card.textContent.toLowerCase();
+        if (!query || searchData.includes(query)) {
+          card.style.display = '';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+      noResult.style.display = (visibleCount === 0 && query) ? 'block' : 'none';
+    }
+
+    if (searchInput) {
+      searchInput.addEventListener('input', filterCards);
+    }
+
+    // 分类按钮点击效果（视觉反馈）
+    document.querySelectorAll('.category-pill').forEach(pill => {
+      pill.addEventListener('click', function() {
+        document.querySelectorAll('.category-pill').forEach(p => p.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+
+    // 左侧频道高亮（简单滚动监听）
+    const channelLinks = document.querySelectorAll('.channel-list a');
+    const sections = document.querySelectorAll('main section[id]');
+    if (channelLinks.length && sections.length) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+            channelLinks.forEach(link => {
+              link.classList.toggle('active', link.getAttribute('href') === '/#' + id);
+            });
+          }
+        });
+      }, { rootMargin: '-20% 0px -60% 0px' });
+      sections.forEach(s => observer.observe(s));
+    }
+  })();
+</script>
+
+<!-- 结构化数据 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "heiliao在线不打烊",
+  "description": "深夜互动与情感陪伴内容聚合，涵盖语音连麦、匿名倾诉、深夜故事与电台回放。",
+  "url": "https://example.com/",
+  "inLanguage": "zh-CN"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "语音连麦必须开麦吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "不是。进房默认是旁听状态，麦克风关闭。想说话点「申请上麦」，房主同意后才会打开。有的房设了「只读模式」，连申请按钮都没有，只能听。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "匿名倾诉的帖子会被熟人认出来吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "昵称是系统随机生成的，头像也不显示。但如果在帖子里写了具体公司名、小区名、车牌号，还是可能被定位。建议把「XX公司」写成「某互联网公司」，「XX花园」写成「东边那个小区」。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "深夜故事的作者为什么老断更？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "多数作者白天有正职，写故事是晚上挤时间。更新频率通常在一周两到三次，遇到加班或出差就断。看一部连载前先翻一下历史更新间隔，如果之前就有过停更一个月的记录，后面也大概率会停。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "电台回放和直播的内容差多少？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "一般差30%—50%。剪掉的主要是连麦等待、重复表达和冷场。部分回放会补录一段开头介绍和结尾总结，直播时没有。所以同一期节目，回放听起来更紧凑，直播更有现场感。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "在树洞发帖和发匿名倾诉有什么区别？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "树洞偏向长文，有标题，可以分段，适合写完整经历。匿名倾诉是短文字，一条不超过300字，发出来直接挂在时间线上，更像随手写一句。回复形式也不同：树洞是楼层评论，匿名倾诉是抱抱和短句。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "连麦时被人打断怎么办？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "房主有静音权限。可以先在公屏打字「让我说完」，房主看到一般会处理。如果房主不管，退出房间换一个就行。多数主题房会在开场说明「每人每次发言三分钟」，提前说好规则能减少打断。"
+      }
+    }
+  ]
+}
+</script>
+</body>
+                                    </html>
