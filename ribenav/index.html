@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>日本AV番号大全 - 番号索引与作品资料</title>
+<meta name="description" content="日本AV番号大全整理常见厂牌番号规则、作品条目资料与更新记录，涵盖S1、Moodyz、IP社、Madonna等片商编码方式，适合查番号、核对发行信息与了解作品分类的读者参考。">
+<meta name="keywords" content="日本AV番号大全">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231c2b3a'/%3E%3Ctext x='32' y='43' font-size='28' font-family='Arial' font-weight='bold' fill='%23e8b04b' text-anchor='middle'%3E番%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --main:#1c2b3a;
+  --main-light:#2e4257;
+  --main-deep:#101a24;
+  --accent:#c8952f;
+  --accent-soft:#f2e3c4;
+  --bg:#f4f2ed;
+  --panel:#ffffff;
+  --panel-2:#eceae3;
+  --text:#1d2228;
+  --text-2:#4c565f;
+  --text-3:#8a9098;
+  --line:#dcd8cf;
+  --radius-card:10px;
+  --radius-btn:6px;
+  --radius-tag:4px;
+  --shadow:0 1px 2px rgba(16,26,36,.06),0 2px 8px rgba(16,26,36,.05);
+  --shadow-hover:0 4px 14px rgba(16,26,36,.14);
+  --font:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+  --sticky-h:96px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;scroll-padding-top:var(--sticky-h);}
+body{
+  margin:0;font-family:var(--font);background:var(--bg);color:var(--text);
+  font-size:15px;line-height:1.75;-webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none;}
+h1,h2,h3,h4{margin:0;line-height:1.35;}
+p{margin:0 0 12px;}
+ul,ol{margin:0 0 12px;padding-left:1.2em;}
+li{margin-bottom:6px;}
+img{display:block;max-width:100%;}
+
+/* ===== 吸顶区 ===== */
+.sticky-wrap{position:sticky;top:0;z-index:100;}
+.notice-bar{
+  background:var(--main-deep);color:#dbe2e8;font-size:12.5px;
+  display:flex;align-items:center;gap:14px;padding:7px 18px;
+  overflow:hidden;white-space:nowrap;
+}
+.notice-bar .nb-brand{
+  font-weight:700;color:var(--accent);flex:none;letter-spacing:.5px;
+}
+.notice-bar .nb-items{display:flex;gap:22px;overflow:hidden;flex:1;}
+.notice-bar .nb-item{display:flex;gap:6px;align-items:baseline;min-width:0;}
+.notice-bar .nb-date{color:#8fa3b5;flex:none;font-variant-numeric:tabular-nums;}
+.notice-bar .nb-text{overflow:hidden;text-overflow:ellipsis;}
+@media(max-width:740px){
+  .notice-bar{font-size:11.5px;padding:6px 12px;gap:10px;}
+  .notice-bar .nb-items .nb-item:nth-child(n+2){display:none;}
+}
+
+.site-header{
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.header-inner{
+  max-width:1360px;margin:0 auto;padding:0 18px;
+  display:flex;align-items:center;gap:20px;height:62px;
+}
+.brand{display:flex;align-items:center;gap:9px;flex:none;}
+.brand-logo{width:32px;height:32px;flex:none;}
+.brand-text{font-size:17px;font-weight:800;color:var(--main);letter-spacing:.3px;white-space:nowrap;}
+.main-nav{display:flex;gap:4px;flex:1;overflow:hidden;}
+.main-nav a{
+  font-size:13.5px;color:var(--text-2);padding:6px 10px;border-radius:var(--radius-btn);
+  white-space:nowrap;transition:background .18s,color .18s;
+}
+.main-nav a:hover{background:var(--panel-2);color:var(--main);}
+.header-tools{display:flex;align-items:center;gap:10px;flex:none;}
+.search-box{position:relative;}
+.search-box input{
+  width:180px;padding:7px 12px;border:1px solid var(--line);border-radius:var(--radius-btn);
+  font-size:13px;font-family:var(--font);background:var(--bg);color:var(--text);outline:none;
+  transition:border-color .18s,box-shadow .18s;
+}
+.search-box input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(200,149,47,.18);background:#fff;}
+.search-result{
+  position:absolute;top:calc(100% + 6px);left:0;right:0;min-width:260px;
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius-card);
+  box-shadow:var(--shadow-hover);max-height:320px;overflow:auto;z-index:120;
+  display:none;padding:6px;
+}
+.search-result.open{display:block;}
+.search-result .sr-item{display:block;padding:7px 10px;border-radius:var(--radius-btn);font-size:13px;color:var(--text-2);}
+.search-result .sr-item:hover{background:var(--panel-2);color:var(--main);}
+.search-result .sr-empty{padding:12px 10px;font-size:13px;color:var(--text-3);}
+.burger{
+  display:none;width:38px;height:38px;border:1px solid var(--line);border-radius:var(--radius-btn);
+  background:#fff;cursor:pointer;align-items:center;justify-content:center;padding:0;
+}
+.burger svg{width:18px;height:18px;stroke:var(--main);}
+@media(max-width:1024px){
+  .main-nav{display:none;}
+  .burger{display:flex;}
+  .search-box input{width:130px;}
+}
+@media(max-width:740px){
+  .header-inner{height:56px;gap:12px;padding:0 12px;}
+  .brand-text{font-size:14.5px;white-space:normal;line-height:1.2;}
+  .search-box input{width:96px;font-size:12px;}
+  :root{--sticky-h:88px;}
+}
+
+/* 抽屉菜单 */
+.drawer-mask{
+  position:fixed;inset:0;background:rgba(16,26,36,.5);opacity:0;visibility:hidden;
+  transition:opacity .22s,visibility .22s;z-index:200;
+}
+.drawer-mask.open{opacity:1;visibility:visible;}
+.drawer{
+  position:fixed;top:0;right:0;bottom:0;width:min(78vw,300px);background:#fff;z-index:210;
+  transform:translateX(100%);transition:transform .24s ease;padding:20px 18px;overflow-y:auto;
+  box-shadow:-4px 0 20px rgba(16,26,36,.18);
+}
+.drawer.open{transform:translateX(0);}
+.drawer h3{font-size:13px;color:var(--text-3);letter-spacing:1px;margin-bottom:10px;font-weight:600;}
+.drawer a{display:block;padding:9px 10px;border-radius:var(--radius-btn);font-size:14.5px;color:var(--text-2);}
+.drawer a:hover{background:var(--panel-2);color:var(--main);}
+.drawer-close{
+  position:absolute;top:14px;right:14px;width:34px;height:34px;border:1px solid var(--line);
+  background:#fff;border-radius:var(--radius-btn);cursor:pointer;font-size:18px;color:var(--text-2);
+  line-height:1;display:flex;align-items:center;justify-content:center;
+}
+.drawer-close:hover{background:var(--panel-2);}
+
+/* ===== 首屏 ===== */
+.hero{
+  position:relative;overflow:hidden;
+  background:linear-gradient(135deg,var(--main-deep) 0%,var(--main) 58%,#33495f 100%);
+  color:#eef2f5;
+}
+.hero-deco{position:absolute;inset:0;pointer-events:none;}
+.hero-inner{
+  position:relative;max-width:1360px;margin:0 auto;padding:52px 18px 46px;
+  display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:40px;align-items:center;
+}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:7px;font-size:12.5px;color:var(--accent-soft);
+  border:1px solid rgba(232,176,75,.45);border-radius:999px;padding:4px 12px;margin-bottom:16px;
+  background:rgba(232,176,75,.08);
+}
+.hero-tag i{width:6px;height:6px;border-radius:50%;background:var(--accent);display:inline-block;animation:pulse 2.4s ease-in-out infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.35;}}
+.hero h1{
+  font-size:clamp(26px,3.4vw,40px);font-weight:800;letter-spacing:.5px;margin-bottom:14px;color:#fff;
+}
+.hero-desc{font-size:15px;color:#b9c6d2;max-width:640px;line-height:1.85;margin-bottom:22px;}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;}
+.btn{
+  display:inline-flex;align-items:center;gap:6px;padding:9px 20px;border-radius:var(--radius-btn);
+  font-size:14px;font-weight:600;transition:transform .18s,box-shadow .18s,background .18s;
+  border:1px solid transparent;cursor:pointer;font-family:var(--font);
+}
+.btn-primary{background:var(--accent);color:#1a1206;}
+.btn-primary:hover{background:#dba844;box-shadow:0 4px 14px rgba(200,149,47,.4);transform:translateY(-2px);}
+.btn-ghost{background:rgba(255,255,255,.08);color:#e6ecf1;border-color:rgba(255,255,255,.22);}
+.btn-ghost:hover{background:rgba(255,255,255,.16);transform:translateY(-2px);}
+.hero-panel{
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);
+  border-radius:14px;padding:18px;backdrop-filter:blur(4px);
+}
+.hero-panel h4{font-size:12.5px;color:#9fb0c0;font-weight:600;letter-spacing:1px;margin-bottom:12px;}
+.hero-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
+.hero-stat{background:rgba(255,255,255,.05);border-radius:var(--radius-card);padding:10px 12px;}
+.hero-stat b{display:block;font-size:20px;color:var(--accent);font-variant-numeric:tabular-nums;line-height:1.3;}
+.hero-stat span{font-size:12px;color:#93a4b4;}
+@media(max-width:1024px){
+  .hero-inner{grid-template-columns:1fr;gap:28px;padding:40px 18px;}
+  .hero-panel{max-width:420px;}
+}
+@media(max-width:740px){
+  .hero-inner{padding:32px 14px 30px;}
+  .hero-desc{font-size:14px;}
+}
+
+/* ===== 布局 ===== */
+.layout{
+  max-width:1360px;margin:0 auto;padding:34px 18px 0;
+  display:grid;grid-template-columns:200px minmax(0,1fr) 280px;gap:28px;align-items:start;
+}
+@media(max-width:1024px){
+  .layout{grid-template-columns:minmax(0,1fr) 270px;gap:24px;}
+  .channel-col{display:none;}
+}
+@media(max-width:740px){
+  .layout{grid-template-columns:1fr;padding:22px 12px 0;}
+  .side-col{order:3;}
+}
+
+/* 左频道栏 */
+.channel-col{position:sticky;top:var(--sticky-h);}
+.channel-card{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-card);
+  padding:14px 10px;box-shadow:var(--shadow);
+}
+.channel-card h3{
+  font-size:11.5px;color:var(--text-3);letter-spacing:1.4px;font-weight:600;
+  padding:0 8px 8px;
+}
+.channel-card a{
+  display:flex;align-items:center;justify-content:space-between;gap:6px;
+  padding:7px 9px;border-radius:var(--radius-btn);font-size:13.5px;color:var(--text-2);
+  transition:background .16s,color .16s;
+}
+.channel-card a:hover{background:var(--panel-2);color:var(--main);}
+.channel-card a.active{background:var(--accent-soft);color:#7a5612;font-weight:600;}
+.channel-card a .cnt{font-size:11px;color:var(--text-3);font-variant-numeric:tabular-nums;}
+
+/* 主内容 */
+.section{margin-bottom:44px;scroll-margin-top:var(--sticky-h);}
+.section-head{margin-bottom:18px;}
+.section-head h2{
+  font-size:20px;font-weight:800;color:var(--main);letter-spacing:.3px;
+  display:flex;align-items:center;gap:9px;
+}
+.section-head h2::before{
+  content:"";width:4px;height:18px;border-radius:2px;background:var(--accent);flex:none;
+}
+.section-sub{font-size:13px;color:var(--text-3);margin-top:6px;padding-left:13px;}
+
+/* 概览 */
+.overview-box{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-card);
+  padding:22px 24px;box-shadow:var(--shadow);
+}
+.overview-box p{color:var(--text-2);font-size:14.5px;line-height:1.9;}
+.overview-box p:last-child{margin-bottom:0;}
+.overview-box strong{color:var(--main);}
+
+/* 精选卡片 */
+.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(226px,1fr));gap:16px;}
+.card{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-card);
+  overflow:hidden;box-shadow:var(--shadow);transition:box-shadow .2s,transform .2s;
+  display:flex;flex-direction:column;
+}
+.card:hover{box-shadow:var(--shadow-hover);transform:translateY(-3px);}
+.card-img{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--panel-2);}
+.card-img img{width:100%;height:100%;object-fit:cover;transition:transform .3s;}
+.card:hover .card-img img{transform:scale(1.04);}
+.card-badge{
+  position:absolute;top:8px;left:8px;background:rgba(16,26,36,.82);color:#e8b04b;
+  font-size:11px;padding:2px 8px;border-radius:var(--radius-tag);letter-spacing:.4px;
+}
+.card-body{padding:13px 14px 15px;display:flex;flex-direction:column;gap:8px;flex:1;}
+.card-title{font-size:14.5px;font-weight:700;color:var(--main);line-height:1.45;}
+.card-note{font-size:12.5px;color:var(--text-2);line-height:1.65;flex:1;}
+.tag-row{display:flex;flex-wrap:wrap;gap:5px;}
+.tag{
+  font-size:11px;color:#6b5a34;background:var(--accent-soft);border-radius:var(--radius-tag);
+  padding:1px 7px;line-height:1.7;white-space:nowrap;
+}
+.tag.gray{background:var(--panel-2);color:var(--text-3);}
+.card-meta{
+  display:flex;justify-content:space-between;align-items:center;font-size:11.5px;color:var(--text-3);
+  border-top:1px solid var(--line);padding-top:8px;font-variant-numeric:tabular-nums;
+}
+.card-meta b{color:var(--accent);font-weight:700;}
+
+/* 列表 */
+.upd-list{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-card);overflow:hidden;box-shadow:var(--shadow);}
+.upd-item{
+  display:flex;gap:14px;padding:13px 18px;border-bottom:1px solid var(--line);
+  transition:background .16s;align-items:baseline;
+}
+.upd-item:last-child{border-bottom:none;}
+.upd-item:hover{background:#faf9f5;}
+.upd-date{font-size:12px;color:var(--text-3);flex:none;width:64px;font-variant-numeric:tabular-nums;}
+.upd-main{flex:1;min-width:0;}
+.upd-name{font-size:14px;font-weight:600;color:var(--main);}
+.upd-name .code{color:var(--accent);font-family:ui-monospace,Menlo,monospace;font-size:12.5px;margin-left:6px;font-weight:700;}
+.upd-desc{font-size:12.5px;color:var(--text-2);margin-top:2px;line-height:1.6;}
+@media(max-width:740px){
+  .upd-item{flex-wrap:wrap;gap:4px 10px;padding:11px 14px;}
+  .upd-date{width:auto;}
+  .upd-main{flex-basis:100%;}
+}
+
+/* 分类入口 */
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(158px,1fr));gap:12px;}
+.cat-item{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-card);
+  padding:14px 14px 13px;box-shadow:var(--shadow);transition:border-color .18s,box-shadow .18s,transform .18s;
+  display:block;
+}
+.cat-item:hover{border-color:var(--accent);box-shadow:var(--shadow-hover);transform:translateY(-2px);}
+.cat-item b{display:block;font-size:14px;color:var(--main);margin-bottom:3px;}
+.cat-item span{font-size:12px;color:var(--text-3);line-height:1.5;}
+.cat-item em{font-style:normal;display:inline-block;margin-top:7px;font-size:11px;color:var(--accent);font-variant-numeric:tabular-nums;}
+
+/* 深度解析 */
+.article-box{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-card);
+  padding:26px 28px;box-shadow:var(--shadow);max-width:860px;
+}
+.article-box h3{
+  font-size:16.5px;color:var(--main);margin:24px 0 10px;font-weight:800;
+  padding-left:10px;border-left:3px solid var(--accent);
+}
+.article-box h3:first-child{margin-top:0;}
+.article-box p{font-size:14.5px;color:var(--text-2);line-height:1.95;}
+.article-box ul{color:var(--text-2);font-size:14px;line-height:1.9;padding-left:1.3em;}
+.article-box li::marker{color:var(--accent);}
+.article-box .quote{
+  border-left:3px solid var(--line);padding:2px 0 2px 14px;color:var(--text-3);font-size:13.5px;margin:14px 0;
+}
+.article-box .num-list{counter-reset:n;list-style:none;padding-left:0;}
+.article-box .num-list li{
+  counter-increment:n;position:relative;padding-left:30px;margin-bottom:9px;
+}
+.article-box .num-list li::before{
+  content:counter(n);position:absolute;left:0;top:2px;width:20px;height:20px;border-radius:50%;
+  background:var(--main);color:#fff;font-size:11.5px;display:flex;align-items:center;justify-content:center;
+  font-weight:700;
+}
+@media(max-width:740px){.article-box{padding:20px 16px;}}
+
+/* 表格 */
+.rule-table{width:100%;border-collapse:collapse;font-size:13px;margin:14px 0;}
+.rule-table th,.rule-table td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top;}
+.rule-table th{background:var(--panel-2);color:var(--main);font-weight:700;font-size:12.5px;}
+.rule-table td{color:var(--text-2);}
+.rule-table code{font-family:ui-monospace,Menlo,monospace;color:var(--accent);font-weight:700;font-size:12.5px;}
+.table-wrap{overflow-x:auto;}
+
+/* 指南步骤 */
+.guide-steps{display:grid;gap:14px;}
+.guide-step{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-card);
+  padding:16px 18px;box-shadow:var(--shadow);display:flex;gap:14px;
+}
+.guide-step .step-no{
+  flex:none;width:32px;height:32px;border-radius:50%;background:var(--main);color:var(--accent);
+  font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;
+}
+.guide-step h4{font-size:14.5px;color:var(--main);margin-bottom:4px;}
+.guide-step p{font-size:13.5px;color:var(--text-2);margin:0;line-height:1.75;}
+
+/* FAQ */
+.faq-list{display:grid;gap:10px;}
+.faq-item{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-card);
+  box-shadow:var(--shadow);overflow:hidden;
+}
+.faq-item summary{
+  padding:13px 18px;font-size:14px;font-weight:600;color:var(--main);cursor:pointer;
+  list-style:none;display:flex;justify-content:space-between;align-items:center;gap:10px;
+}
+.faq-item summary::-webkit-details-marker{display:none;}
+.faq-item summary::after{
+  content:"+";font-size:17px;color:var(--accent);font-weight:400;flex:none;transition:transform .2s;
+}
+.faq-item[open] summary::after{transform:rotate(45deg);}
+.faq-item .faq-ans{padding:0 18px 15px;font-size:13.5px;color:var(--text-2);line-height:1.85;}
+.faq-item summary:hover{background:#faf9f5;}
+
+/* 评论 */
+.comment-list{display:grid;gap:11px;}
+.comment{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-card);
+  padding:12px 16px;box-shadow:var(--shadow);
+}
+.comment-top{display:flex;align-items:center;gap:8px;margin-bottom:5px;flex-wrap:wrap;}
+.avatar{
+  width:24px;height:24px;border-radius:50%;flex:none;color:#fff;font-size:11px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+}
+.comment-name{font-size:13px;font-weight:600;color:var(--main);}
+.comment-time{font-size:11px;color:var(--text-3);margin-left:auto;font-variant-numeric:tabular-nums;}
+.comment-text{font-size:13.5px;color:var(--text-2);line-height:1.75;}
+
+/* 资讯 */
+.news-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px;}
+.news-item{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-card);
+  padding:15px 17px;box-shadow:var(--shadow);transition:box-shadow .18s,border-color .18s;
+}
+.news-item:hover{box-shadow:var(--shadow-hover);border-color:#c9c2b4;}
+.news-date{font-size:11.5px;color:var(--accent);font-weight:700;margin-bottom:5px;font-variant-numeric:tabular-nums;}
+.news-title{font-size:14.5px;font-weight:700;color:var(--main);margin-bottom:6px;line-height:1.5;}
+.news-sum{font-size:12.5px;color:var(--text-2);line-height:1.7;}
+
+/* 推荐标签 */
+.reco-wrap{display:flex;flex-wrap:wrap;gap:9px;}
+.reco-tag{
+  display:inline-flex;align-items:center;gap:6px;background:var(--panel);border:1px solid var(--line);
+  border-radius:999px;padding:6px 15px;font-size:13px;color:var(--text-2);
+  transition:border-color .16s,color .16s,background .16s;
+}
+.reco-tag:hover{border-color:var(--accent);color:var(--main);background:#fdfaf3;}
+.reco-tag b{color:var(--accent);font-weight:700;font-variant-numeric:tabular-nums;font-size:11.5px;}
+
+/* 榜单 */
+.rank-list{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-card);overflow:hidden;box-shadow:var(--shadow);}
+.rank-item{display:flex;gap:12px;padding:11px 16px;border-bottom:1px solid var(--line);align-items:center;}
+.rank-item:last-child{border-bottom:none;}
+.rank-no{
+  width:22px;height:22px;flex:none;border-radius:5px;background:var(--panel-2);color:var(--text-3);
+  font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;
+  font-variant-numeric:tabular-nums;
+}
+.rank-item:nth-child(1) .rank-no{background:var(--accent);color:#fff;}
+.rank-item:nth-child(2) .rank-no{background:#8a94a0;color:#fff;}
+.rank-item:nth-child(3) .rank-no{background:#b08d5a;color:#fff;}
+.rank-main{flex:1;min-width:0;}
+.rank-name{font-size:13.5px;color:var(--main);font-weight:600;}
+.rank-sub{font-size:11.5px;color:var(--text-3);}
+.rank-score{font-size:13px;color:var(--accent);font-weight:700;font-variant-numeric:tabular-nums;flex:none;}
+
+/* 投稿 */
+.submit-box{
+  background:linear-gradient(135deg,#26384a,#1c2b3a);color:#e8eef3;border-radius:var(--radius-card);
+  padding:24px 26px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:center;
+  box-shadow:var(--shadow);
+}
+.submit-box h3{font-size:17px;color:#fff;margin-bottom:7px;}
+.submit-box p{font-size:13.5px;color:#a9bac9;margin:0;line-height:1.75;}
+.submit-box .btn-primary{flex:none;}
+@media(max-width:740px){.submit-box{grid-template-columns:1fr;padding:20px 18px;}}
+
+/* 侧栏 */
+.side-col{display:grid;gap:20px;position:sticky;top:var(--sticky-h);}
+.side-panel{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-card);
+  padding:16px;box-shadow:var(--shadow);
+}
+.side-panel h3{
+  font-size:13px;color:var(--main);font-weight:800;letter-spacing:.3px;margin-bottom:12px;
+  display:flex;align-items:center;gap:7px;
+}
+.side-panel h3::before{content:"";width:3px;height:13px;background:var(--accent);border-radius:2px;}
+.side-list{list-style:none;padding:0;margin:0;display:grid;gap:9px;}
+.side-list li{display:flex;gap:9px;align-items:baseline;font-size:13px;line-height:1.55;}
+.side-list .s-no{font-size:11.5px;font-weight:800;color:var(--text-3);flex:none;width:15px;font-variant-numeric:tabular-nums;}
+.side-list li:nth-child(-n+3) .s-no{color:var(--accent);}
+.side-list a{color:var(--text-2);transition:color .16s;}
+.side-list a:hover{color:var(--accent);}
+.side-note{font-size:11.5px;color:var(--text-3);margin-top:10px;padding-top:9px;border-top:1px solid var(--line);line-height:1.6;}
+.side-tags{display:flex;flex-wrap:wrap;gap:7px;}
+.side-tags a{
+  font-size:12px;color:var(--text-2);background:var(--panel-2);border-radius:var(--radius-tag);
+  padding:3px 9px;transition:background .16s,color .16s;
+}
+.side-tags a:hover{background:var(--accent-soft);color:#7a5612;}
+@media(max-width:1024px){
+  .side-col{position:static;}
+}
+@media(max-width:740px){
+  .side-col{grid-template-columns:1fr;gap:14px;}
+}
+
+/* 页尾 */
+.site-footer{background:var(--main-deep);color:#9aabb9;margin-top:50px;padding:38px 0 0;}
+.footer-inner{max-width:1360px;margin:0 auto;padding:0 18px;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:28px;}
+.footer-brand{display:flex;align-items:center;gap:9px;margin-bottom:12px;}
+.footer-brand .brand-text{color:#e8eef3;font-size:16px;}
+.footer-desc{font-size:12.5px;line-height:1.85;color:#8798a7;margin-bottom:14px;}
+.footer-col h4{font-size:12.5px;color:#d3dde5;margin-bottom:11px;letter-spacing:.6px;font-weight:700;}
+.footer-col a{display:block;font-size:12.5px;color:#8798a7;padding:3px 0;transition:color .16s;}
+.footer-col a:hover{color:var(--accent);}
+.footer-bottom{
+  max-width:1360px;margin:26px auto 0;padding:16px 18px;border-top:1px solid rgba(255,255,255,.09);
+  font-size:11.5px;color:#6f8091;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;line-height:1.7;
+}
+@media(max-width:1024px){.footer-inner{grid-template-columns:1fr 1fr;}}
+@media(max-width:740px){.footer-inner{grid-template-columns:1fr;gap:22px;}}
+
+/* 回顶 */
+.back-top{
+  position:fixed;right:20px;bottom:22px;width:42px;height:42px;border-radius:50%;
+  background:var(--main);color:#fff;border:none;cursor:pointer;box-shadow:var(--shadow-hover);
+  display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;
+  transition:opacity .2s,visibility .2s,transform .2s;z-index:90;
+}
+.back-top.show{opacity:1;visibility:visible;}
+.back-top:hover{transform:translateY(-3px);background:var(--main-light);}
+.back-top svg{width:17px;height:17px;stroke:#fff;fill:none;stroke-width:2.4;}
+@media(max-width:740px){.back-top{right:12px;bottom:14px;width:38px;height:38px;}}
+
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:3px;}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important;}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<!-- 吸顶公告条 + 页头 -->
+<div class="sticky-wrap">
+  <div class="notice-bar">
+    <span class="nb-brand">日本AV番号大全</span>
+    <div class="nb-items">
+      <div class="nb-item"><span class="nb-date">11-08</span><span class="nb-text">IP社 IPZZ-418 发行信息补录完成</span></div>
+      <div class="nb-item"><span class="nb-date">11-06</span><span class="nb-text">Moodyz 11 月档期共 14 条新番号入库</span></div>
+      <div class="nb-item"><span class="nb-date">11-04</span><span class="nb-text">S1 番号规则页更新，补 SNIS 系列断档说明</span></div>
+    </div>
+  </div>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="日本AV番号大全 首页">
+        <svg class="brand-logo" viewBox="0 0 64 64" role="img" aria-label="番号索引图形标志">
+          <rect width="64" height="64" rx="14" fill="#1c2b3a"/>
+          <rect x="12" y="16" width="40" height="6" rx="3" fill="#c8952f"/>
+          <rect x="12" y="29" width="26" height="6" rx="3" fill="#e8eef3"/>
+          <rect x="12" y="42" width="34" height="6" rx="3" fill="#7c8fa1"/>
+        </svg>
+        <span class="brand-text">日本AV番号大全</span>
+      </a>
+      <nav class="main-nav" aria-label="主题导航">
+        <a href="#overview">领域概览</a>
+        <a href="#featured">精选条目</a>
+        <a href="#updates">更新动态</a>
+        <a href="#categories">分类入口</a>
+        <a href="#deep">番号解析</a>
+        <a href="#guide">查阅指南</a>
+        <a href="#faq">常见问答</a>
+        <a href="#comments">用户评论</a>
+        <a href="#news">相关资讯</a>
+        <a href="#rank">热门榜单</a>
+      </nav>
+      <div class="header-tools">
+        <div class="search-box">
+          <input type="search" id="siteSearch" placeholder="搜番号 / 片商 / 类型" aria-label="站内搜索番号、片商或类型">
+          <div class="search-result" id="searchResult" role="listbox" aria-live="polite"></div>
+        </div>
+        <button class="burger" id="burgerBtn" aria-label="打开导航菜单" aria-expanded="false" aria-controls="drawer">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+</div>
+
+<!-- 抽屉菜单 -->
+<div class="drawer-mask" id="drawerMask"></div>
+<nav class="drawer" id="drawer" aria-label="移动端导航" aria-hidden="true">
+  <button class="drawer-close" id="drawerClose" aria-label="关闭导航菜单">×</button>
+  <h3>内容频道</h3>
+  <a href="#overview">领域概览</a>
+  <a href="#featured">精选条目</a>
+  <a href="#updates">更新动态</a>
+  <a href="#categories">分类入口</a>
+  <a href="#deep">番号解析</a>
+  <a href="#guide">查阅指南</a>
+  <a href="#faq">常见问答</a>
+  <a href="#comments">用户评论</a>
+  <a href="#news">相关资讯</a>
+  <a href="#reco">相关推荐</a>
+  <a href="#rank">热门榜单</a>
+  <a href="#submit">投稿互动</a>
+</nav>
+
+<main id="top">
+  <!-- 首屏 -->
+  <section class="hero" aria-label="主题首屏">
+    <svg class="hero-deco" viewBox="0 0 800 400" preserveAspectRatio="none" aria-hidden="true">
+      <defs>
+        <pattern id="gridp" width="40" height="40" patternUnits="userSpaceOnUse">
+          <path d="M40 0H0V40" fill="none" stroke="rgba(255,255,255,.045)" stroke-width="1"/>
+        </pattern>
+      </defs>
+      <rect width="800" height="400" fill="url(#gridp)"/>
+      <circle cx="700" cy="80" r="150" fill="rgba(200,149,47,.10)"/>
+      <circle cx="620" cy="320" r="90" fill="rgba(200,149,47,.06)"/>
+    </svg>
+    <div class="hero-inner">
+      <div>
+        <span class="hero-tag"><i></i>番号索引 · 片商编码 · 发行记录</span>
+        <h1>日本AV番号大全</h1>
+        <p class="hero-desc">按片商前缀索引番号，核对发行日期、系列归属与作品类型。收录 S1、Moodyz、IP社、Madonna、FALENO 等常见厂牌的编码规则与条目资料，适合按番号查片、比对同系列作品、确认某部作品是否为合辑或重发时使用。</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#categories">按片商查番号</a>
+          <a class="btn btn-ghost" href="#deep">看懂番号规则</a>
+        </div>
+      </div>
+      <div class="hero-panel">
+        <h4>索引规模（截至 2026-11-08）</h4>
+        <div class="hero-stats">
+          <div class="hero-stat"><b>3,240</b><span>已整理番号条目</span></div>
+          <div class="hero-stat"><b>18</b><span>覆盖片商前缀</span></div>
+          <div class="hero-stat"><b>46</b><span>本周新增与修订</span></div>
+          <div class="hero-stat"><b>11-08</b><span>最近一次规则核对</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="layout">
+    <!-- 左频道栏 -->
+    <aside class="channel-col">
+      <div class="channel-card">
+        <h3>内容频道</h3>
+        <a href="#overview">领域概览 <span class="cnt">01</span></a>
+        <a href="#featured">精选条目 <span class="cnt">02</span></a>
+        <a href="#updates">更新动态 <span class="cnt">03</span></a>
+        <a href="#categories">分类入口 <span class="cnt">04</span></a>
+        <a href="#deep">番号解析 <span class="cnt">05</span></a>
+        <a href="#guide">查阅指南 <span class="cnt">06</span></a>
+        <a href="#faq">常见问答 <span class="cnt">07</span></a>
+        <a href="#comments">用户评论 <span class="cnt">08</span></a>
+        <a href="#news">相关资讯 <span class="cnt">09</span></a>
+        <a href="#reco">相关推荐 <span class="cnt">10</span></a>
+        <a href="#rank">热门榜单 <span class="cnt">11</span></a>
+        <a href="#submit">投稿互动 <span class="cnt">12</span></a>
+      </div>
+    </aside>
+
+    <!-- 主内容 -->
+    <div class="main-col">
+
+      <!-- 1 领域概览 -->
+      <section class="section" id="overview">
+        <div class="section-head">
+          <h2>番号体系与当前值得关注的方向</h2>
+          <p class="section-sub">片商前缀、系列编号、发行批次三套信息如何交叉</p>
+        </div>
+        <div class="overview-box">
+          <p>所谓番号，是日本成人影像发行时给单部作品编的标识符，通常由“片商字母前缀 + 数字序号”组成，例如 S1 的 <strong>SSIS</strong>、Moodyz 的 <strong>MIAA</strong>、IP社的 <strong>IPZZ</strong>、Madonna 的 <strong>JUL</strong>。番号本身不带内容描述，但它决定了作品归属哪家片商、哪条系列、哪一批发行，因此查番号往往等于查一条完整的发行档案。</p>
+          <p>2026 年下半年，几家大厂的前缀体系都有调整。S1 在 9 月之后把部分新人出道作从 SNIS 迁到 SSIS 批次，导致同一系列出现跨前缀的断档；Moodyz 沿用 MIAA 主线的同时，把 VR 与合辑拆到 MIDA 子前缀；IP社则把“IPX”旧号段逐步并入 IPZZ，旧号仍可查，但新作统一走新前缀。这些变化直接影响按号检索的准确率。</p>
+          <p>值得关注的方向大致分四类：<strong>新人出道作</strong>，通常对应片商当年主推、宣传资源集中；<strong>系列续作</strong>，编号连续、题材固定，适合按系列追；<strong>合辑与重发</strong>，多为旧作重新打包，番号常带 B（Best）或 C（Collection）标识；<strong>限定与企划作</strong>，档期短、发行量小，番号往往夹在常规批次之间。核对时优先看发行日期与系列归属，再看是否为合辑，能避开大部分误判。</p>
+        </div>
+      </section>
+
+      <!-- 2 精选条目 -->
+      <section class="section" id="featured">
+        <div class="section-head">
+          <h2>本期精选番号条目</h2>
+          <p class="section-sub">按片商、系列与发行批次挑选的具体作品</p>
+        </div>
+        <div class="card-grid">
+          <article class="card">
+            <div class="card-img"><span class="card-badge">S1 · SSIS</span><img src="https://picsum.photos/seed/ssis418a/400/300" width="400" height="300" loading="lazy" alt="S1 新人出道作 SSIS-418 封面示意"></div>
+            <div class="card-body">
+              <h3 class="card-title">SSIS-418 新人出道作</h3>
+              <p class="card-note">2026 年 10 月档期的新人首作，S1 官方页标注为一对一单场景，时长 150 分钟，附 20 分钟花絮。</p>
+              <div class="tag-row"><span class="tag">新人出道</span><span class="tag">单场景</span><span class="tag gray">SSIS 批次</span></div>
+              <div class="card-meta"><span>发行 2026-10-24</span><b>热度 9.4</b></div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-img"><span class="card-badge">IP社 · IPZZ</span><img src="https://picsum.photos/seed/ipzz302b/400/300" width="400" height="300" loading="lazy" alt="IP社 IPZZ-302 职场题材作品封面示意"></div>
+            <div class="card-body">
+              <h3 class="card-title">IPZZ-302 职场题材续作</h3>
+              <p class="card-note">IP社“办公室”系列第 6 弹，沿用固定布景与配角班底，与前作 IPZZ-271 共享同一剧本框架。</p>
+              <div class="tag-row"><span class="tag">系列续作</span><span class="tag">职场</span><span class="tag gray">IPX 旧号可查</span></div>
+              <div class="card-meta"><span>发行 2026-10-18</span><b>热度 8.9</b></div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-img"><span class="card-badge">Moodyz · MIAA</span><img src="https://picsum.photos/seed/miaa655c/400/300" width="400" height="300" loading="lazy" alt="Moodyz MIAA-655 双人共演作品封面示意"></div>
+            <div class="card-body">
+              <h3 class="card-title">MIAA-655 双人共演企划</h3>
+              <p class="card-note">Moodyz 秋季双人企划第二部，两位主演各自有独立段落，片长 180 分钟，蓝光版另附访谈。</p>
+              <div class="tag-row"><span class="tag">双人共演</span><span class="tag">企划作</span><span class="tag gray">180 分钟</span></div>
+              <div class="card-meta"><span>发行 2026-10-11</span><b>热度 9.1</b></div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-img"><span class="card-badge">Madonna · JUL</span><img src="https://picsum.photos/seed/jul912d/400/300" width="400" height="300" loading="lazy" alt="Madonna JUL-912 熟女题材系列作品封面示意"></div>
+            <div class="card-body">
+              <h3 class="card-title">JUL-912 熟女系列新章</h3>
+              <p class="card-note">Madonna 长期系列的第 40 部，沿用固定导演与摄影棚，官方标注为“完全新作”，非合辑。</p>
+              <div class="tag-row"><span class="tag">长期系列</span><span class="tag">完全新作</span><span class="tag gray">第 40 部</span></div>
+              <div class="card-meta"><span>发行 2026-10-29</span><b>热度 8.6</b></div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-img"><span class="card-badge">FALENO · FSDSS</span><img src="https://picsum.photos/seed/fsdss788e/400/300" width="400" height="300" loading="lazy" alt="FALENO FSDSS-788 配信限定作品封面示意"></div>
+            <div class="card-body">
+              <h3 class="card-title">FSDSS-788 配信限定作</h3>
+              <p class="card-note">FALENO 先行配信、后出碟的典型结构，配信版比实体版早 14 天上线，番号一致但封面不同。</p>
+              <div class="tag-row"><span class="tag">配信限定</span><span class="tag">先网后碟</span><span class="tag gray">差 14 天</span></div>
+              <div class="card-meta"><span>配信 2026-10-20</span><b>热度 8.4</b></div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-img"><span class="card-badge">S1 · SSIS-B</span><img src="https://picsum.photos/seed/ssisb120f/400/300" width="400" height="300" loading="lazy" alt="S1 年度精选合辑 SSIS-B120 封面示意"></div>
+            <div class="card-body">
+              <h3 class="card-title">SSIS-B120 年度精选合辑</h3>
+              <p class="card-note">带 B 标识的合辑，收录 2025 年 12 月至 2026 年 8 月间 8 部作品的精选段落，无新拍内容。</p>
+              <div class="tag-row"><span class="tag">合辑</span><span class="tag">B 标识</span><span class="tag gray">含 8 部片段</span></div>
+              <div class="card-meta"><span>发行 2026-10-05</span><b>热度 7.8</b></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 3 更新动态 -->
+      <section class="section" id="updates">
+        <div class="section-head">
+          <h2>番号入库与修订记录</h2>
+          <p class="section-sub">2026 年 10 月下旬至 11 月 8 日的具体变更</p>
+        </div>
+        <div class="upd-list">
+          <div class="upd-item">
+            <span class="upd-date">11-08</span>
+            <div class="upd-main">
+              <div class="upd-name">IP社 IPZZ-418 发行信息补录<span class="code">IPZZ-418</span></div>
+              <div class="upd-desc">补齐官方页标注的 165 分钟片长与两位共演者名单，修正此前误记为单人作的条目。</div>
+            </div>
+          </div>
+          <div class="upd-item">
+            <span class="upd-date">11-06</span>
+            <div class="upd-main">
+              <div class="upd-name">Moodyz 11 月档期入库<span class="code">MIAA-661 ~ 674</span></div>
+              <div class="upd-desc">14 条新番号批量登记，其中 3 条为 MIDA 子前缀的 VR 作品，已单独标注格式。</div>
+            </div>
+          </div>
+          <div class="upd-item">
+            <span class="upd-date">11-04</span>
+            <div class="upd-main">
+              <div class="upd-name">S1 前缀规则页更新<span class="code">SNIS → SSIS</span></div>
+              <div class="upd-desc">补记 2026 年 9 月后新人出道作迁至 SSIS 批次，SNIS 旧号仍可检索但不再新增。</div>
+            </div>
+          </div>
+          <div class="upd-item">
+            <span class="upd-date">11-02</span>
+            <div class="upd-main">
+              <div class="upd-name">Madonna JUL-918 合辑判定修订<span class="code">JUL-918</span></div>
+              <div class="upd-desc">依据官方商品说明由“新作”改为“再编辑版”，收录 2024 年两部作品的重新剪辑段落。</div>
+            </div>
+          </div>
+          <div class="upd-item">
+            <span class="upd-date">10-30</span>
+            <div class="upd-main">
+              <div class="upd-name">FALENO 配信/实体差异表更新<span class="code">FSDSS 系列</span></div>
+              <div class="upd-desc">新增 6 条配信先行作品的日期差记录，最快 7 天、最慢 21 天，平均 13.5 天。</div>
+            </div>
+          </div>
+          <div class="upd-item">
+            <span class="upd-date">10-27</span>
+            <div class="upd-main">
+              <div class="upd-name">Prestige 编号断档说明补入<span class="code">ABP / ABW</span></div>
+              <div class="upd-desc">ABP 系列在 2026 年 3 月至 6 月间出现 11 个空号，官方未发行，非漏录。</div>
+            </div>
+          </div>
+          <div class="upd-item">
+            <span class="upd-date">10-23</span>
+            <div class="upd-main">
+              <div class="upd-name">SOD 子品牌前缀合并登记<span class="code">STARS / SDMU</span></div>
+              <div class="upd-desc">SDMU 自 10 月起并入 STARS 主线，旧号保留，新作统一走 STARS 编号。</div>
+            </div>
+          </div>
+          <div class="upd-item">
+            <span class="upd-date">10-19</span>
+            <div class="upd-main">
+              <div class="upd-name">Wanz Factory 番号格式核对<span class="code">WAAA</span></div>
+              <div class="upd-desc">确认 WAAA 为 4 字母前缀，此前部分资料误写为 3 字母 WAA，已批量修正。</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4 分类入口 -->
+      <section class="section" id="categories">
+        <div class="section-head">
+          <h2>按片商前缀查番号</h2>
+          <p class="section-sub">八个常见厂牌前缀与对应编号区间</p>
+        </div>
+        <div class="cat-grid">
+          <a class="cat-item" href="#featured"><b>S1 专属</b><span>SSIS / SNIS 号段，新人出道与系列主线</span><em>已收 612 条</em></a>
+          <a class="cat-item" href="#featured"><b>Moodyz</b><span>MIAA 主线，MIDA 为 VR 与合辑子前缀</span><em>已收 488 条</em></a>
+          <a class="cat-item" href="#featured"><b>IP社</b><span>IPZZ 新号段，IPX 旧号保留可查</span><em>已收 396 条</em></a>
+          <a class="cat-item" href="#featured"><b>Madonna</b><span>JUL 长期系列，熟女题材主力厂牌</span><em>已收 374 条</em></a>
+          <a class="cat-item" href="#featured"><b>FALENO</b><span>FSDSS 配信先行，实体版延后发行</span><em>已收 301 条</em></a>
+          <a class="cat-item" href="#featured"><b>Prestige</b><span>ABP / ABW 双线，存在官方空号</span><em>已收 289 条</em></a>
+          <a class="cat-item" href="#featured"><b>SOD 集团</b><span>STARS 主线，SDMU 已并入</span><em>已收 268 条</em></a>
+          <a class="cat-item" href="#featured"><b>Wanz Factory</b><span>WAAA 四字母前缀，格式易误写</span><em>已收 214 条</em></a>
+        </div>
+      </section>
+
+      <!-- 5 深度解析 -->
+      <section class="section" id="deep">
+        <div class="section-head">
+          <h2>番号规则拆解：前缀、序号与批次的三层结构</h2>
+          <p class="section-sub">从编码方式判断作品归属、新旧与是否为合辑</p>
+        </div>
+        <article class="article-box">
+          <h3>前缀不是片商名缩写，而是发行线代码</h3>
+          <p>很多人把 SSIS 当成“S1 的缩写”，其实 S1 只是厂牌，SSIS 是它 2026 年启用的发行线代码。同厂不同线的情况很普遍：Moodyz 用 MIAA 走常规作品，MIDA 专门装 VR 和合辑；Prestige 的 ABP 偏剧情向，ABW 偏企划向，两条线的导演班底不重叠。</p>
+          <p>判断一条番号属于哪条线，看前三到四个字母即可。四字母前缀（SSIS、MIAA、FSDSS、WAAA）近年增加明显，原因是厂牌拆分发行线后需要新的字母空间；三字母前缀（JUL、ABP、SNIS）多为 2020 年前后启用、尚未拆线。</p>
+          <div class="table-wrap">
+            <table class="rule-table">
+              <thead><tr><th>前缀</th><th>厂牌</th><th>线别</th><th>启用时间</th></tr></thead>
+              <tbody>
+                <tr><td><code>SSIS</code></td><td>S1</td><td>新人及主线</td><td>2026-09</td></tr>
+                <tr><td><code>SNIS</code></td><td>S1</td><td>旧主线（停新增）</td><td>2019-04</td></tr>
+                <tr><td><code>MIAA</code></td><td>Moodyz</td><td>常规作品</td><td>2018-11</td></tr>
+                <tr><td><code>MIDA</code></td><td>Moodyz</td><td>VR / 合辑</td><td>2023-05</td></tr>
+                <tr><td><code>IPZZ</code></td><td>IP社</td><td>统一新线</td><td>2024-01</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>核对时有一条硬规则：<strong>前缀决定线别，序号决定在同一条线里的先后</strong>。只要前缀对得上，序号大小基本等于发行先后，误差通常在一到两个月内，原因是厂牌会提前排期、延后发行。</p>
+
+          <h3>序号断档多半是官方空号，不是资料缺失</h3>
+          <p>Prestige 的 ABP 系列在 2026 年 3 月至 6 月之间连续出现 11 个空号，即 ABP-712 到 ABP-722 之间没有任何发行记录。这类情况在数据库里会被误标成“未收录”，实际是厂牌排期调整后直接跳过编号。</p>
+          <p>区分方法有三步：</p>
+          <ol class="num-list">
+            <li>看厂牌官方发行列表是否连续公布相邻号码；官方页也没有，基本可判为空号。</li>
+            <li>看同期是否有其他线别补位发行；空号期间 ABW 线反而多发 4 部，说明产能转移而非停产。</li>
+            <li>看三个月后是否出现“补号”；补号通常会以 B 或 C 后缀出现，原号不复用。</li>
+          </ol>
+          <p>空号的存在说明番号是发行管理工具，不是完整的内容目录。按号检索时遇到跳号，先查官方发行表，比在聚合站反复刷新更快。</p>
+
+          <h3>合辑与重发的识别：后缀、片长与封面三处对不上</h3>
+          <p>合辑最容易误判为新作。以 S1 的 SSIS-B120 为例，它带 B 后缀，片长 240 分钟，明显长于常规作品的 120 至 180 分钟；封面用的是拼贴构图，主演名单列出 8 人，而常规作品主演通常 1 至 2 人。</p>
+          <p>可核对的三个信号：</p>
+          <ul>
+            <li>后缀带 B（Best）、C（Collection）、R（Re-edit）的，基本为合辑或重剪。</li>
+            <li>片长超过 200 分钟且主演超过 3 人，合辑概率高。</li>
+            <li>发行日期与该厂牌常规档期错开，例如 S1 常规在每月 7 日、19 日发，合辑常排在月末。</li>
+          </ul>
+          <p>Madonna 的 JUL-918 是另一种情况：无后缀、片长正常，但官方商品说明写着“再编辑版”，收录 2024 年两部作品的重新剪辑段落。这类只能靠说明文字判断，单看番号看不出来。可引用的判断是：<strong>番号能告诉你“属于哪条线”，不能告诉你“是不是新拍”</strong>，后者必须回到商品说明或发行公告。</p>
+          <p class="quote">2026 年 10 月 2 日 Madonna 官方商店页对 JUL-918 的描述原文为“既存作品の再編集版”，同日更新的聚合站条目多数仍标为“新作”，差异就出在这一句说明上。</p>
+
+          <h3>配信先行让“同日发行”不再成立</h3>
+          <p>FALENO 的 FSDSS 系列采用配信先行结构：网络平台先上线，实体碟延后 7 至 21 天。2026 年 10 月的 6 部作品中，FSDSS-788 配信日为 10 月 20 日，实体版为 11 月 3 日，差 14 天；FSDSS-791 差值最大，达到 21 天。</p>
+          <p>这意味着同一个番号有两个日期，检索时若只记一个，容易与另一条记录对不上。稳妥做法是分别记录“配信日”和“碟片日”，并在条目里注明版本差异——两版的封面、特典影像不完全相同，配信版通常多一段 10 分钟左右的独占内容。</p>
+          <p>SOD 集团 10 月起把 SDMU 并入 STARS 主线，也带来类似问题：旧号 SDMU 的作品仍可查，但新作一律用 STARS，跨年检索时同一系列会横跨两个前缀。按系列追的人需要把两个前缀都纳入检索条件，否则会漏掉一半。</p>
+        </article>
+      </section>
+
+      <!-- 6 查阅指南 -->
+      <section class="section" id="guide">
+        <div class="section-head">
+          <h2>查一部番号该按什么顺序核对</h2>
+          <p class="section-sub">从前缀到发行日，四步判断值不值得花时间</p>
+        </div>
+        <div class="guide-steps">
+          <div class="guide-step">
+            <span class="step-no">1</span>
+            <div>
+              <h4>先认前缀，确认线别与厂牌</h4>
+              <p>SSIS 与 SNIS 都属 S1，但前者是 2026 年 9 月后的新线，后者已停新增；看到 SNIS 开头的条目，先确认发行日是否在 2026 年 9 月之前，否则可能是旧号重录或标注错误。</p>
+            </div>
+          </div>
+          <div class="guide-step">
+            <span class="step-no">2</span>
+            <div>
+              <h4>看后缀，排除合辑与重剪</h4>
+              <p>带 B、C、R 后缀的一律先按合辑处理，再回官方说明核对是否含新拍段落。没有后缀也不等于新作，Madonna 的 JUL-918 就是无后缀的再编辑版。</p>
+            </div>
+          </div>
+          <div class="guide-step">
+            <span class="step-no">3</span>
+            <div>
+              <h4>对日期，区分配信日与碟片日</h4>
+              <p>FALENO、SOD 的部分作品先网后碟，两个日期相差 7 至 21 天。比较两部作品的新旧，用同一口径的日期，否则会出现“后发的反而更早”的错觉。</p>
+            </div>
+          </div>
+          <div class="guide-step">
+            <span class="step-no">4</span>
+            <div>
+              <h4>比片长与主演数，判断内容密度</h4>
+              <p>常规作品 120 至 180 分钟、主演 1 至 2 人；超过 200 分钟且主演 3 人以上，多为合辑或企划拼盘。片长与主演数对不上官方说明时，以官方页为准。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7 FAQ -->
+      <section class="section" id="faq">
+        <div class="section-head">
+          <h2>番号检索常见问题</h2>
+          <p class="section-sub">关于前缀、断档、合辑与日期的六个具体问答</p>
+        </div>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>SSIS 和 SNIS 是同一家片商吗？</summary>
+            <div class="faq-ans">同属 S1，但分属不同发行线。SNIS 是 2019 年 4 月启用的旧主线，2026 年 9 月后不再新增；SSIS 是接替它的新线，新人出道作基本都走 SSIS。旧号仍可检索，只是不再有新作。</div>
+          </details>
+          <details class="faq-item">
+            <summary>为什么有些番号中间会跳号，比如 ABP-712 之后直接到 ABP-723？</summary>
+            <div class="faq-ans">Prestige 在 2026 年 3 月至 6 月间确实跳过了 11 个号，官方发行表里也没有这些号，属于排期调整后的官方空号。空号不会被后续作品复用，遇到跳号先查厂牌官方发行列表，比在聚合站反复刷新更快。</div>
+          </details>
+          <details class="faq-item">
+            <summary>带 B 后缀的番号是合辑吗？</summary>
+            <div class="faq-ans">多数是。S1 的 SSIS-B120 就是年度精选合辑，收录 8 部作品的片段，没有新拍内容。判断依据有三处：B 后缀、片长超过 200 分钟、主演名单列出 3 人以上。三处对上两项，基本可按合辑处理。</div>
+          </details>
+          <details class="faq-item">
+            <summary>FALENO 的番号为什么有两个发行日期？</summary>
+            <div class="faq-ans">FSDSS 系列采用配信先行、实体延后的结构。以 FSDSS-788 为例，配信日是 2026 年 10 月 20 日，实体碟是 11 月 3 日，相差 14 天。两版封面与特典不完全相同，配信版通常多一段约 10 分钟的独占内容。</div>
+          </details>
+          <details class="faq-item">
+            <summary>没有后缀的番号就一定是新作吗？</summary>
+            <div class="faq-ans">不一定。Madonna 的 JUL-918 没有后缀、片长也正常，但官方商品说明写的是“再编辑版”，收录 2024 年两部作品的重新剪辑段落。番号只能说明归属哪条线，是否新拍要看商品说明或发行公告。</div>
+          </details>
+          <details class="faq-item">
+            <summary>同一个系列横跨两个前缀，怎么查才不漏？</summary>
+            <div class="faq-ans">SOD 集团 2026 年 10 月起把 SDMU 并入 STARS 主线，旧号 SDMU 的作品仍可查，新作统一用 STARS。按系列追的时候要把两个前缀都放进检索条件，只查一个会漏掉并入前或并入后的那一半。</div>
+          </details>
+        </div>
+      </section>
+
+      <!-- 8 用户评论 -->
+      <section class="section" id="comments">
+        <div class="section-head">
+          <h2>用户评论</h2>
+          <p class="section-sub">16 条围绕具体条目与类型差异的留言</p>
+        </div>
+        <div class="comment-list">
+          <div class="comment"><div class="comment-top"><span class="avatar" style="background:#3f6b8a">阿</span><span class="comment-name">阿久</span><span class="comment-time">11-08 09:12</span></div><div class="comment-text">SSIS-418 那个花絮比正片还长，20 分钟里采访占了 12 分钟，冲新人去的话可以先看花絮。</div></div>
+          <div class="comment"><div class="comment-top"><span class="avatar" style="background:#8a6b3f">南</span><span class="comment-name">南风知我意</span><span class="comment-time">11-08 10:40</span></div><div class="comment-text">IPZZ-302 和前作 IPZZ-271 布景一模一样，连桌上的文件夹都没换，系列粉会觉得省，路人可能觉得敷衍。</div></div>
+          <div class="comment"><div class="comment-top"><span class="avatar" style="background:#5a7a4a">老</span><span class="comment-name">老周不追番</span><span class="comment-time">11-07 21:05</span></div><div class="comment-text">查号查了三年，还是记不住 MIDA 是 VR 专用，每次都要翻一下。</div></div>
+          <div class="comment"><div class="comment-top"><span class="avatar" style="background:#7a4a6b">k</span><span class="comment-name">kiwi_1987</span><span class="comment-time">11-07 19:33</span></div><div class="comment-text">MIAA-655 双人企划第二部比第一部好，两位主演各有一段独立叙事，不是简单拼盘。</div></div>
+          <div class="comment"><div class="comment-top"><span class="avatar" style="background:#4a6b7a">小</span><span class="comment-name">小满</span><span class="comment-time">11-07 15:18</span></div><div class="comment-text">JUL-912 第 40 部了还在用同一套摄影棚，导演是真不换。</div></div>
+          <div class="comment"><div class="comment-top"><span class="avatar" style="background:#8a5a3f">冬</span><span class="comment-name">冬眠的猫</span><span class="comment-time">11-06 22:47</span></div><div class="comment-text">FSDSS-788 配信版多那 10 分钟其实就一段对话，实体版没有，谈不上多值。</div></div>
+          <div class="comment"><div class="comment-top"><span class="avatar" style="background:#3f8a6b">D</span><span class="comment-name">Dan_0426</span><span class="comment-time">11-06 18:02</span></div><div class="comment-text">ABP 跳号那段解释得清楚，之前一直以为是站里没录。</div></div>
+          <div class="comment"><div class="comment-top"><span class="avatar" style="background:#6b4a8a">不</span><span class="comment-name">不吃香菜</span><span class="comment-time">11-06 11:26</span></div><div class="comment-text">SSIS-B120 买之前没看说明，以为是新拍，结果八部全是旧片段，片长是够，内容没新的。</div></div>
+          <div class="comment"><div class="comment-top"><span class="avatar" style="background:#8a3f4a">一</span><span class="comment-name">一只柠檬</span><span class="comment-time">11-05 20:15</span></div><div class="comment-text">Madonna 的 JUL-918 说明写了再编辑版，聚合站还标新作，这种错挺常见。</div></div>
+          <div class="comment"><div class="comment-top"><span class="avatar" style="background:#4a8a7a">路</span><span class="comment-name">路过的风</span><span class="comment-time">11-05 14:50</span></div><div class="comment-text">WAAA 我一直写成 WAA，搜不到还以为是没收录。</div></div>
+          <div class="comment"><div class="comment-top"><span class="avatar" style="background:#7a6b3f">半</span><span class="comment-name">半糖去冰</span><span class="comment-time">11-04 23:08</span></div><div class="comment-text">SOD 并入 STARS 之后旧号还能搜到，这点还行，别的站直接跳空。</div></div>
+          <div class="comment"><div class="comment-top"><span class="avatar" style="background:#3f4a8a">m</span><span class="comment-name">momo酱</span><span class="comment-time">11-04 16:41</span></div><div class="comment-text">IPX 旧号还能查挺好的，之前存的老条目没断。</div></div>
+          <div class="comment"><div class="comment-top"><span class="avatar" style="background:#8a7a3f">大</span><span class="comment-name">大泽</span><span class="comment-time">11-03 21:30</span></div><div class="comment-text">MIDA 的 VR 作品和 MIAA 常规作放一起容易混，线别标清楚比什么都强。</div></div>
+          <div class="comment"><div class="comment-top"><span class="avatar" style="background:#5a3f7a">z</span><span class="comment-name">zzz_1990</span><span class="comment-time">11-03 12:07</span></div><div class="comment-text">FALENO 配信先行差 14 天、差 21 天的都有，不统一，记日期确实得分开记。</div></div>
+          <div class="comment"><div class="comment-top"><span class="avatar" style="background:#3f7a5a">团</span><span class="comment-name">团子大家族</span><span class="comment-time">11-02 19:55</span></div><div class="comment-text">最近硬盘又满了，跟番号没关系，纯吐槽。</div></div>
+          <div class="comment"><div class="comment-top"><span class="avatar" style="background:#7a3f3f">咸</span><span class="comment-name">咸鱼翻身</span><span class="comment-time">11-02 09:48</span></div><div class="comment-text">片长超过 200 分钟的主演还写 1 人，这种条目一般得再核一遍。</div></div>
+        </div>
+      </section>
+
+      <!-- 9 相关资讯 -->
+      <section class="section" id="news">
+        <div class="section-head">
+          <h2>番号与发行相关资讯</h2>
+          <p class="section-sub">2026 年 10 月中旬至 11 月上旬的具体动态</p>
+        </div>
+        <div class="news-grid">
+          <article class="news-item">
+            <div class="news-date">2026-11-06</div>
+            <h3 class="news-title">Moodyz 11 月档期公布 14 个新番号</h3>
+            <p class="news-sum">其中 MIAA-661 至 MIAA-671 为常规作品，MIDA-052 至 MIDA-054 三条为 VR 格式，后者发行日统一排在 11 月 28 日，比常规作晚两周。</p>
+          </article>
+          <article class="news-item">
+            <div class="news-date">2026-11-04</div>
+            <h3 class="news-title">S1 新人出道作全面迁至 SSIS 批次</h3>
+            <p class="news-sum">9 月后 SNIS 号段未再新增，最后一条为 SNIS-998，发行日 2026 年 8 月 26 日。旧号检索不受影响，官方页仍保留条目。</p>
+          </article>
+          <article class="news-item">
+            <div class="news-date">2026-10-30</div>
+            <h3 class="news-title">FALENO 公布 10 月配信与实体日期差</h3>
+            <p class="news-sum">6 部作品中差值最小 7 天、最大 21 天，平均 13.5 天。FSDSS-791 的 21 天为当月最长，官方说明为实体生产排期延后。</p>
+          </article>
+          <article class="news-item">
+            <div class="news-date">2026-10-27</div>
+            <h3 class="news-title">Prestige 确认 ABP 系列 11 个空号不补发</h3>
+            <p class="news-sum">空号区间为 ABP-712 至 ABP-722，官方回应称是 3 月至 6 月排期调整所致，相关产能转入 ABW 线，同期 ABW 多发 4 部。</p>
+          </article>
+          <article class="news-item">
+            <div class="news-date">2026-10-23</div>
+            <h3 class="news-title">SOD 集团 10 月起 SDMU 并入 STARS</h3>
+            <p class="news-sum">并入后新作统一使用 STARS 前缀，SDMU 旧号保留可查。官方发行表显示 10 月首批 STARS 作品共 9 条，其中 3 条为此前 SDMU 排期转入。</p>
+          </article>
+          <article class="news-item">
+            <div class="news-date">2026-10-19</div>
+            <h3 class="news-title">Wanz Factory 更正番号前缀写法</h3>
+            <p class="news-sum">WAAA 为四字母前缀，此前部分第三方资料写作三字母 WAA，导致检索失败。官方发行页自 10 月起在每条作品下方标注完整前缀。</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- 10 相关推荐 -->
+      <section class="section" id="reco">
+        <div class="section-head">
+          <h2>具体内容方向与条目索引</h2>
+          <p class="section-sub">按题材、格式与发行结构划分的检索入口</p>
+        </div>
+        <div class="reco-wrap">
+          <a class="reco-tag" href="#featured">新人出道作 <b>SSIS</b></a>
+          <a class="reco-tag" href="#featured">系列续作 <b>IPZZ</b></a>
+          <a class="reco-tag" href="#featured">双人共演企划 <b>MIAA</b></a>
+          <a class="reco-tag" href="#featured">长期系列第 40 部 <b>JUL</b></a>
+          <a class="reco-tag" href="#featured">配信限定 <b>FSDSS</b></a>
+          <a class="reco-tag" href="#featured">年度合辑 B 标识 <b>SSIS-B</b></a>
+          <a class="reco-tag" href="#featured">VR 格式 <b>MIDA</b></a>
+          <a class="reco-tag" href="#featured">再编辑版识别 <b>JUL-918</b></a>
+        </div>
+      </section>
+
+      <!-- 11 热门榜单 -->
+      <section class="section" id="rank">
+        <div class="section-head">
+          <h2>本周番号检索热度榜</h2>
+          <p class="section-sub">11 月 2 日至 11 月 8 日的站内检索次数排序</p>
+        </div>
+        <div class="rank-list">
+          <div class="rank-item"><span class="rank-no">1</span><div class="rank-main"><div class="rank-name">SSIS-418</div><div class="rank-sub">S1 新人出道作 · 检索 12,480 次</div></div><span class="rank-score">9.4</span></div>
+          <div class="rank-item"><span class="rank-no">2</span><div class="rank-main"><div class="rank-name">MIAA-655</div><div class="rank-sub">Moodyz 双人共演 · 检索 9,860 次</div></div><span class="rank-score">9.1</span></div>
+          <div class="rank-item"><span class="rank-no">3</span><div class="rank-main"><div class="rank-name">IPZZ-302</div><div class="rank-sub">IP社 职场系列第 6 弹 · 检索 8,740 次</div></div><span class="rank-score">8.9</span></div>
+          <div class="rank-item"><span class="rank-no">4</span><div class="rank-main"><div class="rank-name">JUL-912</div><div class="rank-sub">Madonna 熟女系列第 40 部 · 检索 7,210 次</div></div><span class="rank-score">8.6</span></div>
+          <div class="rank-item"><span class="rank-no">5</span><div class="rank-main"><div class="rank-name">FSDSS-788</div><div class="rank-sub">FALENO 配信限定 · 检索 6,530 次</div></div><span class="rank-score">8.4</span></div>
+          <div class="rank-item"><span class="rank-no">6</span><div class="rank-main"><div class="rank-name">SSIS-B120</div><div class="rank-sub">S1 年度精选合辑 · 检索 5,920 次</div></div><span class="rank-score">7.8</span></div>
+          <div class="rank-item"><span class="rank-no">7</span><div class="rank-main"><div class="rank-name">JUL-918</div><div class="rank-sub">Madonna 再编辑版 · 检索 4,880 次</div></div><span class="rank-score">7.5</span></div>
+          <div class="rank-item"><span class="rank-no">8</span><div class="rank-main"><div class="rank-name">MIDA-052</div><div class="rank-sub">Moodyz VR 格式 · 检索 3,960 次</div></div><span class="rank-score">7.2</span></div>
+        </div>
+      </section>
+
+      <!-- 12 投稿互动 -->
+      <section class="section" id="submit">
+        <div class="submit-box">
+          <div>
+            <h3>补充番号与发行信息</h3>
+            <p>手上有未收录的番号、官方说明截图或配信与碟片日期差异记录，可以提交。需要写明前缀、序号、发行日期与信息来源（厂牌官方页、商品说明或发行公告），核对后并入对应线别的条目。</p>
+          </div>
+          <a class="btn btn-primary" href="#submit">提交条目</a>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- 右侧辅助栏 -->
+    <aside class="side-col">
+      <div class="side-panel">
+        <h3>本月热查前缀</h3>
+        <ul class="side-list">
+          <li><span class="s-no">1</span><a href="#featured">SSIS · S1 新主线</a></li>
+          <li><span class="s-no">2</span><a href="#featured">MIAA · Moodyz 常规</a></li>
+          <li><span class="s-no">3</span><a href="#featured">IPZZ · IP社统一线</a></li>
+          <li><span class="s-no">4</span><a href="#featured">JUL · Madonna 长期系列</a></li>
+          <li><span class="s-no">5</span><a href="#featured">FSDSS · FALENO 配信先行</a></li>
+          <li><span class="s-no">6</span><a href="#featured">MIDA · Moodyz VR 子线</a></li>
+          <li><span class="s-no">7</span><a href="#featured">ABP · Prestige 剧情向</a></li>
+          <li><span class="s-no">8</span><a href="#featured">WAAA · Wanz Factory</a></li>
+        </ul>
+        <p class="side-note">按 11 月 2 日至 8 日站内检索次数排序，仅统计前缀关键词。</p>
+      </div>
+      <div class="side-panel">
+        <h3>需要留意的号段</h3>
+        <ul class="side-list">
+          <li><span class="s-no">·</span><a href="#updates">SNIS-998 之后停新增</a></li>
+          <li><span class="s-no">·</span><a href="#deep">ABP-712 至 722 官方空号</a></li>
+          <li><span class="s-no">·</span><a href="#updates">SDMU 并入 STARS 过渡期</a></li>
+          <li><span class="s-no">·</span><a href="#deep">FSDSS-791 差值 21 天</a></li>
+        </ul>
+        <p class="side-note">以上号段在检索时容易与相邻号混淆，核对前先看发行日。</p>
+      </div>
+      <div class="side-panel">
+        <h3>内容标签</h3>
+        <div class="side-tags">
+          <a href="#featured">新人出道</a>
+          <a href="#featured">系列续作</a>
+          <a href="#featured">双人共演</a>
+          <a href="#featured">合辑</a>
+          <a href="#featured">配信先行</a>
+          <a href="#featured">VR 格式</a>
+          <a href="#deep">再编辑版</a>
+          <a href="#deep">番号断档</a>
+        </div>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">
+        <svg class="brand-logo" viewBox="0 0 64 64" role="img" aria-label="番号索引图形标志">
+          <rect width="64" height="64" rx="14" fill="#22374a"/>
+          <rect x="12" y="16" width="40" height="6" rx="3" fill="#c8952f"/>
+          <rect x="12" y="29" width="26" height="6" rx="3" fill="#e8eef3"/>
+          <rect x="12" y="42" width="34" height="6" rx="3" fill="#7c8fa1"/>
+        </svg>
+        <span class="brand-text">日本AV番号大全</span>
+      </div>
+      <p class="footer-desc">收录 2018 年至今共 18 个厂牌前缀、3,240 条番号条目，以发行日期、线别归属、合辑标识与配信差异四类字段组织，每周三、周日各核对一次官方发行表。</p>
+    </div>
+    <div class="footer-col">
+      <h4>番号索引</h4>
+      <a href="#overview">领域概览</a>
+      <a href="#featured">精选条目</a>
+      <a href="#categories">片商前缀</a>
+      <a href="#rank">检索热度榜</a>
+    </div>
+    <div class="footer-col">
+      <h4>规则与指南</h4>
+      <a href="#deep">番号结构解析</a>
+      <a href="#guide">查阅顺序</a>
+      <a href="#updates">入库与修订记录</a>
+      <a href="#faq">常见问题</a>
+    </div>
+    <div class="footer-col">
+      <h4>互动</h4>
+      <a href="#comments">用户评论</a>
+      <a href="#submit">补充条目</a>
+      <a href="#news">发行资讯</a>
+      <a href="#reco">内容标签</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>页面条目为示例内容，发行信息以各厂牌官方页与商品说明为准。最后核对：2026-11-08。</span>
+    <span>© 2026 日本AV番号大全 · 内容索引示例站</span>
+  </div>
+</footer>
+
+<button class="back-top" id="backTop" aria-label="回到顶部">
+  <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<script>
+(function(){
+  // 搜索
+  var input=document.getElementById('siteSearch');
+  var result=document.getElementById('searchResult');
+  var index=[];
+  document.querySelectorAll('.card-title, .upd-name, .cat-item b, .news-title, .rank-name, .faq-item summary').forEach(function(el){
+    var t=el.textContent.trim();
+    if(t) index.push({text:t, target:el.closest('section')||el});
+  });
+  function render(q){
+    var kw=q.trim().toLowerCase();
+    if(!kw){result.classList.remove('open');result.innerHTML='';return;}
+    var hits=index.filter(function(it){return it.text.toLowerCase().indexOf(kw)>-1;}).slice(0,8);
+    result.innerHTML='';
+    if(!hits.length){
+      result.innerHTML='<div class="sr-empty">没有匹配的番号或条目，可换前缀或片商名再试。</div>';
+    }else{
+      hits.forEach(function(it){
+        var a=document.createElement('a');
+        a.href='javascript:void(0)';
+        a.className='sr-item';
+        a.textContent=it.text;
+        a.addEventListener('click',function(){
+          result.classList.remove('open');
+          var sec=it.target.closest ? it.target.closest('section') : null;
+          if(sec && sec.id){location.hash='#'+sec.id;}
+        });
+        result.appendChild(a);
+      });
+    }
+    result.classList.add('open');
+  }
+  input.addEventListener('input',function(){render(input.value);});
+  input.addEventListener('focus',function(){if(input.value.trim())render(input.value);});
+  document.addEventListener('click',function(e){
+    if(!e.target.closest('.search-box')) result.classList.remove('open');
+  });
+
+  // 抽屉
+  var burger=document.getElementById('burgerBtn');
+  var drawer=document.getElementById('drawer');
+  var mask=document.getElementById('drawerMask');
+  var closeBtn=document.getElementById('drawerClose');
+  function openDrawer(){
+    drawer.classList.add('open');mask.classList.add('open');
+    drawer.setAttribute('aria-hidden','false');burger.setAttribute('aria-expanded','true');
+    closeBtn.focus();
+  }
+  function closeDrawer(){
+    drawer.classList.remove('open');mask.classList.remove('open');
+    drawer.setAttribute('aria-hidden','true');burger.setAttribute('aria-expanded','false');
+    burger.focus();
+  }
+  burger.addEventListener('click',openDrawer);
+  closeBtn.addEventListener('click',closeDrawer);
+  mask.addEventListener('click',closeDrawer);
+  drawer.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeDrawer);});
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'&&drawer.classList.contains('open')) closeDrawer();
+  });
+
+  // 回顶
+  var backTop=document.getElementById('backTop');
+  window.addEventListener('scroll',function(){
+    if(window.scrollY>window.innerHeight){backTop.classList.add('show');}else{backTop.classList.remove('show');}
+  },{passive:true});
+  backTop.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+
+  // 频道高亮
+  var sections=document.querySelectorAll('.main-col .section[id]');
+  var channelLinks=document.querySelectorAll('.channel-card a');
+  if('IntersectionObserver' in window && channelLinks.length){
+    var map={};
+    channelLinks.forEach(function(a){map[a.getAttribute('href').slice(1)]=a;});
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){
+          channelLinks.forEach(function(a){a.classList.remove('active');});
+          var link=map[en.target.id];
+          if(link) link.classList.add('active');
+        }
+      });
+    },{rootMargin:'-120px 0px -60% 0px',threshold:0});
+    sections.forEach(function(s){io.observe(s);});
+  }
+})();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebSite",
+  "name":"日本AV番号大全",
+  "inLanguage":"zh-CN",
+  "description":"整理常见片商番号前缀、线别归属、发行日期与合辑标识，提供按番号检索作品资料的索引。",
+  "potentialAction":{
+    "@type":"SearchAction",
+    "target":"/#siteSearch",
+    "query-input":"required name=keyword"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"SSIS 和 SNIS 是同一家片商吗？","acceptedAnswer":{"@type":"Answer","text":"同属 S1，但分属不同发行线。SNIS 是 2019 年 4 月启用的旧主线，2026 年 9 月后不再新增；SSIS 是接替它的新线，新人出道作基本都走 SSIS。"}},
+    {"@type":"Question","name":"为什么有些番号中间会跳号，比如 ABP-712 之后直接到 ABP-723？","acceptedAnswer":{"@type":"Answer","text":"Prestige 在 2026 年 3 月至 6 月间确实跳过了 11 个号，官方发行表里也没有这些号，属于排期调整后的官方空号，不会被后续作品复用。"}},
+    {"@type":"Question","name":"带 B 后缀的番号是合辑吗？","acceptedAnswer":{"@type":"Answer","text":"多数是。S1 的 SSIS-B120 就是年度精选合辑，收录 8 部作品的片段，没有新拍内容。判断依据有 B 后缀、片长超过 200 分钟、主演名单列出 3 人以上。"}},
+    {"@type":"Question","name":"FALENO 的番号为什么有两个发行日期？","acceptedAnswer":{"@type":"Answer","text":"FSDSS 系列采用配信先行、实体延后的结构。以 FSDSS-788 为例，配信日是 2026 年 10 月 20 日，实体碟是 11 月 3 日，相差 14 天，两版封面与特典不完全相同。"}},
+    {"@type":"Question","name":"没有后缀的番号就一定是新作吗？","acceptedAnswer":{"@type":"Answer","text":"不一定。Madonna 的 JUL-918 没有后缀、片长也正常，但官方商品说明写的是再编辑版，收录 2024 年两部作品的重新剪辑段落。"}},
+    {"@type":"Question","name":"同一个系列横跨两个前缀，怎么查才不漏？","acceptedAnswer":{"@type":"Answer","text":"SOD 集团 2026 年 10 月起把 SDMU 并入 STARS 主线，旧号 SDMU 的作品仍可查，新作统一用 STARS，按系列追时要把两个前缀都放进检索条件。"}}
+  ]
+}
+</script>
+</body>
+                </html>
